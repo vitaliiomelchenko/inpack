@@ -1,0 +1,375 @@
+.product-page
+    margin-top: 61px
+    margin-bottom: 40px
+    .container 
+        max-width: 1440px
+        padding-left: 46px 
+        padding-right: 82px
+        .product-page-left-col
+            margin-top: 43px
+            img
+                max-width: 390px
+                width: 100%
+        .product-page-right-col
+            .product-page-data-wrapper
+                padding-top: 56px
+                padding-left: 80px
+                padding-bottom: 57px
+                background: #FAFAFA
+                max-width: 840px
+                margin-left: auto
+                margin-right: 0
+            .product-page-data
+                max-width: 587px 
+                margin-right: auto
+                padding-right: 30px
+                margin-left: 0
+                .product-title
+                    margin-bottom: 25px
+                .stock
+                    border-radius: 2px 
+                    font-weight: 700
+                    padding: 4px 18px 
+                    display: inline-block
+                    margin-right: 40px
+                    margin-bottom: 20px
+                    font-size: 16px
+                    &.in-stock
+                        color: #fafafa
+                        background: #7CBF65
+                    &.out-of-stock 
+                        color: #333333
+                        background: #C4C4C4
+                .like-button
+                    position: relative
+                    display: inline-block
+                    margin-bottom: 20px
+                    .yith-wcwl-add-to-wishlist
+                        margin-top: 0
+                    .yith-wcwl-add-button 
+                        & > a
+                            display: flex
+                            justify-content: center
+                            color: #BDBDBD
+                            span, 
+                            i
+                                color: #BDBDBD
+                                &::before 
+                                    font-size: 20px
+                        & > a
+                            &.view-wishlist 
+                                display: none
+                        .separator 
+                            display: none
+                .description
+                    margin-bottom: 36px
+                    .description-title
+                        font-weight: 600
+                        font-size: 20px
+                        margin-bottom: 12px 
+                        color: #4F4F4F
+                    .product-attributes 
+                        margin-bottom: 30px
+                        .shop_attributes
+                            display: flex
+                            border: 0
+                            margin-bottom: 0px
+                            tbody 
+                                display: flex
+                                flex-direction: column
+                                width: 100%  
+                                tr
+                                    display: flex
+                                    width: 100%
+                                    align-items: center
+                                    border: 0
+                                    margin-bottom: 12px 
+                                    &:last-child()
+                                        margin-bottom: 0
+                                    th::after
+                                        content: ":"
+                                        color: #828282
+                                        padding: 0
+                                        font-weight: 500
+                                    td 
+                                        margin-left: 5px
+                                    th,
+                                    td 
+                                        width: auto 
+                                        color: #828282
+                                        padding: 0
+                                        font-weight: 500
+                                        border: 0
+                                        
+                                        p
+                                            margin-bottom: 0 
+                                            padding: 0
+                                            a
+                                                color: #828282
+                                                padding-left: 0
+                                                font-weight: 500
+                                                font-style: normal
+                    .description-text
+                        color: #828282
+                        font-weight: 500
+                        p
+                            color: #828282
+                            font-weight: 500
+                div.price
+                    margin-bottom: 27px
+                    display: flex
+                    bdi 
+                        font-size: 20px
+                        margin-left: 5px
+                    
+                .add-to-cart-button 
+                    form 
+                        display: flex
+                        align-items: center
+                        .quantity
+                            position: relative
+                            &::before 
+                                content: "Кількість"
+                                font-size: 12px
+                                color: #BDBDBD
+                                font-weight: 500
+                                top: -19px
+                                left: 38px
+                                position: absolute
+                        div:not(.quantity)
+                            margin-left: 16px
+                            margin-right: 41px
+                            display: flex
+                            align-items: center
+                            .plus,
+                            .minus 
+                                background: transparent
+                                border: 0
+                                padding: 0
+                                height: 100%
+                                font-weight: 500
+                                font-size: 24px
+                            input
+                                padding: 0
+                                width: 48px 
+                                height: 39px
+                                background: #fff
+                                border: 1px solid #E5E5E5
+                                border-radius: 5px
+                                color: #333333
+                                font-size: 18px
+                                font-family: 'Gilroy'
+                                font-weight: 500
+                                padding: 0 4px
+                            .plus 
+                                color: #219653
+                                margin-right: 8px
+                            .minus 
+                                color: #4F4F4F
+                                margin-left: 9px
+                        button 
+                            display: inline-block
+                            padding: 11px 25px 
+                            color: #FAFAFA
+                            background: #E30613
+                            border-radius: 5px
+                            font-weight: 600
+                            cursor: pointer
+                            font-size: 20px
+                            line-height: 1.4
+                        div.stock 
+                            display: none
+                    .out-of-stock
+                        background: transparent 
+                        padding: 0
+                        a.out-of-stock-button
+                            display: block
+                            border: 1px solid #E30613
+                            color: #E30613
+                            padding: 11px 8px 
+                            border-radius: 5px 
+                            font-size: 20px 
+                            font-weight: 600
+                            transition: .23s
+                            margin-top: 8px
+                            &:hover 
+                                background: #E30613
+                                color: #fff
+    &.outofstock 
+        .container
+            padding-right: 64px
+            .product-page-right-col
+                .product-page-data-wrapper
+                    padding-top: 49px
+                    padding-left: 82px
+                    padding-bottom: 49px
+                    .product-page-data
+                        .product-title
+                            margin-bottom: 32px
+.product-slider-section
+    margin-bottom: 58px
+    .container
+        max-width: 1440px
+        padding-left: 40px
+        padding-right: 50px
+        .h2
+            margin-bottom: 40px
+            margin-left: 38px
+        .product-slider
+            position: relative
+            max-width: 1265px
+            margin: auto
+            .slick-list
+                overflow: hidden
+                .slick-track
+                    display: flex
+                    justify-content: flex-start
+                    .product-slider-item
+                        background: #FAFAFA
+                        margin: 0 10px
+                        position: relative
+                        padding: 34px 11px 6px 11px
+                        position: relative
+                        .slider-item-image
+                            max-width: 209px
+                            margin: auto
+                            margin-bottom: 16px
+                            .new-label 
+                                font-weight: 600 
+                                font-size: 20px 
+                                color: #FAFAFA
+                                padding: 1px 5px 
+                                background: #34A853
+                                border-radius: 5px
+                                line-height: 1.4
+                                min-height: 1px
+                                min-width: 1px
+                                top: 10px
+                                left: 10px
+                                display: inline-block
+                                position: absolute
+                            .onsale
+                                min-height: 1px 
+                                min-width: 1px
+                                background: #E30613
+                                color: #FAFAFA
+                                font-size: 20px
+                                font-weight: 600
+                                border-radius: 5px
+                                padding: 1.5px 15px
+                                line-height: 1.4 
+                                display: inline-block
+                                left: 10px 
+                                top: 10px
+                        .product-title-wrapper 
+                            margin-bottom: 22px
+                            .product-title.h4
+                                max-width: 235px
+                                font-weight: 700
+                                font-family: Gilroy
+                                font-size: 16px
+                        .like-icon 
+                            position: absolute
+                            top: 12px
+                            right: 10px
+                            .yith-wcwl-add-to-wishlist
+                                margin-top: 0
+                                width: 25px
+                                .yith-wcwl-add-button
+                                    position: relative
+                                    a 
+                                        i
+                                            width: 25px
+                                            height: 22px
+                                            background-image: url('../assets/img/like-icon.svg')
+                                            font-size: 0
+                                            position: absolute
+                                            top: 0 
+                                            transition: .3s
+                                            left: 0
+                                        span
+                                            font-size: 0
+                                            display: none
+                                    .delete_item  
+                                        font-size: 0
+                            .yith-wcwl-add-button
+                                a 
+                                    i:hover
+                                        background-image: url('../assets/img/hover-like-icon.svg')
+                                    &.delete_item 
+                                        i 
+                                            background-image: url('../assets/img/hover-like-icon.svg')
+                                .view-wishlist,
+                                .separator 
+                                    display: none
+                        .cart-icon
+                            position: absolute
+                            bottom: 14px
+                            right: 10px
+                            .add_to_cart_button 
+                                font-size: 0
+                                background-color: transparent
+                                background-image: url('../assets/img/cart_icon.svg')
+                                width: 40px
+                                height: 40px
+                                background-repeat: no-repeat
+                                min-width: 0
+                                display: inline-block 
+                                padding: 0
+                                &:hover 
+                                    background-image: url('../assets/img/hover_cart_icon.svg')
+                            .added_to_cart 
+                                font-size: 0
+                            .product_type_simple 
+                                display: none
+                                &.add_to_cart_button 
+                                    display: block
+                            .added_to_cart 
+                                display: none
+                        div.price 
+                            & > span.price 
+                                color: #333 
+                                font-size: 20px
+                        &.sale 
+                            div.price 
+                                span.price 
+                                    display: flex 
+                                    flex-direction: column 
+                                    color: #FF1A1A
+                                    del 
+                                        opacity: 1
+                                        .amount 
+                                            display: flex
+                                        bdi 
+                                            color: #333
+                                            font-size: 14px
+                                    ins 
+                                        text-decoration: none
+                                        .amount 
+                                            display: flex
+                                        span 
+                                            bdi 
+                                                color: #E30613
+                                                font-size: 14px
+            .slick-arrow
+                position: absolute
+                top: 50%
+                height: 32px 
+                width: 16px
+                font-size: 0
+                background-color: transparent
+                border: 0
+                background-image: url('../assets/img/slider_arrow.svg')
+                background-size: cover
+                background-repeat: no-repeat
+                padding: 0
+                &.slick-prev
+                    left: -35px
+                    transform: translateY(-100%)
+                &.slick-next 
+                    right: -35px
+                    transform: rotate(180deg) translateY(100%)
+.single-product
+    #sidebar,
+    .woocommerce-breadcrumb
+        display: none

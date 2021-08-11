@@ -1,0 +1,55 @@
+.shipping.shipping_section
+    margin-top: -35px
+    margin-bottom: 91px
+    &Title
+        color: #E30613
+        font-family: "Days One"
+        margin-bottom: 75px
+        z-index: 1
+    &__item
+        display: flex
+        margin-bottom: 125px
+        @media only screen and (max-width: 991px)
+            flex-direction: column
+            align-items: center
+            justify-content: flex-start
+            text-align: center
+        @media only screen and (max-width: 768px)
+            justify-content: center
+        &Icon
+            margin-right: 33px
+            @media only screen and (max-width: 991px)
+                margin-bottom: 30px
+        &Title
+            font-weight: 600
+            font-size: 24px
+            line-height: 1.4
+            color: #333333
+            margin-bottom: 11px
+            @media only screen and (max-width: 450px)
+                font-size: 18px
+        &Content
+            color: #4F4F4F
+            max-width: 363px
+            font-weight: 500
+            @media only screen and (max-width: 450px)
+                font-size: 14px
+
+.shipping__item
+    &:nth-last-child(-n+2)
+        margin-bottom: 0
+        
+    &:nth-child(2n)
+        padding-left: 48px
+    
+.shipping__content__wrapper
+    max-width: 1440px
+    position: relative
+    padding-top: 66px
+    margin-right: auto
+    margin-left: auto
+    z-index: 1
+.shippingPseudo
+    z-index: -1 !important
+    @media only screen and (max-width: 1098px)
+        display: none

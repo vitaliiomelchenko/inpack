@@ -1,0 +1,61 @@
+.eco 
+    background: #FFFFFF
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1)
+    padding-top: 60px    
+    margin-bottom: 188px
+    margin-top: 85px
+    &__title 
+        color: #34A853
+    &__content 
+        font-family: Gilroy
+        font-style: normal
+        font-weight: 500
+        font-size: 24px
+        line-height: 140%
+        color: #34A853
+        padding-bottom: 109px
+        @media only screen and (max-width: 991px)
+            font-size: 18px
+        @media only screen and (max-width: 768px)
+            font-size: 16px
+    &__img__wrapper 
+        margin-top: -115px
+        position: relative
+        z-index: 1
+        padding-left: 200px
+        @media only screen and (max-width: 991px)
+            margin-top: 20px
+            padding-left: 40px
+        @media only screen and (max-width: 550px)
+            padding-left: 5px
+        img
+            width: 400px
+            height: 400px
+            @media only screen and (max-width: 420px)
+                height: 300px
+                width: 300px
+            @media only screen and (max-width: 991px)
+                height: 250px
+                width: 250px
+        &::before 
+            content: ''
+            height: 400px
+            width: 400px
+            position: absolute
+            background: #34A853
+            border-radius: 50%
+            z-index: -1
+            bottom: -90px
+            left: 265px
+            @media only screen and (max-width: 991px)
+                left: 0px
+                top: 30px
+                height: 300px
+                width: 300px
+            @media only screen and (max-width: 550px)
+                left: 0px
+            @media only screen and (max-width: 420px)
+                height: 300px
+                width: 300px
+    &__wrapper
+        padding-bottom: 95px

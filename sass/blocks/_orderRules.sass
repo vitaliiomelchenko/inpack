@@ -1,0 +1,65 @@
+.orderRules
+    margin-bottom: 89px
+    &__title
+        color: #E30613
+        margin-bottom: 63px
+        font-family: Days one
+        margin-left: 20px
+    &__item
+        position: relative
+        &Title
+            font-weight: 600
+            font-size: 24px
+            line-height: 1.4
+            color: #333333
+            margin-bottom: 11px
+            max-width: 363px
+            @media only screen and (max-width: 450px)
+                font-size: 18px
+            
+        &Content
+            color: #4F4F4F
+            font-weight: 500
+            max-width: 295px
+            @media only screen and (max-width: 450px)
+                font-size: 14px
+        &Inner
+            display: flex
+            flex-direction: column
+            padding-left: 30px
+            padding-right: 25px
+
+ol
+    list-style: none
+    li
+        counter-increment: inpack
+        &:nth-child(1)
+            &::before
+                content: counter(inpack)
+                color: #E0E0E0
+                opacity: 0.4
+                font-size: 100px
+                font-family: Days one
+                position: absolute
+                left: -23px
+                top: -33px
+                display: inline-block
+                min-width: 70px
+                text-align: center
+                
+            
+        &::before
+            content: counter(inpack)
+            color: #E0E0E0
+            opacity: 0.4
+            font-size: 100px
+            font-family: Days one
+            position: absolute
+            left: -40px
+            top: -33px
+            display: inline-block
+            min-width: 70px
+            text-align: center
+
+
+

@@ -1,0 +1,89 @@
+.button, input[type="submit"]
+    display: inline-block
+    padding: rem(20px)
+    box-sizing: border-box
+    min-width: rem(160px)
+
+    font-size: rem(14px)
+    font-weight: 800
+    text-align: center
+    line-height: 1em
+
+    background-color: $color-primary
+    color: #fff
+
+    border: 0
+    border-radius: $radius-lg
+    outline: none
+    cursor: pointer
+    transition: 0.3s
+    &--lg
+        padding: rem(20px 35px)
+  
+    
+    
+.button
+    &--sm
+        padding: rem(20px 30px)
+    &--outline
+        background-color: transparent
+        border: 2px solid $color-primary
+        color: $color-primary !important
+        &:hover
+            background-color: $color-primary
+            color: #fff !important
+
+.buttonsBlock
+    &__inner
+        margin-left: -5px
+        margin-right: -5px
+        display: flex
+        flex-wrap: wrap
+        .buttonsBlock--center &
+            justify-content: center
+        .buttonsBlock--right &
+            justify-content: flex-end
+    .button
+        margin: 5px
+.button,
+button,
+.woocommerce button[type="submit"],
+.woocommerce input[type="submit"],
+.woocommerce a.button,
+.woocommerce .button
+    display: inline-block
+    background: #E30613
+    border-radius: 5px
+    padding: 20px 85px
+    text-align: center
+    text-decoration: none
+    color: white
+    font-weight: 600
+    font-size: 20px
+    line-height: 1.4
+  
+.catalog__btn
+    background: white
+    padding-left: 61px
+    position: relative
+    margin-top: 50px
+    @media only screen and (max-width: 991px)
+        text-align: center
+    a
+        color: #E30613
+        font-weight: 500
+        font-size: 16px
+        background: white
+        text-decoration: none
+
+.catalog__btn a::before
+        content: ''
+        width: 54px
+        height: 2px
+        border-bottom: 2px solid #E30613
+        position: absolute
+        transform: rotate(0.73deg)
+        top: 10px
+        left: 0px
+    
+        

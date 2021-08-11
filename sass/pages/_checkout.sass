@@ -1,0 +1,446 @@
+.woocommerce-checkout 
+    header.checkout_header
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05)
+        & > .container
+            max-width: 1440px 
+            padding-left: 52px 
+            padding-right: 109px 
+            .checkout_header_content 
+                padding-top: 10px 
+                padding-bottom: 11px 
+                display: flex 
+                justify-content: space-between
+                .logo
+                    img
+                        max-width: 206px 
+                        max-height: 70px
+                .phone_numbers
+                    align-items: center
+                    .phone_numbers_col
+                        a 
+                            display: block
+                            font-size: 16px 
+                            font-weight: 500
+                            color: #4F4F4F
+                            white-space: nowrap
+                        br
+                            display: none
+                        &:first-child
+                            padding-right: 10px 
+                        &:nth-child(2n)
+                            padding-left: 10px
+    footer.checkout_footer 
+        border-top: 1px solid #C4C4C4
+        padding-top: 28px 
+        padding-bottom: 20px
+        .container
+            max-width: 1240px 
+            padding: 0 50px
+            .footer_text 
+                font-weight: 600 
+                font-size: 18px 
+                color: #828282
+    &.woocommerce-order-received 
+        #main 
+            height: calc( 100vh - 197px )
+            .overlay 
+                position: fixed
+                top: 0
+                left: 0
+                width: 100%
+                height: 100%
+                background: rgba(0,0,0,.5)
+                opacity: 1
+                visibility: visible
+                -webkit-transition: .3s
+                transition: .3s
+                z-index: 4
+            .thankyou_banner_wrapper 
+                position: absolute
+                top: calc( 50% + 30px ) 
+                left: 50%
+                transform: translate( -50%, -50% )
+                z-index: 5
+                display: flex
+                width: 100%
+                max-width: 979px
+                .thankyou_banner_image_col
+                    background: #fff
+                    width: 47.8%
+                    padding-top: 75px 
+                    padding-bottom: 75px 
+                    padding-left: 33px 
+                    padding-right: 50px 
+                    img
+                        max-height: 374px 
+                        max-width: 384px 
+                        width: 100%
+                .thankyou_banner_text_col 
+                    background: #E30613
+                    width: 52.2%
+                    padding-top: 180px 
+                    padding-bottom: 80px
+                    padding-left: 20px 
+                    padding-right: 10px
+                    display: flex 
+                    flex-direction: column
+                    h2 
+                        color: #FAFAFA
+                        font-size: 28px
+                        margin-bottom: auto
+                    .order_number,
+                    .order_date 
+                        color: #fafafa
+                    .order_number
+                        margin-bottom: 12px 
+    #main
+        .page 
+            margin-top: 60px
+            margin-bottom: 52px
+    .container 
+        max-width: 1440px 
+        padding: 0 95px
+        & > h1 
+            display: none
+        h1.checkout_page_title
+            color: #F44336
+            margin-bottom: 80px
+            display: block
+    form.woocommerce-checkout 
+        display: flex
+        .woocommerce-checkout-review-order
+            max-width: 394px 
+            width: 100%
+            .shop_table
+                background: #fff
+                border: 0
+                box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05)
+                padding: 63px 19px 23px 21px
+                .button
+                    width: 100%
+                    margin-left: 1px 
+                    margin-right: 3px
+                    background-color: #E30613
+                    padding-top: 21px 
+                    padding-bottom: 21px
+                    padding-left: 24px
+                    padding-right: 24px
+                    border-radius: 10px
+                .review_order_row
+                    display: flex 
+                    justify-content: space-between 
+                    .review_order_row_data 
+                        max-width: 100px
+                        margin-left: auto
+                        margin-right: 0
+                        width: 100%
+                    .review_order_row_title,
+                    .review_order_row_data,
+                    .review_order_row_data .woocommerce-Price-amount bdi
+                        font-size: 16px 
+                        font-weight: 500
+                    &.order-total 
+                        margin-bottom: 50px
+                        padding-top: 45.5px 
+                        position: relative 
+                        .review_order_row_title 
+                            padding-left: 22px
+                            padding-top: 3px
+                        .review_order_row_data
+                            .woocommerce-Price-amount 
+                                bdi 
+                                    font-size: 24px 
+                                    font-weight: 500
+                        &::before 
+                            position: absolute 
+                            content: ""
+                            top: 0
+                            left: -21px 
+                            right: -19px 
+                            height: 1px 
+                            background-color: #dadada
+                    &.cart-subtotal 
+                        margin-bottom: 18px
+                    &.shipping 
+                        margin-bottom: 21.5px
+                        .review_order_row_title 
+                            padding-top: 6px
+        .woocommerce-checkout-payment 
+            display: none
+        .chechout_fields_wrapper 
+            display: flex
+            width: 100%
+            flex-wrap: wrap
+            .payer_type_wrapper 
+                max-width: 267px 
+            .client_data 
+                margin-bottom: 60px 
+                .col-12 
+                    padding-left: 0
+                    max-width: 418px 
+                    .woocommerce-billing-fields 
+                        h3
+                            display: none
+                        .form-row 
+                            line-height: 1
+                            padding: 0
+                            margin-bottom: 20px
+                            margin-left: 40px 
+                            width: calc( 100% - 40px )
+                            &:last-child
+                                margin-bottom: 0
+                            label 
+                                display: none
+                            .woocommerce-input-wrapper 
+                                width: 100%
+                                input 
+                                    border: 1px solid #E5E5E5
+                                    border-radius: 10px 
+                                    color: #4F4F4F
+                                    width: 100%
+                                    font-weight: 600
+                                    padding-left: 14px 
+                                    padding-top: 7px
+                                    padding-bottom: 6px
+                                    line-height: 2.15
+                                    &::placeholder
+                                        font-weight: 400
+                                        color: #BDBDBD
+                                    &:focus 
+                                        border-color: #7CBF65
+                                        &::placeholder 
+                                            color: #fff
+            #customer_details 
+                .woocommerce-billing-fields 
+                    .woocommerce-billing-fields__field-wrapper
+                        display: flex
+                        flex-direction: column
+                        align-items: flex-start
+            .chekout_col_title_wrapper 
+                display: flex 
+                align-items: center
+                margin-bottom: 26px
+                .chekout_col_title
+                    font-size: 20px
+                    font-weight: 600 
+                    color: #4f4f4f
+                    margin-top: 1px 
+                span.col-number 
+                    border-radius: 50px
+                    background: rgba(124, 191, 101, 0.7)
+                    display: inline-block
+                    margin-right: 10px
+                    font-size: 18px 
+                    font-weight: 600 
+                    color: #fafafa
+                    width: 30px 
+                    height: 30px
+                    display: flex 
+                    align-items: center 
+                    justify-content: center 
+            .checkboxes_wrapper
+                margin-bottom: 60px 
+                &:last-child
+                    margin-bottom: 0
+                p.form-row 
+                    line-height: 1
+                    padding: 0
+                    margin-bottom: 16px
+                    margin-left: 40px
+                    &:last-child
+                        margin-bottom: 0
+                .woocommerce-input-wrapper
+                    label.checkbox  
+                        position: relative
+                        padding-left: 30px
+                        color: rgba( 0, 0, 0, .3)
+                        font-weight: 500 
+                        line-height: 1.4
+                        display: inline-block
+                        cursor: pointer
+                        -moz-user-select: none
+                        -khtml-user-select: none
+                        -webkit-user-select: none
+                        &.checked 
+                            font-weight: 700 
+                            color: #7CBF65
+                        &::before
+                            width: 20px 
+                            height: 20px 
+                            content: ""
+                            position: absolute 
+                            left: 0
+                            top: 0
+                            border: 1px solid #c4c4c4
+                            border-radius: 5px
+                        &.checked::before
+                            border: 1px solid #34A853
+                            background-color: #34A853 
+                        &.checked::after
+                            content: ""
+                            position: absolute
+                            width: 13px 
+                            height: 8px 
+                            background-image: url('../assets/img/checkout_checkbox_tick.svg')
+                            top: 6px 
+                            left: 4px
+                        .input-checkbox  
+                            width: 0
+                            height: 0
+                            margin: 0
+                        .optional 
+                            display: none
+@media(max-width: 992px )
+    @media(min-width: 769px )
+        body.woocommerce-checkout 
+            .page 
+                & > .container
+                    padding: 0 30px 
+                    padding-left: 15px 
+                    form.woocommerce-checkout 
+                        .chechout_fields_wrapper
+                            flex-direction: row 
+                            .checkboxes_wrapper,
+                            .client_data
+                                width: 100%
+                                .chekout_col_title
+                                    font-size: 16px 
+                                .form-row 
+                                    margin-left: 0
+                                    width: 100%
+                                    font-size: 12px 
+                            .client_data
+                                min-width: 58%
+                                max-width: 58%
+                                .col-12
+                                    padding-right: 0
+                                    .woocommerce-billing-fields
+                                        .form-row 
+                                            .woocommerce-input-wrapper 
+                                                input 
+                                                    line-height: 1.6 
+                                                    &::placeholder 
+                                                        font-size: 12px 
+                            .payer_type_wrapper 
+                                max-width: 40%
+                                min-width: 40%
+                            .payer_type_wrapper
+                                padding-right: 0
+                        .woocommerce-checkout-review-order 
+                            max-width: 325px 
+@media( max-width: 768px )
+    body.woocommerce-checkout 
+        padding-top: 0  
+        #main 
+            .page 
+                margin-top: 13px
+                margin-bottom: 13px 
+        .page 
+            & > .container
+                padding-left: 14px 
+                padding-right: 10px
+                .checkout_page_title
+                    margin-bottom: 10px 
+                    font-weight: 500 
+                    font-family: Gilroy
+                    font-size: 12px 
+                form.woocommerce-checkout 
+                    display: flex 
+                    flex-direction: column
+                    .chechout_fields_wrapper
+                        display: flex
+                        flex-direction: column
+                        & > div 
+                            padding: 0
+                    .chechout_fields_wrapper
+                        .checkboxes_wrapper
+                            margin-bottom: 25px 
+                            &.payment_method 
+                                margin-bottom: 34px 
+                        .client_data
+                            margin-bottom: 25px 
+                            .col-12 
+                                padding-right: 0
+                            .woocommerce-billing-fields
+                                .woocommerce-billing-fields__field-wrapper
+                                    & > p 
+                                        margin-left: 0
+                                        width: 100%
+                                        margin-bottom: 12px 
+                                        &:last-child
+                                            margin-bottom: 0
+                        .checkboxes_wrapper,
+                        .client_data
+                            max-width: 100%
+                            flex: 0 0 100%
+                            .chekout_col_title_wrapper
+                                margin-bottom: 9px 
+                            .chekout_col_title_wrapper
+                                .chekout_col_title
+                                    font-size: 16px 
+                                    font-weight: 600
+                        .form-row 
+                            margin-bottom: 0
+                            label.checkbox  
+                                line-height: 2.5
+                                font-size: 12px 
+                                color: #828282
+                                font-weight: 400
+                                &.checked 
+                                    color: #7CBF65
+                                    font-weight: 700
+                                &::before 
+                                    top: 5px
+                                &::after 
+                                    top: 11px 
+                    .woocommerce-checkout-review-order
+                        .woocommerce-checkout-review-order-table 
+                            box-shadow: none
+                            margin-right: 4px 
+                            border: 1px solid #dadada 
+                            border-radius: 5px 
+                            padding: 19px 20px 19px 13px 
+                            .order-total 
+                                display: none
+                                &::before 
+                                    display: none
+                            #place_order 
+                                padding: 8px 19px 7px 
+                                font-size: 13px 
+                                font-family: Montserrat
+                                font-weight: 600
+                                line-height: 2
+                                display: block
+                                width: auto 
+                                margin-right: auto
+                                margin-left: auto
+                            .review_order_row
+                                .review_order_row_title
+                                    font-size: 14px
+                                    font-weight: 600
+                                    line-height: 2.2
+                                &.cart-subtotal
+                                    display: flex 
+                                    align-items: center
+                                    margin-bottom: 8px 
+                                    .review_order_row_data
+                                        .amount
+                                            bdi 
+                                                font-weight: 500
+                                                font-size: 14px 
+                                                color: #4f4f4f
+                                                line-height: 1.3 
+                                                display: flex 
+                                                justify-content: flex-end
+                                                span
+                                                    margin-left: 3px 
+                                &.shipping 
+                                    margin-bottom: 25px 
+                                    .review_order_row_data
+                                        font-size: 10px 
+                                        font-weight: 500 
+                                        color: #4f4f4f
+                                        text-align: right
+                                    .review_order_row_title
+                                        padding-top: 0
+                                        margin-top: 4px 

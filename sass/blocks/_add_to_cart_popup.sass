@@ -1,0 +1,38 @@
+.add_to_cart_popup_wrapper
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    background: #E30613
+    width: 100%
+    max-width: 564px
+    height: 528px
+    z-index: 5
+    padding-top: 122px
+    padding-left: 71px
+    padding-right: 71px
+    transition: opacity .3s
+    .add_to_cart_popup
+        h2 
+            color: #FAFAFA
+            margin-bottom: 83px
+        .buttons 
+            display: flex
+            justify-content: space-between
+            a 
+                display: inline-block
+                position: relative
+                color: #FAFAFA
+                font-size: 20px 
+                font-weight: 600
+                &::after 
+                    position: absolute 
+                    content: ""
+                    border-bottom: 2px dashed #FFFFFF
+                    width: 100%
+                    height: 2px
+                    bottom: -9px
+                    left: 0 
+.open-popup 
+    .add_to_cart_popup_wrapper
+        opacity: 1 !important

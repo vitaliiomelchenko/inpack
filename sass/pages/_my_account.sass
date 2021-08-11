@@ -1,0 +1,215 @@
+.woocommerce-account
+    .woocommerce-MyAccount-content-wrapper 
+        display: flex 
+    .woocommerce-MyAccount-navigation 
+        margin-bottom: 58px
+        float: none
+    .breadcrumbs .container span span a
+        margin-left: 0
+    .page 
+        margin: 0
+        & > .container 
+            & > h1 
+                display: none
+    .container
+        h1 
+            font-family: "Gilroy"
+            font-size: inherit
+            margin-bottom: 50px
+        .breadcrumbs
+            margin-bottom: 50px
+    .woocommerce-MyAccount-content
+        width: calc( 100% - 380px )
+        margin-top: 15px
+        float: none 
+        margin-left: 88px 
+    .account-info
+        .info-type
+            font-size: 16px
+            font-weight: 500
+            margin-bottom: 5px
+            color: #828282
+            line-height: 1.4
+        .info
+            margin-bottom: 15px
+            color: #333333
+            font-size: 20px 
+            font-weight: 600
+.woocommerce-MyAccount-navigation
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1)
+    border-radius: 10px
+    max-width: 292px
+    margin-bottom: 24px
+    .above_nav_block
+        display: flex
+        align-items: center
+        padding: 25px 14px 21px 
+        .user_avatar
+            width: 70px
+            height: 70px
+            margin-right: 18px
+        .user_name
+            font-weight: 500
+            color: #333
+            font-size: 24px
+    ul
+        margin: 0
+        padding-bottom: 68px
+        li
+            list-style-type: none
+            border-top: 1px solid #DADADA
+            font-weight: 500
+            padding: 21px 29px 22px
+            line-height: 1.4
+            margin: 0
+            a
+                color: #828282
+                font-size: 16px
+            &::before
+                width: 0
+                height: 0
+                margin-right: 0
+            &:last-child()
+                border-bottom: 1px solid #DADADA
+/*Edit account form*/
+.woocommerce-edit-account 
+    .woocommerce-MyAccount-content
+        .woocommerce-EditAccountForm 
+            .woocommerce-form-row 
+                label 
+                    color: #828282
+                    font-size: 16px
+                    span 
+                        display: none
+                input 
+                    padding: 13px 15px 13px 15px
+                    border: 1px solid #E5E5E5
+                    color: #BDBDBD
+                    font-size: 14px
+                    margin-bottom: 15px
+                    background: #fff
+                    border-radius: 10px 
+                    line-height: 1.6
+                    &#account_display_name
+                        margin-bottom: 0
+                        & + span 
+                            em 
+                                font-size: 12px
+                                color: #BDBDBD
+            .woocommerce-Button 
+                padding: 12px 18px 
+                margin-bottom: 48px
+                margin-top: 18px
+.woocommerce-account
+    .page 
+        .container
+            max-width: 1440px
+            padding-left: 45px
+            padding-right: 45px
+        .breadcrumbs
+            .container
+                padding-left: 0
+                padding-right: 0
+@media(max-width: 992px )
+    @media(min-width: 769px )
+        .woocommerce-account,
+        .woocommerce-wishlist
+            .page 
+                & > .container
+                    padding: 0 30px 
+                    .woocommerce-MyAccount-navigation 
+                        .above_nav_block
+                            .user_avatar
+                                width: 50px 
+                                height: 50px
+                            .user_name 
+                                font-size: 20px
+                        ul 
+                            padding-bottom: 0
+                            li 
+                                padding-top: 15px 
+                                padding-bottom: 15px 
+                                &:last-child
+                                    border-bottom: 0
+                                a 
+                                    font-size: 14px
+                    .woocommerce-MyAccount-content 
+                        width: calc( 70% - 32px )
+                        margin-left: 32px
+@media( max-width: 768px  )
+    .woocommerce-account,
+    .woocommerce-wishlist
+        .above_nav_button 
+            position: relative
+            padding-left: 13px 
+            font-size: 10px
+            line-height: 1.2 
+            color: #828282
+            margin-top: 18px
+            margin-bottom: 26px
+            display: block
+            &::before   
+                content: ""
+                width: 6px 
+                height: 12px 
+                position: absolute
+                left: 0
+                top: 0
+                background-image: url('../assets/img/account_top_button_arrow.svg')
+    .woocommerce-account
+        //Account page 
+        .page 
+            & > .container
+                padding-left: 17px
+                padding-right: 11px
+                .woocommerce 
+                    .woocommerce-MyAccount-content-wrapper
+                        flex-direction: column
+                        .orders_top_button 
+                            display: none
+                        .woocommerce-MyAccount-content 
+                            padding-left: 13px
+                            width: 100%
+                            margin-bottom: 42px
+                            margin-left: 0 
+                            margin-top: 0
+                            .account-info 
+                                .info-type 
+                                    font-size: 14px 
+                                    margin-bottom: 4px
+                                .info 
+                                    font-size: 16px 
+                                    font-weight: 600
+                                    margin-bottom: 10px
+                                &:last-child
+                                    .info 
+                                        margin-bottom: 0
+                        .woocommerce-MyAccount-navigation 
+                            margin-bottom: 26px 
+                            max-width: 100%
+                            .above_nav_block 
+                                padding-top: 15px 
+                                padding-bottom: 15px
+                                .user_avatar
+                                    width: 50px 
+                                    height: 50px 
+                                .user_name 
+                                    font-size: 18px
+                            ul 
+                                padding-bottom: 0
+                                li 
+                                    padding-top: 15px 
+                                    padding-bottom: 15px
+                                    line-height: 1.2
+                                    a 
+                                        font-size: 14px 
+                                    &:last-child
+                                        border-bottom: 0
+@media( min-width: 769px )
+    .woocommerce-account
+        .page 
+            & > .container
+                .woocommerce
+                    .woocommerce-MyAccount-content-wrapper
+                        .above_nav_button
+                            display: none

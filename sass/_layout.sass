@@ -1,0 +1,149 @@
+.container
+    padding-left: 0px
+    padding-right: 0px
+
+.row 
+	&--x
+		&--center
+			justify-content: center
+	&--y
+		&--middle
+			align-items: center
+		&--top
+			align-items: flex-start
+		&--bottom
+			align-items: flex-end
+
+.section
+	padding-top: rem(45px)
+	padding-bottom: rem(45px)
+	+max-screen($breakpoint-md)
+		padding-top: rem(30px)
+		padding-bottom: rem(30px)
+	&--spacing
+		&--lg
+			padding-top: rem(80px)
+			padding-bottom: rem(80px)
+			+max-screen($breakpoint-md)
+				padding-top: rem(30px)
+				padding-bottom: rem(30px)
+
+.hidden
+	&--lg
+		+min-screen($breakpoint-lg)
+			display: none !important
+
+.visible
+	&--lg
+		+max-screen($breakpoint-lg)
+			display: none !important
+
+.p
+	&b
+		&-10
+			padding-bottom: rem(10px)
+		&-20
+			padding-bottom: rem(20px)
+		&-30
+			padding-bottom: rem(30px)
+		&-40
+			padding-bottom: rem(40px)
+		&-50
+			padding-bottom: rem(50px)
+			+max-screen($breakpoint-md)
+				padding-bottom: rem(30px)
+	&t
+		&-10
+			padding-top: rem(10px)
+		&-20
+			padding-top: rem(20px)
+		&-30
+			padding-top: rem(30px)
+		&-35
+			padding-top: rem(35px)
+		&-40
+			padding-top: rem(40px)
+		&-50
+			padding-top: rem(50px)
+			+max-screen($breakpoint-md)
+				padding-top: rem(30px)
+
+.m
+	&b
+		&-10
+			margin-bottom: rem(10px)
+		&-20
+			margin-bottom: rem(20px)
+		&-30
+			margin-bottom: rem(30px)
+		&-40
+			margin-bottom: rem(40px)
+		&-50
+			margin-bottom: rem(50px)
+			+max-screen($breakpoint-md)
+				margin-bottom: rem(30px)
+	&t
+		&-10
+			margin-top: rem(10px)
+		&-20
+			margin-top: rem(20px)
+		&-30
+			margin-top: rem(30px)
+		&-40
+			margin-top: rem(40px)
+		&-50
+			margin-top: rem(50px)
+		&-60
+			margin-top: rem(60px)
+			+max-screen($breakpoint-md)
+				margin-top: rem(30px)
+.page-template-default
+	.page
+		margin: 50px 0
+@media(min-width: 1200px)
+	.container
+		max-width: 1166px	
+@media(min-width: 1400px)
+	.container
+		max-width: 1166px	
+.container
+    @media only screen and (min-width: 1440px)
+        max-width: 1166px
+.container--lg
+     @media only screen and (min-width: 1440px)
+        max-width: 1320px
+.container--md
+    @media only screen and (min-width: 1440px)
+        max-width: 1250px
+body
+    overflow-x: hidden
+.container--md
+	margin-right: auto
+	margin-left: auto
+.container--lg
+	margin-right: auto
+	margin-left: auto
+.container--sm
+	margin-right: auto
+	margin-left: auto
+.container--sm
+    @media only screen and (min-width: 1440px)
+        max-width: 1115px
+.container--featured
+    @media only screen and (min-width: 1440px)
+        max-width: 1240px
+.container--featured
+	margin-right: auto
+	margin-left: auto
+.container--xlg
+     @media only screen and (min-width: 1440px)
+        max-width: 1310px
+.container--xlg
+	margin-right: auto
+	margin-left: auto
+.container--featured--sm
+	margin-right: auto
+	margin-left: auto
+.container--featured--sm
+     @media only screen and (min-width: 1440px)
+        max-width: 1228px

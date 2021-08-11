@@ -1,0 +1,82 @@
+.promo
+    overflow-x: hidden
+    .container
+    &__content__wrapper
+        max-width: 1440px
+        position: relative
+        padding-top: 71px
+        margin-right: auto
+        margin-left: auto
+    &__title
+        color: #E30613
+        margin-bottom: 70px
+        margin-left: 29px
+    &__item   
+        background: #FDD087
+        border-radius: 20px
+        padding: 25px 15px
+        padding-bottom: 11px
+        margin-bottom: 18px
+        @media only screen and (max-width: 991px)
+            display: flex
+            flex-direction: column
+            justify-content: flex-end
+        &__wrapper
+            padding-right: 9px
+            &:nth-child(2n)
+                padding-left: 9px
+                padding-right: 15px
+        &__title 
+            font-family: Days One
+            font-style: normal
+            font-weight: normal
+            font-size: 72px
+            line-height: 140%
+            color: #FAFAFA
+        &__content 
+            color: #FAFAFA
+            margin-bottom: 62px
+        &__second 
+            background: #FFBC00
+            margin-bottom: 0
+            @media only screen and (max-width: 991px)
+                margin-bottom: 20px
+        &__big 
+            background: #34A853
+            border-radius: 20px
+            padding: 25px 15px
+            padding-bottom: 11px            
+            height: 100%
+            display: flex
+            flex-direction: column
+            justify-content: flex-end
+        &__content__big 
+            font-family: Days One
+            font-style: normal
+            font-weight: normal
+            font-size: 36px
+            line-height: 140%
+            color: #FAFAFA
+
+    &__btn 
+        font-family: Gilroy
+        font-weight: bold
+        font-size: 16px
+        color: #FAFAFA
+        text-align: end
+        position: relative
+        text-decoration: none
+        display: block    
+        color: #FAFAFA
+        text-decoration: none
+    &__btn:hover
+        color: #FAFAFA
+
+.promo__btn::before 
+    content: ''
+    width: 88px
+    height: 2px
+    border-bottom: 2px solid #FAFAFA
+    position: absolute
+    top: 22px
+

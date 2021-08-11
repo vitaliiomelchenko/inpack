@@ -1,0 +1,564 @@
+.header 	
+	.top-header 
+		box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05)
+		.container 
+			position: relative
+			height: 68px
+			display: flex
+			align-items: center 
+			justify-content: space-between
+			max-width: 1430px 
+			padding-right: 50px
+			padding-left: 50px
+			.logo-wrapper
+				position: absolute
+				top: 50%
+				left: 50%
+				transform: translate(-50%, -50%)
+				a 
+					display: block
+					img 
+						max-width: 160px 
+			.left-column
+				width: calc( 50% - 100px )
+				margin-right: 20px 
+				.place-wrapper 
+					padding-left: 25px
+					position: relative
+					&::before 
+						content: ""
+						width: 15px
+						height: 22px
+						background-image: url("../assets/img/place.png")
+						position: absolute 
+						top: 0 
+						left: -1px
+						
+					.chosen-place 
+						font-weight: 500
+			.right-column
+				display: flex
+				align-items: center
+				justify-content: flex-end
+				width: calc(50% - 100px)
+				margin-left: 20px
+				.lang-wrapper
+					display: flex
+					.lang 
+						color: #DADADA
+						font-size: 16px
+						margin: 0 10px
+						position: relative
+						padding: 4px 0
+						font-weight: 500
+						&::after 
+							content: ""
+							position: absolute 
+							right: -10px
+							top: 0
+							height: 100% 
+							width: 1px
+							background: #E5E5E5
+						&:first-child
+							margin-left: 0
+						&.current-lang 
+							color: #E30613 
+						&:last-child
+							margin-right: 0
+							&::after 
+								display: none
+				.phone_numbers_wrapper
+					display: flex
+					max-width: 270px
+					flex-wrap: wrap
+					margin-right: 86px
+					width: 100%
+					.phone_numbers
+						width: calc( 50% - 10px)
+						p 
+							a 
+								font-weight: 500
+								white-space: nowrap
+						&:nth-child(2n + 1)
+							margin-right: 20px
+	.header-menu
+		#menu-header-menu 
+			display: flex
+			justify-content: center
+			padding: 0
+			margin: 31px 0
+			.menu-item 
+				a
+					font-size: 18px 
+					color: #000 
+					margin-right: 40px
+					font-family: Gilroy
+					font-weight: 600
+					transition: .3s
+					&:hover 
+						color: #e30613
+				&:last-child
+					margin-right: 0
+	.header-bottom
+		background: #292929
+		.container 
+			display: flex
+			max-width: 1432px 
+			padding-left: 59px 
+			padding-right: 50px 
+			.katalog 
+				font-size: 24px 
+				font-weight: 500
+				padding: 18px 23px 18px 47px
+				background: #E30613
+				position: relative
+				display: inline-block
+				color: #fff
+				cursor: pointer
+				&::before
+					content: ""
+					position: absolute
+					left: 23px 
+					top: 50%
+					transform: translateY(-50%)
+					width: 14px
+					height: 13px
+					background-image: url('../assets/img/katalog_icon.png')
+					background-size: cover
+					background-repeat: no-repeat
+			.search-form
+				position: relative
+				width: 100%
+				max-width: 602px
+				display: flex
+				height: 43px
+				margin: auto 0
+				margin-left: 26px
+				margin-right: 26px
+				form 
+					width: 100%
+					label
+						height: 100%
+						input[type="search"]
+							padding: 11.5px 0 11.5px 53px
+							border-radius: 5px 0 0 5px
+							border: 0 !important
+							width: calc( 100% - 141px )
+							font-family: Gilroy
+							color: #BDBDBD
+							font-weight: 600
+							height: 100%
+							&::placeholder 
+								color: #BDBDBD
+								font-weight: 400
+							&:focus::placeholder 
+								color: #fff
+					input[type="submit"]
+						border-radius: 0 5px 5px 0
+						background: #E30613
+						color: #fff
+						font-weight: 600
+						font-size: 18px !important
+						padding: 9px 39px 9px 45px !important
+						font-family: Gilroy
+						border: 0
+						min-width: 141px 
+						height: 100%
+						&:hover
+							box-shadow: none
+				&::before
+					content: ""
+					position: absolute
+					left: 15px
+					width: 25px
+					height: 25px 
+					top: 50% 
+					z-index: 2
+					transform: translateY(-50%)
+					background-image: url('../assets/img/search-icon.png')
+					background-size: cover
+					background-repeat: no-repeat
+		.kabinet
+			font-weight: 500
+			position: relative
+			color: #fff
+			padding: 10px 0	
+			padding-left: 51px
+			align-self: center
+			display: block
+			margin-right: 54px
+			margin-left: auto
+			min-width: 194px
+			&::before
+				width: 40px
+				height: 40px 
+				content: ""
+				background-image: url('../assets/img/kabinet.svg')
+				position: absolute
+				top: 50%
+				transform: translateY(-50%)
+				left: 0
+		.icons-wrapper
+			align-self: center
+			min-width: 120px
+			.icons 
+				display: flex 
+				li 
+					margin-right: 19px 
+					&:last-child
+						margin-right: 0
+					&.cart
+						position: relative
+						&::after
+							content: "0"
+							width: 25px 
+							height: 25px 
+							background: #FFFFFF
+							color: #219653
+							font-size: 18px
+							font-weight: 500
+							border-radius: 50%
+							position: absolute
+							bottom: 15px
+							right: -18px
+							text-align: center
+	.katalog-menu-wrapper 
+		position: relative
+		display: none
+		.katalog-menu
+			max-width: 1090px 
+			margin: auto 
+			padding-right: 12px 
+			padding-bottom: 30px
+			padding-top: 43px
+			.katalog-categories-list 
+				display: flex 
+				align-items: flex-start
+				li 
+					width: 100% 
+					max-width: calc( 100% / 9 - 16px )
+					margin: 0 8px 
+					.category-name 
+						font-family: Montserrat 
+						font-size: 16px 
+						font-weight: 600 
+						color: #000
+					.category-image
+						text-align: center
+						height: 60px
+						margin-bottom: 13px
+						svg 
+							background-color: #e30613
+							padding: 12px 
+							width: 60px 
+							height: 60px
+							border-radius: 50%
+							overflow: visible
+							path 
+								width: 100%
+								height: 100%
+								object-fit: contain 
+			.katalog-menu-button-wrapper 
+				text-align: center
+				margin-top: 30px
+				.button 
+					padding: 21px 30px 
+					min-width: 250px 
+					line-height: 1.4
+			.close-menu-icon 
+				position: absolute
+				top: 13px 
+				right: 15px 
+				width: 30px 
+				height: 30px
+				cursor: pointer
+.is-ajax-search-details 
+	display: none !important
+body
+	.mobile_menu,
+	.mobile_menu_open_button,
+	.mobile_katalog_button
+		display: none
+	div.is-ajax-search-result 
+		background: #dadada
+		border-radius: 5px
+		margin-top: 10px 
+		.is-ajax-search-posts
+			border-radius: 5px
+			.is-ajax-search-post 
+				&:hover 
+					background: #fff
+				.is-title 
+					a
+						color: #333 
+						font-family: Days One
+						font-size: 12px 
+						&:hover 
+							text-decoration: none
+@media( max-width: 1199px )
+	@media(min-width: 993px)
+		.header 
+			.top-header
+				.container
+					.right-column
+						.phone_numbers_wrapper 
+							margin-right: 36px
+@media(max-width: 992px )
+	@media( min-width: 769px )	
+		.header
+			.header-bottom 
+				.container
+					padding-right: 20px 
+					padding-left: 20px
+					.kabinet 
+						min-width: 30px 
+						margin-right: 20px 
+						width: 30px 
+						font-size: 0
+			.top-header
+				.container
+					.right-column
+						.phone_numbers_wrapper
+							display: none
+@media(max-width: 768px)
+	body 
+		div.is-ajax-search-result
+			width: calc( 100% - 101px ) !important
+			left: 51px !important
+			margin-top: 0
+			border-radius: 0 0 20px 20px 
+			padding: 0
+			overflow: hidden
+			.mCSB_inside 
+				background: #fff
+				.mCSB_buttonUp,
+				.mCSB_buttonDown 
+					display: none !important
+			.left-section
+				display: none
+			.right-section
+				.meta,
+				.is-search-content 
+					display: none
+			.is-ajax-search-posts .is-ajax-search-post .is-title 
+				a
+					color: #BDBDBD
+					font-weight: 400
+					font-size: 14px 
+					font-family: Gilroy
+	.header 
+		.top-header 
+			.container 
+				height: auto
+				.left-column,
+				.right-column
+					display: none
+				.logo-wrapper 
+					position: static 
+					transform: none
+					margin: auto
+					margin-top: 35px
+					margin-bottom: 24px
+		.header-menu 
+			display: none
+		.header-bottom
+			.container
+				padding-left: 12px
+				padding-right: 18px
+				.katalog,
+				.kabinet,
+				.icons-wrapper .list,
+				.icons-wrapper .heart
+					display: none
+				.search-form 
+					margin-left: 9px 
+					margin-right: 8px
+					margin-top: 23px
+					margin-bottom: 24px
+					width: calc( 100% - 71px )
+					height: 36px
+					max-width: 100%
+					&::before
+						display: none
+					form 
+						.is-search-submit 
+							display: none !important
+						.is-search-input[type=search]
+							width: 100%
+							border-radius: 0
+							padding-left: 11px
+							padding-top: 8px 
+							padding-bottom: 8px 
+							padding-right: 11px
+				.icons-wrapper 
+					min-width: 24px
+					.icons 
+						.cart
+							max-width: 24px
+							&::after 
+								right: -13px
+								width: 20px 
+								height: 20px 
+								font-size: 12px
+								display: flex
+								align-items: center
+								justify-content: center
+								bottom: 14px 
+				.mobile_menu_open_button 
+					background-color: #E30613
+					min-width: 30px 
+					border-radius: 50%
+					width: 30px 
+					height: 30px 
+					display: flex
+					align-items: center 
+					justify-content: center
+					margin-top: auto
+					margin-bottom: auto
+					img
+						width: 15px 
+						height: 10px 
+		.mobile_katalog_button 
+			background-color: #E30613
+			border-radius:  0 0 20px 20px 
+			max-width: 273px
+			margin-left: auto 
+			margin-right: auto 
+			height: 60px
+			padding-top: 13px 
+			padding-bottom: 19px 
+			padding-left: 75px
+			position: relative
+			color: #FAFAFA
+			font-size: 20px 
+			font-weight: 600
+			display: block
+			&::before 
+				width: 22px
+				height: 22px 
+				content: ""
+				position: absolute
+				left: 44px
+				top: 16px
+				background-image: url('../assets/img/open_katalog_menu_button.svg')
+		.mobile_menu 
+			background-color: #fff
+			z-index: 999
+			position: fixed 
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			display: none
+			.mobile_menu_close_button 
+				position: absolute
+				right: 22px
+				top: 28px 
+				background-image: url('../assets/img/close_mobile_menu_icon.svg')
+				width: 30px 
+				height: 30px
+				background-size: cover
+			.mobile_menu_logo 
+				max-width: 140px 
+				margin-top: 25px
+				margin-left: 15px 
+				margin-bottom: 50px
+				img
+					width: 100%
+			.languages_wrapper
+				margin-bottom: 28px
+				padding-left: 25px 
+				.language_title
+					color: #E30613
+					font-size: 12px 
+					margin-bottom: 5px
+					padding-left: 2px
+				.languages_list 
+					display: flex 
+					.language_list_item
+						color: #c4c4c4
+						font-size: 12px 
+						font-weight: 500
+						padding: 8px 18.5px 
+						margin-right: 13px 
+						border: 1px solid #E5E5E5
+						border-radius: 2px 
+						font-family: Montserrat
+						&:last-child
+							margin-right: 0
+						&.active
+							color: #fff
+							background-color: #E30613
+							border-color: #E30613
+			div.menu 
+				margin-bottom: 16px
+				.account_menu_item
+					border-bottom: .75px solid #E5E5E5
+					padding-left: 57px 
+					padding-bottom: 17px
+					position: relative
+					padding-top: 6px 
+					a
+						color: #E30613
+						font-weight: 600
+						font-size: 14px
+					&::before 
+						content: ""
+						position: absolute
+						background-image: url('../assets/img/mobile_menu_account_icon.svg')
+						background-size: cover 
+						width: 30px 
+						height: 30px 
+						left: 15px 
+						top: 0
+				ul.menu 
+					li 
+						border-bottom: .75px solid #E5E5E5
+						padding-top: 11px 
+						padding-bottom: 16px 
+						padding-left: 25px 
+						a
+							color: #c4c4c4 
+							font-weight: 500
+							font-size: 14px
+						&:nth-last-of-type(-n + 2)
+							padding-left: 22px 
+							padding-top: 15px 
+							padding-bottom: 12px 
+				.wishlist_menu_link 
+					display: block
+					padding-top: 15px
+					padding-bottom: 12px
+					color: #c4c4c4
+					padding-left: 22px 
+					border-bottom: .75px solid #e5e5e5
+			.mobile_social_network_list 
+				padding-left: 25px
+				a
+					margin-right: 15px 
+					display: inline-block
+					&:last-child
+						margin-right: 0
+					img 
+						width: 30px 
+						height: 30px
+	body.woocommerce-checkout 
+		header.checkout_header 
+			box-shadow: none
+			border-bottom: 0.75px solid #E5E5E5
+			& > .container
+				padding: 0 30px 
+				padding-top: 32px 
+				padding-bottom: 14px
+				.checkout_header_content
+					justify-content: center
+					.phone_numbers
+						display: none
+@media( min-width: 769px )
+	.header 
+		.header-bottom
+			.mobile_menu_open_button
+				display: none
+		.mobile_katalog_button 
+			display: none
+	

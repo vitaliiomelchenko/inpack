@@ -1,0 +1,551 @@
+div 
+    line-height: 1.4
+.woocommerce-orders 
+    h2.orders-page-title 
+        color: #F44336
+        margin-bottom: 22px
+    &.woocommerce-account 
+        .woocommerce-MyAccount-content
+            margin-top: -7px
+            margin-bottom: 58px
+    #main
+        & > .container
+            padding: 0 42px
+        .container 
+            & > .woocommerce 
+                display: flex
+                flex-wrap: wrap 
+                & > .breadcrumbs
+                    width: 100%
+                & > .woocommerce-MyAccount-content-wrapper
+                    display: flex
+                    width: 100%
+                    align-items: flex-start
+                    .woocommerce-MyAccount-content
+                        max-width: 820px
+                        margin-left: 54px
+                        margin-right: auto
+                        transition: .3s
+                        &.opened-details 
+                            max-width: 1010px
+                            width: 100%
+            .woocommerce-MyAccount-content
+                .woocommerce-MyAccount-orders
+                    border-radius: 10px
+                    border: 1px solid #DADADA
+                    max-width: 820px 
+                    transition: .3s
+                &.opened-details
+                    .woocommerce-MyAccount-orders
+                        max-width: 1010px
+                .woocommerce-MyAccount-orders
+                    .orders 
+                        .order 
+                            align-items: flex-start
+                            padding-bottom: 11px
+                            border-bottom: 1px solid #DADADA
+                            .row 
+                                align-items: flex-start
+                            &:last-child
+                                border-bottom: 16px
+                            .customer-data 
+                                flex: 0 0 24%
+                                max-width: 24%
+                            .product-details 
+                                flex: 0 0 76%
+                                max-width: 76%
+                                .order_item 
+                                    margin-bottom: 24px
+                                    &:last-child
+                                        margin-bottom: 0
+                                .woocommerce-Price-currencySymbol
+                                    font-size: 0
+                                    position: relative
+                                    &::after 
+                                        content: " грн"
+                                        font-size: 14px
+                            .order-status-wrapper 
+                                padding-left: 65px
+                                padding-top: 6px
+                                font-size: 16px
+                                font-weight: 500
+                                max-width: 212px
+                                .status-icon 
+                                    max-width: 30px
+                                    max-height: 30px
+                                    margin-bottom: 4px
+                                    img 
+                                        object-fit: contain
+                                        object-position: center
+                            .show_delails_button_wrapper
+                                padding-right: 44px
+                                text-align: right
+                                position: relative
+                                color: #BDBDBD
+                                font-size: 10px
+                                padding-top: 44px
+                                line-height: 1.4
+                                cursor: pointer
+                                &::before
+                                    content: ""
+                                    position: absolute
+                                    width: 20px
+                                    height: 10px
+                                    top: 20px
+                                    right: 61px
+                                    background-image: url('../assets/img/vector.svg')
+                            .order-total 
+                                font-size: 16px
+                                font-weight: 500 
+                                line-height: 1.4
+                                padding-top: 20px
+                                padding-left: 9px 
+                                padding-right: 12px
+                                max-width: 212px
+                                margin-right: auto
+                                .woocommerce-Price-amount 
+                                    display: inline-block
+                                .woocommerce-Price-currencySymbol
+                                    margin-left: 3px
+                            .order-number.order-date
+                                color: #828282
+                                line-height: 1.4
+                                padding-top: 17px
+                                padding-left: 49px
+                                padding-right: 21px 
+                                max-width: 282.5px
+                                a 
+                                    color: #828282
+                            &.woocommerce-orders-table__row--status-completed 
+                                .product-details
+                                    .order_item
+                                        &:nth-child(2)
+                                            .product-details-button-wrapper 
+                                                display: block
+                                .order-status-wrapper
+                                    color: #7CBF65
+                                    display: flex 
+                                    justify-content: flex-start
+                                    padding-top: 9px
+                                    .status
+                                        position: relative
+                                        padding-top: 40px
+                                        &::before
+                                            background-image: url('../assets/img/completed_order.svg')
+                                            width: 30px
+                                            height: 30px
+                                            background-size: cover
+                                            margin-bottom: 10px
+                                            background-repeat: no-repeat
+                                            position: absolute
+                                            left: 50%
+                                            top: 0
+                                            transform: translateX(-50%)
+                                            content: ""
+                            &.woocommerce-orders-table__row--status-cancelled 
+                                .order-status-wrapper
+                                    color: #E30613
+                                    display: flex 
+                                    justify-content: flex-start
+                                    padding-top: 12px
+                                    .status
+                                        position: relative
+                                        padding-top: 37px
+                                        &::before
+                                            background-image: url('../assets/img/canceled_order.svg')
+                                            width: 30px
+                                            height: 30px
+                                            background-size: cover
+                                            margin-bottom: 10px
+                                            background-repeat: no-repeat
+                                            position: absolute
+                                            left: 50%
+                                            top: 0
+                                            transform: translateX(-50%)
+                                            content: ""
+                    .opened-order 
+                        display: none
+                    .order-details 
+                        .quantity,
+                        .quantity-head
+                            padding-right: 17px
+                        .subtotal,
+                        .total-head 
+                            padding-left: 11px
+                        .subtotal 
+                            bdi
+                                display: flex
+                                flex-direction: row
+                                flex-wrap: nowrap
+                                white-space: nowrap
+                                align-items: center
+                        .item_prce 
+                            del 
+                                display: none
+                            ins
+                                text-decoration: none
+                        .order-details-head
+                            padding-top: 17px
+                            .head-col
+                                color: #4f4f4f
+                                font-size: 12px
+                                font-weight: 700
+                                margin-bottom: 9px
+                                line-height: 1.4
+                            .customer-data-head
+                                max-width: 20%
+                                flex: 0 0 20%
+                            .col-1 
+                                flex: 0 0 10.7% 
+                                max-width: 10.7%
+                            .product-image--name-head 
+                                max-width: 35.495% 
+                                flex: 0 0 35.495%
+                            .close-details-button-wrapper
+                                flex: 0 0 32.1%
+                                max-width: 32.1%
+                                padding-right: 59px
+                                display: flex 
+                                justify-content: flex-end
+                                .close-details-button 
+                                    margin-top: -2px 
+                                    img 
+                                        transform: rotate( 180deg )
+                                        width: 20px
+                                        height: 10px
+                                        cursor: pointer
+                        .product-name--image-wrapper
+                            display: flex
+                            max-width: 35.495% 
+                            flex: 0 0 35.495%
+                            .product-name 
+                                font-size: 12px
+                                font-weight: 700
+                                margin-top: 4px
+                            .product-image 
+                                max-width: 52px
+                                max-height: 52px
+                                margin-right: 18px
+                                img
+                                    width: 100% 
+                                    object-fit: contain
+                                    object-position: center
+                        .product-details-button-wrapper
+                            padding-right: 34px
+                            flex: 0 0 32.1%
+                            max-width: 32.1%
+                            text-align: right
+                            display: none
+                            .button 
+                                padding: 9px 12.5px
+                                line-height: 1.4
+                                max-width: 100%
+                                a 
+                                    color: #fafafa
+                                    font-size: 16px
+                                    font-weight: 600 
+                                    white-space: nowrap
+                                    &:hover 
+                                        opacity: 1
+                                        text-decoration: none
+                        .col-1 
+                            flex: 0 0 10.7% 
+                            max-width: 10.7%
+                    .customer-data 
+                        padding-left: 45px
+                        padding-right: 26px
+                        .address,
+                        .name,
+                        .customer-phone
+                            font-size: 14px
+                            margin-bottom: 4px 
+                        .name 
+                            margin-bottom: 5px
+                        .customer-phone 
+                            margin-bottom: 0
+                        .customer-order-number.customer-order-date
+                            color: #828282  
+                            margin-bottom: 4px
+                            font-size: 14px
+                            padding-top: 17px
+                            & > a 
+                                color: #828282  
+                                font-size: 14px
+                        .before_customer_data_title 
+                            font-size: 12px
+                            font-weight: 700 
+                            color: #4f4f4f
+                            margin-bottom: 8px
+@media(max-width: 1199px)
+    @media(min-width: 993px )
+        .woocommerce-account
+            &.woocommerce-orders 
+                #main .page 
+                    & > .container
+                        padding: 0 30px 
+                        .woocommerce 
+                            .woocommerce-MyAccount-content-wrapper
+                                .woocommerce-MyAccount-navigation 
+                                    max-width: 250px 
+                                    width: 100%
+                                .woocommerce-MyAccount-content
+                                    max-width: calc( 100% - 282px )
+                                    width: calc( 100% - 282px )
+                                    margin-left: 32px 
+                                    margin-right: 0
+                                    .woocommerce-MyAccount-orders 
+                                        .orders 
+                                            .order 
+                                                .order-status-wrapper
+                                                    padding-left: 30px 
+                                        .customer-data
+                                            padding-left: 30px 
+                                            padding-right: 10px 
+                                            & > div 
+                                                font-size: 12px 
+                                                &.before_customer_data_title 
+                                                    font-size: 10px 
+                                        .product-details
+                                            padding-left: 10px 
+                                            .order-details-head  
+                                                & > div 
+                                                    font-size: 10px 
+                                            .order_item
+                                                & > div
+                                                    font-size: 10px 
+                                                    .woocommerce-Price-currencySymbol
+                                                        &::after
+                                                            font-size: 10px
+                                                    .product-name
+                                                        font-size: 10px 
+                                                    &.product-details-button-wrapper 
+                                                        padding-right: 20px 
+                                                        .button 
+                                                            max-width: 100%
+                                                            min-width: auto 
+                                                            line-height: 1
+                                                            display: inline-block
+                                                            padding-top: 3px
+                                                            padding-bottom: 6px
+                                                            a 
+                                                                font-size: 10px 
+                                                                white-space: nowrap
+@media( max-width: 992px )
+    .woocommerce-account
+        &.woocommerce-orders 
+            #main .page 
+                & > .container
+                    padding-left: 27px 
+                    padding-right: 26px
+                    .woocommerce 
+                        .woocommerce-MyAccount-content-wrapper
+                            .account_top_button 
+                                display: none
+                            .orders_top_button 
+                                display: block
+                                margin-bottom: 28px 
+                            .woocommerce-MyAccount-navigation 
+                                display: none
+                            .woocommerce-MyAccount-content
+                                padding-left: 0
+                                margin-left: 0
+                                h2.orders-page-title
+                                    display: none
+                                .woocommerce-MyAccount-orders
+                                    border-radius: 0 
+                                    border: 0
+                                .orders 
+                                    .order 
+                                        border: 1px solid #e5e5e5
+                                        border-radius: 5px 
+                                        margin-bottom: 18px 
+                                        padding-bottom: 0
+                                        &:last-child
+                                            margin-bottom: 0
+                                        .row.closed-order
+                                            margin-left: 0
+                                            margin-right: 0
+                                            padding: 8px 7px 11px 7px 
+                                            & > div 
+                                                padding: 0
+                                            .order-date.order-number 
+                                                display: flex 
+                                                justify-content: space-between
+                                                order: 1
+                                                font-size: 0
+                                                margin-bottom: 10px 
+                                                max-width: 100%
+                                                span 
+                                                    font-size: 10px 
+                                                    font-weight: 500
+                                                    font-family: Montserrat
+                                            .order-status-wrapper
+                                                order: 2
+                                                margin-bottom: 3px
+                                                max-width: 100%
+                                                .status 
+                                                    font-size: 12px 
+                                                    font-family: Montserrat
+                                                    font-weight: 700
+                                                    padding-top: 0
+                                                    &::before 
+                                                        display: none
+                                            .order-total 
+                                                order: 3 
+                                                font-size: 12px 
+                                                font-weight: 300
+                                                font-family: Montserrat
+                                                padding-top: 7px
+                                                .amount
+                                                    font-weight: 700
+                                                    span 
+                                                        font-weight: 700
+                                            .show_delails_button_wrapper 
+                                                order: 4 
+                                                padding-top: 12px 
+                                                padding-right: 2px 
+                                                &::before
+                                                    top: 0 
+                                                    height: 7px 
+                                                    width: 14px 
+                                                    right: 21px 
+                                                    background-size: cover
+                                        .opened-order
+                                            .row
+                                                margin-left: 0
+                                                margin-right: 0
+                                                .customer-data
+                                                    max-width: 100% 
+                                                    flex: 0 0 100%
+                                                    padding-left: 7px 
+                                                    padding-right: 7px
+                                                    .customer-order-number.customer-order-date
+                                                        display: none
+                                                    & > div 
+                                                        font-size: 11px 
+                                                        font-weight: 400
+                                                        margin-bottom: 3px 
+                                                    .before_customer_data_title
+                                                        font-weight: 700
+                                                        color: #4f4f4f 
+                                                        font-size: 12px 
+                                                        margin-bottom: 6px 
+                                                    & > div:last-child
+                                                        margin-bottom: 0
+                                                .product-details 
+                                                    padding-left: 7px 
+                                                    padding-right: 7px 
+                                                    max-width: 100% 
+                                                    flex: 0 0 100%
+                                                    .order-details-head 
+                                                        padding-top: 10px 
+                                                        & > div 
+                                                            display: none 
+                                                        .product-image--name-head 
+                                                            display: block
+                                                            padding-left: 0
+                                                            margin-bottom: 6px 
+                                                    .order_item 
+                                                        margin-bottom: 6px
+                                                        & > div 
+                                                            display: none 
+                                                        .product-name--image-wrapper
+                                                            display: block 
+                                                            padding-left: 0px 
+                                                            max-width: 100% 
+                                                            flex: 0 0 100%
+                                                            display: flex
+                                                            .product-image 
+                                                                max-height: 47px 
+                                                                margin-right: 9px
+                                                                img 
+                                                                    object-fit: contain
+                                                    .mobile_product_data_wrapper 
+                                                        width: 100%
+                                                        padding-left: 11px 
+                                                        padding-right: 20px 
+                                                        margin-bottom: 20px
+                                                        .mobile_product_data 
+                                                            &:first-child
+                                                                padding-left: 0
+                                                            &:last-child
+                                                                padding-right: 0
+                                                            .mobile_product_data_title 
+                                                                font-weight: 700
+                                                                font-size: 12px 
+                                                                margin-bottom: 5px 
+                                                                color: #4f4f4f
+                                                            .mobile_product_data_content
+                                                                font-size: 12px
+                                                                font-weight: 400
+                                                                del 
+                                                                    text-decoration: none
+                                                                    display: none
+                                                                ins
+                                                                    text-decoration: none
+                                                    .mobile_repeat_order_button 
+                                                        text-align: center
+                                                        margin-bottom: 24px 
+                                                        .button 
+                                                            padding: 10px 12.5px 
+                                                            line-height: 1
+                                                            a 
+                                                                font-size: 16px 
+                                                                color: #fafafa
+                                                                font-weight: 600
+    @media(min-width: 769px)
+        .woocommerce-account
+            &.woocommerce-orders 
+                #main .page 
+                    & > .container
+                        .woocommerce 
+                            .woocommerce-MyAccount-content-wrapper
+                                .woocommerce-MyAccount-content 
+                                    margin-left: 32px
+                                    margin-top: 0
+                                .woocommerce-MyAccount-navigation 
+                                    display: block
+                                .orders_top_button 
+                                    display: none
+@media( min-width: 993px )
+    .woocommerce-account
+        .page
+            & > .container
+                .woocommerce 
+                    .woocommerce-MyAccount-content-wrapper
+                        .woocommerce-MyAccount-content
+                            .orders 
+                                .order
+                                    .opened-order
+                                        .row
+                                            .mobile_product_data_wrapper
+                                                display: none
+                                            .mobile_repeat_order_button 
+                                                display: none
+@media(min-width: 1200px)
+    @media(max-width: 1400px)
+        .woocommerce-account
+            #main
+                .page
+                    & > .container
+                        .woocommerce 
+                            .woocommerce-MyAccount-content-wrapper
+                                .woocommerce-MyAccount-navigation 
+                                    width: 260px
+                                    min-width: 260px
+                                .woocommerce-MyAccount-content      
+                                    .woocommerce-MyAccount-orders                                        
+                                        .orders 
+                                            .order 
+                                                .order-details
+                                                    .row 
+                                                        .product-details
+                                                            .product-details-button-wrapper
+                                                                .button 
+                                                                    padding: 6px 8.5px
+                                                                    line-height: 1
+                                                                    min-width: auto
+                                                                    padding-bottom: 8px
+                                                                    a 
+                                                                        font-size: 12px 
+                                                                        white-space: nowrap

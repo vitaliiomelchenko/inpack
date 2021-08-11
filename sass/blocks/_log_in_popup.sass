@@ -1,0 +1,253 @@
+.log-in_popup-wrapper,
+.register_popup-wrapper
+    max-width: 374px
+    width: 100%
+    position: fixed
+    top: 105px
+    right: 32px
+    background: #fff
+    opacity: 0
+    visibility: hidden
+    transform: translateY(50px)  
+    transition: .3s
+    .log-in_popup,
+    .register_popup
+        padding: 20px 27px 
+        position: relative
+        form.woocommerce-form
+            .form-row
+                padding: 0
+                margin: 0
+            .form-row.submit-button-wrapper
+                display: flex
+                justify-content: center
+                .woocommerce-form-login__submit,
+                .woocommerce-form-register__submit
+                    min-width: 0
+                    background: #E30613
+                    border-radius: 5px
+                    padding: 11px 65.5px
+                    color: #FAFAFA
+                    font-weight: 600
+                    font-size: 20px
+                    line-height: 1.4
+                    margin-top: 40px
+                    margin-right: 0
+                    &[disabled]
+                        cursor: no-drop
+                        opacity: .7
+        form.login, form.register
+            border: 0
+            padding: 0
+        .woocommerce-form-login__rememberme
+            display: none
+        .close-icon
+            width: 15px
+            height: 15px
+            position: absolute
+            background-image: url('../assets/img/popup_close_icon.svg')
+            background-size: contain
+            background-repeat: no-repeat
+            top: 20px
+            right: 22px
+            cursor: pointer
+        .woocommerce-privacy-policy-text
+            display: none
+        .form-row
+            label.reg_password2
+                display: none
+        .form-checkbox
+            font-size: 10px
+            color: #BDBDBD
+            font-weight: 500
+            position: relative
+            display: flex
+            margin-top: 3px
+            margin-bottom: 4px
+            &::before
+                content: ""
+                width: 15px
+                height: 15px
+                border: 0.5px solid #C4C4C4
+                border-radius: 3px
+                position: absolute
+                top: 0
+                left: 0
+            &.ative-checkbox
+                &::after
+                    content: ""
+                    position: absolute
+                    top: 2px
+                    left: 2px
+                    width: 12px
+                    height: 12px 
+                    background-image: url('../assets/img/')
+            input
+                width: 0
+                height: 0
+                opacity: 0
+                visibility: hidden
+            a
+                font-weight: 600
+                color: #4285F4
+            label 
+                display: inline-block
+                padding-left: 22px
+                cursor: pointer
+                -webkit-touch-callout: none 
+                -webkit-user-select: none 
+                -khtml-user-select: none 
+                -moz-user-select: none 
+                -ms-user-select: none
+                user-select: none
+                line-height: 1.6
+                z-index: 2
+    .popup-title
+        color: #4285F4
+        margin-bottom: 32px
+        font-size: 24px
+        font-weight: 700
+        text-align: center
+        line-height: 1.8
+    .woocommerce-form-login__rememberme
+        display: none
+    .submit-button-wrapper
+        text-align: center
+        margin-top: 40px
+    .registered,
+    .not-registered
+        text-align: center
+        font-size: 12px
+        color: #4F4F4F
+        line-height: 1.8
+        a
+            color: #4285F4
+            font-size: 14px
+            font-weight: 700
+            display: inline-block
+            margin-left: 9px
+body
+    .overlay 
+        position: fixed
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background: rgba( 0, 0, 0, .5)
+        opacity: 0
+        visibility: hidden
+        transition: .3s
+        z-index: 4
+    &.open-popup
+        position: relative
+        .overlay 
+            opacity: 1
+            visibility: visible        
+        &.log-in-popup
+            .log-in_popup-wrapper
+                opacity: 1
+                visibility: visible
+                transform: translateY(0) 
+                z-index: 111111
+        &.register-popup 
+            .log-in_popup-wrapper
+                opacity: 0
+                visibility: hidden
+            .register_popup-wrapper
+                opacity: 1
+                visibility: visible
+                transform: translateY(0) 
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus 
+    border: 1px solid #E5E5E5
+    -webkit-text-fill-color: #BDBDBD
+    //-webkit-box-shadow: 0 0 0px 1000px #000 inset
+    transition: background-color 5000s ease-in-out 0s
+    background: #fff
+.register_popup-wrapper
+    z-index: 5
+.log-in_popup-wrapper,
+.register_popup-wrapper
+    &.active 
+        opacity: 1
+        visibility: visible
+body
+    .log-in_popup-wrapper,
+    .register_popup-wrapper
+        form.woocommerce-form 
+            .woocommerce-form-row
+                input[type="text"],
+                input[type="password"],
+                input[type="email"]
+                    padding: 13px 15px 13px 15px
+                    border: 1px solid #E5E5E5
+                    color: #BDBDBD
+                    font-size: 14px
+                    margin-bottom: 15px
+                    background: #fff
+                    border-radius: 10px 
+                    width: 100%
+                    line-height: 1.6
+                    &::placeholder
+                        color: #BDBDBD
+                &.password_field
+                    input
+                        margin-bottom: 7px
+.woocommerce form.woocommerce-form .show-password-input, .woocommerce-page form.woocommerce-form .show-password-input
+    display: none
+.woocommerce form.checkout_coupon, .woocommerce form.login.woocommerce-form, .woocommerce form.register.woocommerce-form
+    margin: 0
+@media ( max-width: 768px  )
+    .log-in_popup-wrapper,
+    .register_popup-wrapper
+        margin-right: 6px 
+        margin-left: 6px
+        width: calc( 100% - 12px )
+        max-width: 350px
+        top: 50%
+        left: 0
+        .log-in_popup,
+        .register_popup
+            padding: 20px 18px 20px 19px 
+            .woocommerce-button
+                margin-top: 37px
+            .close-icon 
+                top: 13px 
+                right: 16px 
+        body.open-popup.log-in-popup &,
+        body.open-popup.register-popup &
+            transform: translateY(-50%)
+    .register_popup-wrapper
+        .register_popup
+            .close-icon 
+                top: 20px 
+                right: 18px 
+    @media( min-width: 362px )
+        .log-in_popup-wrapper,
+        .register_popup-wrapper
+            margin-right: 0px 
+            margin-left: 0px
+            width: calc( 100% - 12px )
+            max-width: 350px
+            top: 50%
+            left: 50%
+            transform: translateX(-50%)
+            .log-in_popup,
+            .register_popup
+                padding: 20px 18px 20px 19px 
+                .woocommerce-button
+                    margin-top: 37px
+                .close-icon 
+                    top: 13px 
+                    right: 16px 
+            body.open-popup.log-in-popup &,
+            body.open-popup.register-popup &
+                transform: translateX( -50% ) translateY(-50%)   

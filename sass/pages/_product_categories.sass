@@ -1,0 +1,121 @@
+.katalog.categories_page_title__wrapper 
+    .container
+        max-width: 1440px 
+        .katalog-page-title
+            .background-title 
+                margin-left: 0
+            h2
+                margin-left: 142px
+.product_categories
+    .shop-page-container
+        max-width: 1440px 
+        padding-left: 45px
+        padding-right: 75px
+        .sidebar
+            padding-right: 0
+            flex: 0 0 25.3%
+            max-width: 25.3%
+            padding-right: 1.5px 
+        .product_categories_list.col-md-9
+            max-width: 949px
+            margin-left: auto
+            margin-top: 30px
+            width: 74.7%
+            .row
+                margin-right: -10px 
+                margin-left: -10px 
+                .product_category_item__wrapper 
+                    padding: 0 10px
+                .product_category_item 
+                    border: 1px solid #E30613
+                    background: #fff
+                    color: #E30613
+                    min-height: 210px
+                    transition: .3s
+                    display: flex 
+                    flex-direction: column
+                    margin-bottom: 30px
+                    cursor: pointer
+                    .product_category_image
+                        svg 
+                            width: 90px 
+                            height: 90px
+                            path
+                                fill: #E30613
+                                transition: .3s
+                    .product_category_name
+                        color: #E30613
+                        transition: .3s
+                        margin-top: auto
+                        margin-left: 14px
+                        margin-bottom: 12px
+                        margin-right: 5px
+                    .product_category_image
+                        margin-left: auto
+                        margin-top: 13px
+                        margin-right: 15px
+                        img 
+                            width: 90px 
+                            height: 90px 
+                    &:hover
+                        background: #E30613
+                        color: #fff
+                        .product_category_name
+                            color: #fff
+                        .product_category_image
+                            svg 
+                                path
+                                    fill: #fff
+@media(max-width: 992px)
+    @media( min-width: 769px )
+        .product_categories
+            .shop-page-container
+                max-width: 1440px 
+                padding-left: 30px
+                padding-right: 30px
+@media( max-width: 768px  )
+    .page 
+        .katalog
+            .container
+                .katalog-page-title 
+                    margin-bottom: 0px
+                    margin-top: 33px 
+    .product_categories
+        .shop-page-container
+            padding: 0 10px 
+            .product_categories_list
+                padding-right: 10px 
+                margin-bottom: 42px 
+                margin-top: 20px 
+                .row
+                    margin: 0 -15px 
+                    .product_category_item__wrapper
+                        padding: 0 15px 
+                        .product_category_item 
+                            height: 70px
+                            min-height: auto
+                            display: flex
+                            flex-direction: row-reverse
+                            align-items: center 
+                            background: #e30613
+                            margin-bottom: 10px
+                            .product_category_name
+                                color: #fff
+                                margin-bottom: auto
+                                margin-left: 14px 
+                                max-width: calc( 100% - 110px )
+                                margin-right: 20px 
+                            .product_category_image 
+                                margin-right: 20px 
+                                margin-top: 0
+                                height: 56px 
+                                margin-top: 7px 
+                                margin-bottom: 7px
+                                img
+                                    width: 56px 
+                                    height: 56px
+                                svg
+                                    width: 56px 
+                                    height: 56px 
+                                    path 
+                                        fill: #fff
