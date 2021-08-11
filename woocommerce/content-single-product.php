@@ -39,14 +39,17 @@ if ( post_password_required() ) {
 			<div class="col-4 product-page-left-col">
 				<?php do_action( 'product_image' ); ?>
 			</div>
-			<div class="col-8 product-page-right-col">
+			<div class="col-md-8 col-12 product-page-right-col">
                 <div class="product-page-data-wrapper">
                     <div class="product-page-data">
                         <?php do_action('product_title'); ?>
 						<?php 
-						do_action('woocommerce_before_add_to_cart_button');
+							do_action('woocommerce_before_add_to_cart_button');
 						?>
                         <div class="like-button"><?php echo do_shortcode( '[yith_wcwl_add_to_wishlist]' ) ?></div>
+						<div class="mobile_product_image mobile">
+							<?php do_action( 'product_image' ); ?>
+						</div>
                         <div class="description">
                             <div class="description-title">Опис:</div>
                             <ul class="product-attributes">
@@ -72,7 +75,7 @@ if ( post_password_required() ) {
 			<?php 
 			// параметры по умолчанию
 			$posts = get_posts( array(
-				'numberposts' => -1,
+				'numberposts' => 6,
 				'category'    => 0,
 				'orderby'     => 'date',
 				'order'       => 'DESC',

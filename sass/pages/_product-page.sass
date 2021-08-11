@@ -100,7 +100,9 @@
                                         padding: 0
                                         font-weight: 500
                                         border: 0
-                                        
+                                        background: transparent
+                                        * 
+                                            font-style: normal
                                         p
                                             margin-bottom: 0 
                                             padding: 0
@@ -373,3 +375,294 @@
     #sidebar,
     .woocommerce-breadcrumb
         display: none
+@media(max-width: 992px)
+    @media(min-width: 769px)
+        .product-page
+            margin-top: 42px 
+        .product-page,
+        .product-page.outofstock 
+            .container 
+                padding: 0 30px 
+                .product-page-right-col 
+                    .product-page-data-wrapper 
+                        padding-top: 48px 
+                        padding-left: 32px 
+                        .product-page-data 
+                            .product-title.h4
+                                margin-bottom: 16px 
+                            .stock
+                                font-size: 12px 
+                                padding: 4px 12px 
+                                margin-bottom: 8px 
+                            .description
+                                margin-bottom: 24px 
+                            .price.h4 
+                                margin-bottom: 0
+                            .add-to-cart-button
+                                .stock.out-of-stock
+                                    padding-left: 0
+                            .product-attributes
+                                margin-bottom: 18px 
+                                table 
+                                    tr 
+                                        th
+                                            font-size: 14px 
+                                            background: transparent
+                                        td,
+                                        td p
+                                            font-size: 14px 
+                                            line-height: 1
+                                            font-style: normal
+                                            background: transparent
+                            .description 
+                                .description-title
+                                    font-size: 16px 
+                                    margin-bottom: 8px 
+    .product-slider-section 
+        .container 
+            .h2
+                margin-left: 0
+                margin-bottom: 24px
+            .product-slider 
+                .slick-list 
+                    .slick-track 
+                        .product-slider-item 
+                            padding-left: 30px 
+                            padding-right: 30px 
+                            padding-bottom: 20px 
+                            .like-icon
+                                top: 24px 
+                                right: 20px 
+                            .product-title-wrapper 
+                                .product-title.h4
+                                    font-size: 18px 
+                            .slider-item-image 
+                                .new-label
+                                    top: -20px 
+                                    left: 0
+@media(max-width: 768px )
+    .product-page.outofstock 
+        .container 
+            .product-page-right-col
+                .product-page-data-wrapper
+                    .product-page-data
+                        .stock.out-of-stock
+                            font-size: 10px
+                            padding: 3px 4px 3px 5px 
+                            border-radius: 5px 
+                            background: #c4c4c4
+                            color: #828282
+                            margin-top: 5px
+                            margin-bottom: 5px
+    .product-page
+        margin-bottom: 0
+    .product-page,
+    .product-page.outofstock 
+        margin-top: 30px 
+        .container 
+            padding-left: 12px 
+            padding-right: 12px 
+            .product-page-left-col
+                display: none
+            .product-page-right-col
+                .product-page-data-wrapper
+                    padding-left: 0 
+                    padding-top: 0
+                    background: #fff
+                    padding-bottom: 50px 
+                    .product-page-data
+                        max-width: 100%
+                        padding-right: 0
+                        display: flex 
+                        flex-wrap: wrap 
+                        align-items: flex-start
+                        .product-title 
+                            margin-bottom: 8px 
+                            font-size: 14px 
+                            width: 100%
+                        .mobile_product_image 
+                            width: calc(100% - 15px )
+                            margin-bottom: 32px
+                            margin-right: 15px 
+                            display: flex 
+                            justify-content: center
+                            .wp-post-image
+                                max-width: 191px 
+                        .like-button
+                            margin-bottom: 32px 
+                            .yith-wcwl-add-button
+                                .add_to_wishlist
+                                    i 
+                                        position: relative
+                                        width: 15px 
+                                        margin-right: 4px 
+                                        &::before 
+                                            font-size: 15px 
+                                            top: 50% 
+                                            transform: translateY(-50%)
+                                            position: absolute
+                                    span 
+                                        color: #BDBDBD
+                                        font-size: 12px 
+                                        font-weight: 500
+                                        display: inline-block
+                                        line-height: 2.5
+                                .delete_item
+                                    color: #BDBDBD
+                                    font-size: 12px 
+                                    font-weight: 500
+                                    display: inline-block
+                                    line-height: 2.5
+                                    position: relative
+                                    padding-left: 19px 
+                                    i 
+                                        position: absolute
+                                        top: 50% 
+                                        transform: translateY(-50%)
+                                        left: 0
+                                        &::before
+                                            font-size: 15px 
+                        .description 
+                            .description-title
+                                padding-left: 15px 
+                                margin-bottom: 10px 
+                                font-size: 16px 
+                                color: #333
+                                font-weight: 600
+                            .product-attributes
+                                padding-left: 15px 
+                                table 
+                                    tr
+                                        margin-bottom: 8px 
+                                        &:last-child
+                                            margin-bottom: 0
+                                        th
+                                            font-weight: 500
+                                            font-size: 12px 
+                                            color: #828282
+                                            background: transparent 
+                                            line-height: 1.2
+                                        td 
+                                            background: transparent
+                                            p,
+                                            p a 
+                                                line-height: 1.2
+                                                font-weight: 400 
+                                                font-size: 12px 
+                                                color: #828282
+                                                font-style: normal
+                            .description-text
+                                padding-left: 3px 
+                                padding-right: 6px 
+                                p 
+                                    line-height: 1.7
+                                    font-size: 14px 
+                                    font-weight: 500
+                        .price.h4
+                            justify-content: flex-end
+                            width: 100% 
+                            padding-right: 20px
+                            line-height: 2
+                            align-items: center
+                            margin-bottom: 16px 
+                            .price 
+                                line-height: 1.3
+                        .add-to-cart-button
+                            margin-right: auto
+                            margin-left: auto
+                            padding-left: 14px 
+                            .stock.out-of-stock
+                                background: transparent 
+                                padding: 0 
+                                margin: 0
+                                a.out-of-stock-button 
+                                    background: #E30613
+                                    color: #fff
+                                    font-size: 14px 
+                                    font-weight: 600
+                                    padding-top: 10px 
+                                    padding-bottom: 10px 
+                                    padding-right: 39px 
+                                    padding-left: 39px 
+                                    letter-spacing: 0.03em
+                                    white-space: nowrap
+                                    border-radius: 10px 
+                                    margin-top: 0
+    .product-slider-section 
+        margin-bottom: 42px 
+        .container
+            padding: 0 15px 
+            padding-right: 0
+            .h2 
+                margin-left:  0 
+                font-size: 14px
+                margin-bottom: 6px  
+                line-height: 1.9
+            .product-slider 
+                overflow: hidden
+                .slick-list 
+                    overflow: visible
+                    max-width: 89.2%
+                    margin-left: -2.5px 
+                    .slick-track
+                        .product-slider-item
+                            margin: 0 2.5px 
+                            padding-top: 21px 
+                            padding-left: 8px 
+                            padding-right: 8px 
+                            padding-bottom: 4px
+                            .cart-icon
+                                display: none
+                            .slider-item-body 
+                                .price.h4
+                                    display: none
+                            .product-title-wrapper 
+                                margin-bottom: 0
+                                .product-title.h4
+                                    font-size: 9px 
+                                    color: #4F4F4F
+                            .slider-item-image
+                                max-width: 107px 
+                                margin-right: auto
+                                margin-left: auto
+                                margin-bottom: 3px 
+                                span.itsnew
+                                    display: none
+                            .like-icon
+                                top: 8px 
+                                right: -5px 
+                                .yith-wcwl-add-to-wishlist
+                                    .yith-wcwl-add-button 
+                                        a 
+                                            i 
+                                                width: 15px 
+                                                height: 14px 
+                                                background-size: contain
+                                                margin-right: 0px 
+                .slick-dots 
+                    display: flex 
+                    justify-content: center
+                    margin-top: 8px 
+                    li 
+                        button 
+                            font-size: 0
+                            padding: 0
+                            width: 10px 
+                            height: 10px 
+                            border-radius: 50% 
+                            background: #fff
+                            border: 1px solid #E30613
+                            margin-right: 15px 
+                        &.slick-active
+                            button 
+                                background-color: #E30613
+                        &:last-child
+                            margin-right: 0
+@media(min-width: 769px )
+    .product-page.outofstock 
+        .container 
+            .product-page-right-col 
+                .product-page-data-wrapper 
+                    .product-page-data 
+                        .mobile_product_image
+                            display: none
