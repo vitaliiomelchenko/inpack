@@ -30,6 +30,9 @@ get_header( 'shop' );
 
 ?>
 <?php echo get_template_part('template-parts/breadcrumbs') ?>
+<a class="back_button" href="#">
+	Головна
+</a>
 <section class="katalog">
     <div class="container">
 		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
@@ -38,6 +41,9 @@ get_header( 'shop' );
 				<h2><?php woocommerce_page_title(); ?></h2>
 			</div>
 		<?php endif; ?>
+		<div class="katalog_category_name">
+			Аксесуари
+		</div>
 	</div>
 	<?php
 	/**
@@ -61,7 +67,7 @@ if ( woocommerce_product_loop() ) {
 	?>
 	<div class="container" id="shop_container">
         <div class="row">
-            <div class="col-3 filter-col">
+            <div class="col-lg-3 col-12 filter-col">
 				<div class="filter_wrapper category">
 					<div class="filter_title">
 						Категорія
@@ -70,13 +76,13 @@ if ( woocommerce_product_loop() ) {
 						<?php echo do_shortcode( '[searchandfilter id="wpf_60d358e92dfeb"]' ) ?>
 					</div>
 				</div>
-				<div class="filter_wrapper">
+				<div class="filter_wrapper filters">
 					<div class="filter_title">
 						Фільтр
 					</div>
 					<div class="filter">
 						<div class="price">
-							<div class="price-range-title">Ціна</div>
+							<div class="price-range-title wpf_item_name">Ціна</div>
 							<?php echo do_shortcode( '[searchandfilter id="wpf_60d3292edca4b"]' ) ?>
 						</div>
 						<div class="product_attributes">
@@ -86,8 +92,11 @@ if ( woocommerce_product_loop() ) {
 				</div>
 			</div>
 
-            <div class="col-9 katalog-items">
+            <div class="col-lg-9 col-12 katalog-items">
                 <div class="top-filter-row">
+					<div class="mobile_open_filter_button">
+						Фільтри
+					</div>
 					<div class="sort_by">
 						<div class="filter-title">Сортування:</div>
 						<ul class="filter-list">

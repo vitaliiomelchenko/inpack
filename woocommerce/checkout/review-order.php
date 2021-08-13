@@ -64,7 +64,7 @@ defined( 'ABSPATH' ) || exit;
 		<div class="review_order_row_data"><?php wc_cart_totals_order_total_html(); ?></div>
 	</div>
 	<?php do_action( 'woocommerce_review_order_after_order_total' ); ?>
-	<?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Оформити замовлення" data-value="Оформити замовлення">Оформити замовлення</button>' ); // @codingStandardsIgnoreLine ?>
+	<?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Оформити замовлення" data-value="Оформити замовлення" disabled>Оформити замовлення</button>' ); // @codingStandardsIgnoreLine ?>
 
 
 </div>

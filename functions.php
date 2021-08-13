@@ -169,10 +169,7 @@ function change_currency_symbol( $symbols, $currency ) {
   return $symbols;
 }
 
-add_filter( 'woocommerce_product_single_add_to_cart_text', 'woocommerce_custom_single_add_to_cart_text' ); 
-function woocommerce_custom_single_add_to_cart_text() {
-    return __( 'Додати у кошик', 'woocommerce' ); 
-}
+
 
 add_filter( 'loop_shop_per_page', 'lw_loop_shop_per_page', 30 );
 

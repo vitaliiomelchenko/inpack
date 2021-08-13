@@ -290,6 +290,12 @@
                             margin: 0
                         .optional 
                             display: none
+@media(max-width: 1199px)
+    @media(min-width: 993px )
+        .woocommerce-checkout 
+            .container
+                padding-left: 30px
+                padding-right: 30px 
 @media(max-width: 992px )
     @media(min-width: 769px )
         body.woocommerce-checkout 
@@ -298,6 +304,25 @@
                     padding: 0 30px 
                     padding-left: 15px 
                     form.woocommerce-checkout 
+                        .woocommerce-checkout-review-order 
+                            .shop_table 
+                                padding-top: 36px 
+                                .review_order_row 
+                                    .review_order_row_data,
+                                    .woocommerce-Price-amount bdi,
+                                    .review_order_row_title
+                                        font-size: 12px 
+                                button
+                                    font-size: 12px 
+                                    padding: 12px 
+                                    margin-left: auto
+                                    margin-right: auto 
+                                    display: block 
+                                    padding: 8px 16px 
+                                    width: auto
+                                .review_order_row.order-total
+                                    padding-top: 24px 
+                                    margin-bottom: 32px 
                         .chechout_fields_wrapper
                             flex-direction: row 
                             .checkboxes_wrapper,
@@ -327,7 +352,12 @@
                             .payer_type_wrapper
                                 padding-right: 0
                         .woocommerce-checkout-review-order 
-                            max-width: 325px 
+                            max-width: 275px 
+                        .chechout_fields_wrapper 
+                            .checkboxes_wrapper 
+                                .woocommerce-input-wrapper 
+                                    label.checkbox
+                                        line-height: 1.8
 @media( max-width: 768px )
     body.woocommerce-checkout 
         padding-top: 0  
@@ -444,3 +474,34 @@
                                     .review_order_row_title
                                         padding-top: 0
                                         margin-top: 4px 
+        &.woocommerce-order-received 
+            #main 
+                .thankyou_banner_wrapper 
+                    flex-direction: column
+                    top: 0 
+                    left: 0
+                    transform: none
+                    .thankyou_banner_image_col
+                        width: 100% 
+                        padding-top: 61px 
+                        padding-right: 68px 
+                        padding-bottom: 42px 
+                        padding-left: 60px 
+                        img
+                            max-width: 192px
+                    .thankyou_banner_text_col 
+                        width: 100%
+                        padding-top: 60px 
+                        padding-left: 25px 
+                        padding-right: 17px
+                        padding-bottom: 36px 
+                        h2 
+                            font-size: 24px
+                            margin-bottom: 33px 
+                        .order_number,
+                        .order_date 
+                            color: #fafafa
+                            font-size: 14px 
+                            line-height: 1.45
+                        .order_number
+                            margin-bottom: 3px 

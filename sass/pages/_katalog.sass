@@ -1,6 +1,9 @@
 .katalog
     padding-bottom: 107px
     .container
+        max-width: 1440px 
+        padding-left: 40px 
+        padding-right: 70px 
         .katalog-page-title
             margin-bottom: 30px
             h2
@@ -25,7 +28,7 @@
                 margin-right: 10px
                 align-items: center
                 .filter-title
-                    margin-right: 8px
+                    margin-right: 13px
                     color: #333333
                     font-weight: 500
                 .filter-list
@@ -40,7 +43,7 @@
                         color: #BDBDBD
                         font-weight: 500
                         &.active 
-                            padding: 1px 4.5px 4px
+                            padding: 2px 4.5px 3px
                             color: #F44336
                             border: 1px solid #F44336
                             border-radius: 5px 
@@ -79,13 +82,22 @@
                     align-items: center
                 .count 
                     margin-left: auto
+                    .filter-list
+                        li 
+                            margin-right: 13px 
+                            &:last-child
+                                margin-right: 0
                 .sort_by
                     .filter-list
-                    li 
-                        font-size: 14px
+                        a 
+                            margin-right: 14px 
+                            &:last-child
+                                margin-right: 0
+                            &.active 
+                                padding: 2px 5.5px 5px 
             .product
                 position: relative
-                margin-bottom: 20px
+                margin-bottom: 30px
                 transition: .3s
                 a
                     display: block
@@ -376,8 +388,145 @@
                         &:last-child
                             margin-right: 0
         .filter-col
-            padding-right: 0   
+            padding-right: 0 
+@media(max-width: 1400px)
+    @media( min-width: 1200px )
+        .katalog 
+            .container 
+                padding-right: 40px 
+                .katalog-items 
+                    .top-filter-row 
+                        .filter-list 
+                            margin-right: 10px 
+                            li 
+                                font-size: 12px
+                            .filter-list-item
+                                &.popularity.first,
+                                &.title
+                                    font-size: 12px
+                                    margin-right: 8px
+                                &::before 
+                                    font-size: 12px 
+                .filter-col 
+                    .filter_wrapper 
+                        .price 
+                            .wpf_items_wrapper 
+                                .wpf_item_price 
+                                    input[type=number]
+                                        width: 60px 
+                                        margin-right: 16px 
+@media( max-width: 1199px )
+    @media( min-width: 993px )
+        .katalog 
+            .container 
+                max-width: 100%
+                padding-left: 30px 
+                padding-right: 30px 
+                .katalog-items 
+                    .top-filter-row 
+                        .sort_by
+                            .filter-title 
+                                font-size: 10px 
+                            .filter-list 
+                                .filter-list-item
+                                    margin-right: 12px 
+                                    &.first,
+                                    &.title 
+                                        font-size: 10px 
+                                    &::before 
+                                        font-size: 10px 
+                        .count 
+                            .filter-title
+                                font-size: 10px 
+                            .filter-list 
+                                li 
+                                    font-size: 10px 
+                    .row 
+                        .product 
+                            .product-title.h5
+                                font-size: 16px
+                            .product-image
+                                height: 140px 
+                                margin-left: 10px
+                                img 
+                                    object-position: left
+                .filter_wrapper
+                    .price 
+                        .wpf_items_wrapper 
+                            .wpf_item 
+                                .wpf_slider
+                                    width: calc( 100% - 32px )
+                                    margin-left: 12px 
+                                    margin-right: 12px 
+                    .filter_title
+                        font-size: 18px 
+                    .wpf_items_wrapper
+                        .wpf_item
+                            padding-left: 8px 
+                            padding-right: 8px 
+                    &.category
+                        .filter_title
+                            padding-left: 12px 
+                        .wpf_items_wrapper
+                            .wpf_item
+                                padding-left: 8px 
+                                padding-right: 8px 
+                                padding-bottom: 4px
+                        .wpf_hierachy
+                            li 
+                                font-size: 14px 
+                                &.has_child 
+                                    ul 
+                                        li 
+                                            label 
+                                                font-size: 12px 
+                    &.filters 
+                        padding-bottom: 12px 
+                        .filter
+                            .price
+                                .price-range-title
+                                    padding-left: 8px 
+                                    font-size: 16px 
+                                .wpf_item_submit
+                                    margin-bottom: -77px
+                            .product_attributes
+                                form 
+                                    margin-bottom: 0
+                                .wpf_items_wrapper
+                                    ul 
+                                        li
+                                            input 
+                                                margin-right: 4px 
+                                                margin-top: -2px 
+                                            label 
+                                                font-size: 14px 
+                                    .wpf_item
+                                        padding-bottom: 18px 
+                                        label
+                                            margin-bottom: 0
+                                        &.wpf_item_submit 
+                                            button 
+                                                font-size: 14px
+                                                padding: 8px 18px 
+                            .wpf_item_price
+                                padding-left: 8px 
+                                padding-right: 8px
+                                .wpf_price_from
+                                    margin-right: 12px 
+                                    
+                                .wpf_price_from,
+                                .wpf_price_to
+                                    max-width: calc( 50% - 48px )
+                                    font-size: 14px 
+                            .wpf_item_submit
+                                .wpf_search_button
+                                    padding: 6.5px 18px
 @media( max-width: 992px )
+    .woocommerce-shop 
+        .breadcrumbs
+            max-width: 100% 
+            padding-left: 30px 
+            padding-right: 30px 
     .katalog
         .container
             .katalog-page-title
@@ -396,11 +545,18 @@
                     text-transform: uppercase
                     opacity: .4
                     line-height: .75  
-@media(max-width: 768px )
     .katalog
-        padding-bottom: 107px
+        padding-bottom: 42px
+        margin-top: 20px 
         .container
             flex-direction: column
+            padding-left: 0
+            padding-right: 0
+
+            &#shop_container 
+                max-width: 100%
+                padding-left: 30px
+                padding-right: 30px
             .katalog-page-title
                 margin-bottom: 30px
                 h2
@@ -417,4 +573,471 @@
                     font-family: Days One
                     text-transform: uppercase
                     opacity: .4
-                    line-height: .75                
+                    line-height: .75    
+            .row 
+                .filter-col
+                    .category 
+                        display: none
+                    .filters
+                        overflow: hidden
+                        position: fixed 
+                        top: 36px
+                        left: -100%
+                        z-index: 99999
+                        transition: .3s 
+                        width: 280px 
+                        .filter_title 
+                            position: relative
+                            padding-left: 38px 
+                            font-size: 18px 
+                            padding-top: 8px 
+                            padding-bottom: 7px 
+                            &::before 
+                                content: "" 
+                                position: absolute
+                                background-image: url('../assets/img/mobile_filter_white_arrow.svg')
+                                width: 7px
+                                height: 14px 
+                                background-size: contain
+                                background-repeat: no-repeat
+                                left: 17.5px 
+                                top: 12px
+                        .filter
+                            form 
+                                margin-bottom: 0
+                            *
+                                position: static
+                            .wpf_slider 
+                                position: relative
+                                .ui-slider-handle 
+                                    position: absolute
+                            .price-range-title
+                                position: relative
+                                border-bottom: 1px solid #E0E0E0
+                                padding-left: 17px
+                                padding-top: 13px 
+                                padding-bottom: 12px 
+                                width: 100%
+                                margin-bottom: 0
+                                color: #4f4f4f
+                                font-size: 16px
+                                font-weight: 500
+                                margin-top: 0
+                                &::after 
+                                    content: ""
+                                    position: absolute
+                                    height: 12px 
+                                    width: 14px 
+                                    right: 21px 
+                                    top: 50%
+                                    transform: translateY( -50% ) rotate( -90deg )
+                                    background-image: url(../assets/img/filter_arrow.png)
+                                    background-size: cover
+                                    background-repeat: no-repeat
+                            .product_attributes 
+                                ul 
+                                    li 
+                                        input 
+                                            position: relative
+                                .wpf_item
+                                    .wpf_column_horizontal
+                                        position: absolute
+                                        top: 45px 
+                                        left: 100%
+                                        right: 0
+                                        bottom: 0
+                                        z-index: 11
+                                        transition: .3s 
+                                        background: #fff
+                                        display: block
+                                    .open + .wpf_column_horizontal
+                                        left: 0
+                                .wpf_items_wrapper
+                                    .wpf_item
+                                        padding-left: 0
+                                        padding-right: 0    
+                                        .wpf_item_name
+                                            position: relative
+                                            border-bottom: 1px solid #E0E0E0
+                                            padding-left: 17px
+                                            padding-top: 13px 
+                                            padding-bottom: 12px 
+                                            width: 100%
+                                            margin-bottom: 0
+                                            font-weight: 500
+                                            font-size: 16px 
+                                            line-height: 1.4
+                                            &::after 
+                                                position: absolute
+                                                height: 12px 
+                                                width: 14px 
+                                                right: 21px 
+                                                transform: translateY( -50% ) rotate( -90deg )
+                                .wpf_item_submit 
+                                    padding-bottom: 33px 
+                                    .wpf_search_button
+                                        padding: 11px 76px 
+                                        font-size: 16px 
+                                        border-radius: 10px 
+                                        text-transform: none
+                                        margin-right: auto
+                                        margin-left: auto
+                        .price 
+                            form
+                                .wpf_items_wrapper 
+                                    position: absolute
+                                    top: 45px 
+                                    left: 100%
+                                    right: 0
+                                    bottom: 0
+                                    z-index: 11
+                                    transition: .3s 
+                                    background: #fff
+                                    display: flex
+                                    .wpf_price_from 
+                                        width: 48px 
+                                        font-size: 14px 
+                                        padding-top: 9px 
+                                        padding-bottom: 11px 
+                                        padding-left: 5px 
+                                        padding-right: 5px 
+                                        height: 40px
+                                        margin-right: 14px 
+                                    .wpf_price_to 
+                                        margin-right: 12px 
+                                        width: 70px 
+                                        font-size: 14px
+                                        height: 40px
+                                    .wpf_item_submit
+                                        margin-bottom: -81px 
+                                        padding-top: 45px  
+                                    .wpf_search_button
+                                        opacity: 0
+                                        transition: .3s 
+                                        padding: 6.5px 18px
+                                        font-size: 16px 
+                                        padding: 9px 36px 
+                                    .wpf_slider
+                                        margin-top: 54px 
+                                        margin-left: 7px 
+                                        max-width: calc( 100% - 20px )
+                            .wpf_item_name.open + form .wpf_items_wrapper
+                                left: 0
+                                .wpf_search_button 
+                                    opacity: 1
+                        &.opened 
+                            left: 0
+                .katalog-items
+                    .pagination
+                        display: none
+                    .show-more-button
+                        margin-top: 30px 
+                        .misha_loadmore
+                            padding: 13px 51px 12px 31px 
+                            font-family: Montserrat
+                            font-size: 13px 
+                            font-weight: 600
+                            &::after 
+                                background-image: url('../assets/img/load_more_icon.svg')
+                                width: 10px 
+                                height: 15px 
+                                background-size: contain
+                                top: 23px 
+                                right: 29px 
+                    .top-filter-row
+                        position: relative
+                        margin-right: 0
+                        margin-bottom: 24px 
+                        .mobile_open_filter_button
+                            background-color: #E30613
+                            position: relative
+                            font-size: 12px 
+                            font-weight: 500
+                            color: #fafafa
+                            background-color: 
+                            width: calc( 50% - 4px )
+                            margin-right: 4px 
+                            line-height: 1.2
+                            padding-left: 41px
+                            padding-top: 8px 
+                            padding-bottom: 8px 
+                            border-radius: 10px  
+                            &::before 
+                                content: ""
+                                width: 20px 
+                                height: 15px 
+                                background-image: url('../assets/img/mobile_open_filter_menu_button.svg')
+                                background-size: contain
+                                position: absolute
+                                left: 11px 
+                                top: 8px 
+                        .count
+                            display: none
+                        .sort_by
+                            position: absolute
+                            right: 0px 
+                            top: 0
+                            z-index: 5
+                            background: #fff
+                            display: flex 
+                            flex-direction: column
+                            border-radius: 10px 
+                            padding: 8px 10px 
+                            padding-bottom: 0
+                            font-size: 12px 
+                            font-weight: 500
+                            width: calc( 50% - 4px )
+                            margin-left: 4px 
+                            border: 1px solid #E30613
+                            align-items: flex-start
+                            .filter-title 
+                                color: #BDBDBD
+                                margin-bottom: 8px 
+                                position: relative
+                                width: 100%
+                                line-height: 1
+                                &::before 
+                                    content: ""
+                                    width: 10px 
+                                    height: 5px 
+                                    background-image: url('../assets/img/sort_by_arrow.svg')
+                                    position: absolute
+                                    top: 4px
+                                    right: 5px
+                                    background-size: contain 
+                                    transform: rotate(-180deg)
+                                    transition: .3s
+                                &.opened_list
+                                    &::before 
+                                        transform: rotate( 0deg )
+                            .filter-list
+                                display: none
+                                border-top: 1px solid #E30613
+                                width: calc( 100% + 20px )
+                                margin-left: -10px 
+                                padding-bottom: 18px 
+                                a 
+                                    color: #4f4f4f
+                                    border: 0
+                                    display: block
+                                    padding: 0
+                                    margin-top: 5px 
+                                    margin-bottom: 5px 
+                                    margin-left: 10px
+                                    line-height: 1.2
+                                    &.active.filter-list-item,
+                                    &.active.filter-list-item::before
+                                        font-weight: 500
+                                    &.popularity,
+                                    &.date
+                                        margin-top: 0
+                                        margin-bottom: 0
+                                    &.first.popularity 
+                                        margin-top: 5px 
+                                        margin-bottom: 5px 
+                                    &.price 
+                                        margin-top: 0
+                                    &.popularity.first,
+                                    &.title 
+                                        font-size: 10px  
+                                    &::before 
+                                        color: #4f4f4f
+                                        font-size: 10px 
+                    .row 
+                        margin-left: 0 
+                        margin-right: 0
+                        align-items: stretch
+                        .product
+                            max-width: calc( 33.33% - 15px )
+                            padding-left: 6px 
+                            padding-right: 6px 
+                            padding-bottom: 4px 
+                            border: 1px solid #F2F2F2
+                            border-radius: 10px 
+                            margin-bottom: 24px
+                            position: relative
+                            .out-of-stock-button-wrapper
+                                .button
+                                    color: #fafafa
+                                    font-size: 7px
+                                    margin-top: 0
+                                    padding: 6px 8px 6px 8px 
+                                    min-width: 1px
+                                    line-height: 1.5
+                                    margin-bottom: 5px 
+                                    margin-top: 5px 
+                            .out-of-stock-label-wrapper
+                                position: absolute
+                                left: 7px 
+                                top: 9px 
+                                line-height: 1
+                                .out-of-stock-label
+                                    margin-top: 0
+                                    color: #828282 
+                                    font-size: 10px 
+                                    padding: 3px 4px 3px 5px 
+                                    background: #C4C4C4
+                                    border-radius: 5px 
+                                    font-family: Gilroy
+                                    line-height: 1.4
+                            & > a 
+                                display: flex 
+                                flex-direction: column
+                                height: 100%
+                            .cart-icon
+                                bottom: 7px 
+                                right: 9px 
+                                width: 30px 
+                                .add_to_cart_button
+                                    width: 30px
+                                    height: 30px 
+                                    background-image: url(../assets/img/hover_cart_icon.svg)
+                                    background-size: contain
+                                    margin-right: 0
+                            &.outofstock 
+                                & > a 
+                                    height: auto
+                            .like-icon 
+                                top: 10px 
+                                right: 10px 
+                                .yith-wcwl-add-to-wishlist 
+                                    .yith-wcwl-add-button 
+                                        a
+                                            i 
+                                                width: 22px 
+                                                margin-right: 0
+                                                background-size: contain
+                                                background-repeat: no-repeat
+                            .product-image 
+                                max-width: 115px 
+                                padding-right: 8px 
+                                margin-right: auto
+                                margin-left: auto
+                                height: auto
+                                margin-top: 51px 
+                                margin-bottom: 4px 
+                                img 
+                                    height: auto
+                                .onsale,
+                                .itsnew
+                                    font-size: 10px
+                                    padding: 3px 9px 
+                                    border-radius: 5px 
+                                    top: 9px 
+                                    left: 1px 
+                            .product-title
+                                font-size: 10px
+                                margin-bottom: 37px 
+                            .product-data
+                                flex-direction: column
+                                margin-top: auto
+                                .product-info
+                                    font-size: 6px 
+                                    color: #BDBDBD
+                                    line-height: 1.3
+                                div.product-price
+                                    del
+                                        display: inline-block
+                                        margin-bottom: 2px 
+                                    .amount
+                                        line-height: 1.15 
+                                        display: block
+                                        bdi 
+                                            font-weight: 700 
+                                            font-size: 14px
+                            &.sale 
+                                .product-title
+                                    margin-bottom: 13px 
+                                .product-data
+                                    .product-price
+                                        position: static 
+                            &.outofstock
+                                .cart-icon
+                                    right: 5px 
+                                    a 
+                                        height: 30px 
+                                        min-width: 30px 
+                                        background-image: url('../assets/img/out_of_stock_cart_icon.svg')
+                                        padding: 0 
+                                .product-title
+                                    margin-bottom: 3px 
+                                .like-icon
+                                    .yith-wcwl-add-to-wishlist 
+                                        .yith-wcwl-add-button 
+                                            a 
+                                                i
+                                                    background-image: url('../assets/img/grey_heart.svg')
+    @media( min-width: 769px )
+        .katalog
+            .container
+                .row 
+                    .katalog-items
+                        .product 
+                            &:nth-child(3n + 1)
+                                margin-right: 15px 
+                            &:nth-child( 3n + 2 )
+                                margin-left: 7.5px 
+                                margin-right: 7.5px 
+                            &:nth-child(3n)
+                                margin-left: 15px 
+
+@media(max-width: 768px )
+    .woocommerce-shop 
+        .back_button 
+            position: relative
+            padding-left: 13px
+            font-size: 10px
+            line-height: 1.2
+            color: #828282
+            margin-top: 18px
+            margin-bottom: 19px
+            display: block
+            margin-left: 17px 
+            &::before 
+                content: ""
+                width: 6px
+                height: 12px
+                position: absolute
+                left: 0
+                top: 0
+                background-image: url(../assets/img/account_top_button_arrow.svg)
+        .katalog_category_name
+            color: #4f4f4f
+            font-size: 14px 
+            font-weight: 500
+            margin-bottom: 11px 
+            margin-left: 19px 
+        .katalog 
+            .container
+                &#shop_container
+                    padding: 0 10px 
+                .katalog-page-title
+                    margin-bottom: 12px
+    .katalog 
+        .container
+            .row 
+                .katalog-items 
+                    .top-filter-row
+                        .mobile_open_filter_button
+                            margin-left: 2px 
+                        .sort_by
+                            right: -2px
+                    .row 
+                        .product
+                            max-width: calc( 50% - 3px )
+                            margin-right: 3px 
+                            margin-bottom: 10px 
+                            &:nth-child(2n)
+                                margin-right: 0
+                                margin-left: 3px
+                                
+@media(min-width: 993px )
+    .top-filter-row
+        .mobile_open_filter_button
+            display: none
+@media(min-width: 769px)
+    .back_button 
+        display: none
+    .katalog 
+        .katalog_category_name
+            display: none

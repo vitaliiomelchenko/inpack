@@ -55,7 +55,9 @@ if ( post_password_required() ) {
                             <ul class="product-attributes">
 								<?php do_action( 'woocommerce_product_additional_information', $product ); ?>
                             </ul>
-                            <div class="description-text"><?php the_content() ?></div>
+							<?php if(!empty(get_the_content())): ?>
+                            	<div class="description-text"><?php the_content(); ?></div>
+							<?php endif; ?>
                         </div>
                         <div class="price h4">
                             Ціна: <?php do_action('product_price'); ?>
@@ -156,3 +158,14 @@ if ( post_password_required() ) {
 	</div>
 </section>
 <?php */ ?>
+<script>
+	var w = jQuery(window).width();
+	jQuery(document).ready(function(){
+		if(w > 768){
+			jQuery('.single-product .single_add_to_cart_button').html('<?php _e('Додати у кошик'); ?>');
+		}
+		else{
+			jQuery('.single-product .single_add_to_cart_button').html('<?php _e('У кошик'); ?>');
+		}
+	});
+</script>

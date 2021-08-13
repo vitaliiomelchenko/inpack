@@ -138,6 +138,12 @@ body
         visibility: hidden
         transition: .3s
         z-index: 4
+        z-index: 99
+    &.opened_filter_menu 
+        position: relative
+        .overlay 
+            opacity: 1
+            visibility: visible 
     &.open-popup
         position: relative
         .overlay 

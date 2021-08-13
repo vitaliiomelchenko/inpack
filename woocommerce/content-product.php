@@ -24,7 +24,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<div <?php wc_product_class( 'col-12 col-md-6 col-lg-4 product', $product ); ?>>
+<div <?php wc_product_class( 'col-6 col-lg-4 product', $product ); ?>>
 	<?php 
 	global $product;
 	$koostis = $product->get_attribute( 'count-in-pack' );	

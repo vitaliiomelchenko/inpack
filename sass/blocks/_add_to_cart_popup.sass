@@ -7,7 +7,7 @@
     width: 100%
     max-width: 564px
     height: 528px
-    z-index: 5
+    z-index: 999
     padding-top: 122px
     padding-left: 71px
     padding-right: 71px
@@ -36,3 +36,25 @@
 .open-popup 
     .add_to_cart_popup_wrapper
         opacity: 1 !important
+@media(max-width: 768px )
+    .add_to_cart_popup_wrapper
+        padding-left: 13px 
+        padding-right: 32px 
+        padding-top: 78px 
+        padding-bottom: 137px 
+        height: auto
+        max-width: 340px 
+        .add_to_cart_popup
+            max-width: 275px 
+            margin-left: auto 
+            h2 
+                font-size: 24px 
+                margin-bottom: 35px 
+                padding-left: 29px 
+                padding-right: 5px 
+            .buttons 
+                a
+                    font-size: 14px 
+                    line-height: 1.45
+                    &::after 
+                        bottom: -2px 
