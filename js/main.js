@@ -151,11 +151,9 @@ $(window).on('load', function() {
     $(this).toggleClass('open');
     $(this).parent().find('.wpf_submenu').slideToggle();
   });
+  $('.product_attributes .wpf_items_wrapper ul li input[checked="checked"]').addClass('checked');
   $('.product_attributes .wpf_items_wrapper ul li label').click(function(){
-    $(this).parent().find('input').not('[checked="checked"]').toggleClass('checked');
-    $(this).parent().find('input[checked="checked"]').addClass('uncheck');
-    $(this).parent().find('input.uncheck').toggleClass('checked');
-    $(this).parent().find('input.uncheck').removeClass('uncheck');
+    $(this).parent().find('input').toggleClass('checked');
   });
 });
 $(window).on('load', function() {
