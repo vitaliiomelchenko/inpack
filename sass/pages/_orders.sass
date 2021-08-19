@@ -83,7 +83,7 @@ div
                                 position: relative
                                 color: #BDBDBD
                                 font-size: 10px
-                                padding-top: 44px
+                                padding-top: 47px
                                 line-height: 1.4
                                 cursor: pointer
                                 &::before
@@ -91,14 +91,14 @@ div
                                     position: absolute
                                     width: 20px
                                     height: 10px
-                                    top: 20px
+                                    top: 27px
                                     right: 61px
                                     background-image: url('../assets/img/vector.svg')
                             .order-total 
                                 font-size: 16px
                                 font-weight: 500 
                                 line-height: 1.4
-                                padding-top: 20px
+                                padding-top: 27px
                                 padding-left: 9px 
                                 padding-right: 12px
                                 max-width: 212px
@@ -110,12 +110,25 @@ div
                             .order-number.order-date
                                 color: #828282
                                 line-height: 1.4
-                                padding-top: 17px
+                                padding-top: 24px
                                 padding-left: 49px
                                 padding-right: 21px 
                                 max-width: 282.5px
                                 a 
                                     color: #828282
+                            .order-status-wrapper
+                                display: flex 
+                                justify-content: flex-start
+                                padding-top: 12px
+                                .status
+                                    position: relative
+                                    padding-top: 40px
+                                    .status-icon
+                                        display: none
+                                        position: absolute
+                                        left: 50% 
+                                        top: 0
+                                        transform: translateX(-50%)
                             &.woocommerce-orders-table__row--status-completed 
                                 .product-details
                                     .order_item
@@ -130,18 +143,9 @@ div
                                     .status
                                         position: relative
                                         padding-top: 40px
-                                        &::before
-                                            background-image: url('../assets/img/completed_order.svg')
-                                            width: 30px
-                                            height: 30px
-                                            background-size: cover
-                                            margin-bottom: 10px
-                                            background-repeat: no-repeat
-                                            position: absolute
-                                            left: 50%
-                                            top: 0
-                                            transform: translateX(-50%)
-                                            content: ""
+                                        .status-icon
+                                            &.completed_order 
+                                                display: block
                             &.woocommerce-orders-table__row--status-cancelled 
                                 .order-status-wrapper
                                     color: #E30613
@@ -151,18 +155,17 @@ div
                                     .status
                                         position: relative
                                         padding-top: 37px
-                                        &::before
-                                            background-image: url('../assets/img/canceled_order.svg')
-                                            width: 30px
-                                            height: 30px
-                                            background-size: cover
-                                            margin-bottom: 10px
-                                            background-repeat: no-repeat
-                                            position: absolute
-                                            left: 50%
-                                            top: 0
-                                            transform: translateX(-50%)
-                                            content: ""
+                                        .canceled_order
+                                            display: block
+                            &.woocommerce-orders-table__row--status-on-hold 
+                                .order-status-wrapper
+                                    .status
+                                        color: orange 
+                                        .order_in_progres
+                                            display: block
+                                            svg
+                                                path 
+                                                    fill: orange 
                     .opened-order 
                         display: none
                     .order-details 
@@ -388,7 +391,7 @@ div
                                                     font-family: Montserrat
                                                     font-weight: 700
                                                     padding-top: 0
-                                                    &::before 
+                                                    .status-icon
                                                         display: none
                                             .order-total 
                                                 order: 3 

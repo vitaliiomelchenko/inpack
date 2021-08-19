@@ -38,7 +38,21 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 				<div class="woocommerce-orders-table__row woocommerce-orders-table__row--status-<?php echo esc_attr( $order->get_status() ); ?> order">
 					<div class="row closed-order">
 						<div class="woocommerce-orders-table__cell woocommerce-orders-table__cell-status order-status-wrapper col-lg-3 col-12" data-title="<?php echo esc_attr( $column_name ); ?>">
+							<?php 
+								$completed_icon = get_field( 'completed_order_icon', 'option' );
+								$order_in_progres = get_field( 'in-progres_order_icon', 'option' );
+								$canceled_order = get_field( 'canceled_order_icon', 'option' );
+							?>
 							<div class="status">
+								<div class="completed_order status-icon">
+									<?php echo file_get_contents(wp_get_original_image_path($completed_icon['id'])); ?>
+								</div>
+								<div class="order_in_progres status-icon">
+									<?php echo file_get_contents(wp_get_original_image_path($order_in_progres['id'])); ?>
+								</div>
+								<div class="canceled_order status-icon">
+									<?php echo file_get_contents(wp_get_original_image_path($canceled_order['id'])); ?>
+								</div>
 								<?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?>
 							</div>
 						</div>

@@ -20,23 +20,6 @@ jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" e
 					button.text( 'Показати більше' ); // insert new posts
 					jQuery('.katalog-items .row .product').last().after(data);
 					misha_loadmore_params.current_page++;
-					var w = $(window).width();
-					if( w > 992 ){
-						$('.katalog-items .product').each(function(){
-							var newLabel = $(this).find('.new-label').length;
-							if(newLabel > 0 ){
-							  $(this).addClass('new-product');
-							  var aditionalOffset = 10;
-							}
-							else{
-							  var aditionalOffset = 0;
-							}
-							var productTitleHeigt = $(this).find('.woocommerce-loop-product__title').height();
-							var productDataHeight = $(this).find('.product-data').height();
-							var outOfStockElements = $(this).find('.out-of-stock-label-wrapper').height() + $(this).find('.out-of-stock-button-wrapper').height();
-							$(this).find('.cart-icon').css('bottom', productTitleHeigt + productDataHeight + outOfStockElements + aditionalOffset + 24);
-						});
-					}
 					if ( misha_loadmore_params.current_page == misha_loadmore_params.max_page ) 
 						button.remove(); // if last page, remove the button
  

@@ -378,6 +378,52 @@ body
 					width: calc( 100% - 71px )
 					height: 36px
 					max-width: 100%
+					transition: .3s
+					.clear-search-field 
+						width: 27px
+						height: 100%
+						background: #fff 
+						position: relative
+						display: none
+						transition-duration: 0s
+						transition-delay: .3s
+						margin-left: -1px 
+						&::after 
+							content: ""
+							position: absolute
+							top: 50% 
+							left: 0
+							width: 10px 
+							height: 10px 
+							transform: translateY( -50% )
+							background-size: contain
+							background-image: url('../assets/img/clear-search-icon.svg')
+
+					.search-arrow
+						background-size: contain
+						display: none 
+						transition-duration: 0s
+						transition-delay: .3s
+						z-index: 999
+						height: 100%
+						width: 34px 
+						background-color: #fff
+						margin-right: 0
+						position: relative
+						margin-right: -1px
+						&::after
+							background: url('../assets/img/search_back_arrow.svg')
+							background-repeat: no-repeat
+							content: ""
+							position: absolute 
+							top: 50%
+							right: 0
+							transform: translateY( -50% )
+							width: 11px 
+							height: 11px 
+							background-size: contain
+							background-repeat: no-repeat
+							background-position: center
 					&::before
 						display: none
 					form 
@@ -386,7 +432,7 @@ body
 						.is-search-input[type=search]
 							width: 100%
 							border-radius: 0
-							padding-left: 11px
+							padding-left: 10px
 							padding-top: 8px 
 							padding-bottom: 8px 
 							padding-right: 11px
@@ -554,6 +600,42 @@ body
 					justify-content: center
 					.phone_numbers
 						display: none
+	body.active-search
+		.overlay
+			opacity: 1
+			visibility: visible
+		.header
+			.header-bottom
+				height: 83px 
+				position: relative
+				display: flex
+				.container
+					display: flex 
+					justify-content: space-between
+					.search-form
+						position: absolute
+						left: 13px 
+						width: calc( 100% - 24px )
+						margin-left: 0
+						margin-right: 0
+						z-index: 999
+						.search-arrow
+							display: block
+						.clear-search-field 
+							display: block
+body div.is-ajax-search-result
+	left: 13px !important
+	right: 11px !important
+	width: auto !important
+	background-color: #fff
+	.is-ajax-search-post, 
+	.is-ajax-search-post-details
+		padding-top: 11px 
+		padding-bottom: 8px 
+		border-bottom: 1px solid #e0e0e0
+	.is-show-more-results 
+		background: #fff !important
+		border-top: 2px solid #e0e0e0
 @media( min-width: 769px )
 	.header 
 		.header-bottom

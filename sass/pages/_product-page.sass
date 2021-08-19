@@ -215,22 +215,44 @@
                 .product-page-data-wrapper
                     .product-page-data
                         div.price
+                            font-size: 0
+                            margin-top: -19px 
                             p.price 
                                 display: flex 
                                 flex-direction: column
                                 del 
                                     color: #E30613
+                                    text-decoration: none
+                                    display: flex 
+                                    line-height: 2.5
                                     span 
+                                        display: flex
+                                        position: relative
                                         color: #333 
+                                        &::before 
+                                            font-size: 16px 
+                                        &::after 
+                                            position: absolute
+                                            content: ""
+                                            left: 0 
+                                            top: 55% 
+                                            transform: translateY(-50%)
+                                            border-bottom: 2px solid #E30613
+                                            right: 0
                                         bdi
-                                            font-size: 12px 
+                                            font-size: 16px 
+                                            display: flex
                                 ins
                                     text-decoration: none 
                                     color: #E30613
+                                    line-height: 2
                                     span 
+                                        display: flex
+                                        &::before 
+                                            font-size: 20px 
                                         bdi 
-                                            font-size: 12px 
-
+                                            font-size: 20px 
+                                            display: flex
 .product-slider-section
     margin-bottom: 58px
     .container

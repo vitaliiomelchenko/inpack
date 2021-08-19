@@ -17,9 +17,8 @@
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
-}?>
-<h1 class="checkout_page_title"><?php the_title(); ?></h1>
-<?php
+}
+
 do_action( 'woocommerce_before_checkout_form', $checkout );
 
 // If checkout registration is disabled and not logged in, the user cannot checkout.
@@ -31,32 +30,29 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 ?>
 
 <form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
-	<div class="chechout_fields_wrapper">
-		<div class="payer_type_wrapper col-5 checkboxes_wrapper">
-			<?php do_action('payer_type_checkout_fields'); ?>
-		</div>
-		<?php if ( $checkout->get_checkout_fields() ) : ?>
 
-			<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
+	<?php if ( $checkout->get_checkout_fields() ) : ?>
 
-			<div class="col2-set col-7 client_data" id="customer_details">
-				<div class="col-12">
-  					<div class="chekout_col_title_wrapper"><span class="col-number">2</span><div class="chekout_col_title"><?php _e( 'Ваші контактні данні' ); ?></div></div>
-					<?php do_action( 'woocommerce_checkout_billing' ); ?>
-				</div>
+		<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
+
+		<div class="col2-set" id="customer_details">
+			<div class="col-1">
+				<?php do_action( 'woocommerce_checkout_billing' ); ?>
 			</div>
 
-			<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
+			<div class="col-2">
+				<?php do_action( 'woocommerce_checkout_shipping' ); ?>
+			</div>
+		</div>
 
-		<?php endif; ?>
-		<div class="shipping_method checkboxes_wrapper col-12">
-			<?php do_action('shipping_method_extra_feilds'); ?>
-		</div>
-		<div class="payment_method checkboxes_wrapper col-12">
-			<?php do_action('payment_method_extra_feilds'); ?>
-		</div>
-		<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
-	</div>
+		<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
+
+	<?php endif; ?>
+	
+	<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
+	
+	<h3 id="order_review_heading"><?php esc_html_e( 'Your order', 'woocommerce' ); ?></h3>
+	
 	<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
 
 	<div id="order_review" class="woocommerce-checkout-review-order">
@@ -64,6 +60,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	</div>
 
 	<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
+
 </form>
 
 <?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>

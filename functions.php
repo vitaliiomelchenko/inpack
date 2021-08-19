@@ -387,92 +387,7 @@ function custom_catalog_ordering_args( $orderby ) {
     return $orderby; 
 }
 
-//Remove Checkout Fields 
-/*
-add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
-function custom_override_checkout_fields( $fields ) {
-  //unset($fields['billing']['billing_first_name']);
-  //unset($fields['billing']['billing_last_name']);
-  unset($fields['billing']['billing_company']);
-  unset($fields['billing']['billing_address_1']);
-  unset($fields['billing']['billing_address_2']);
-  unset($fields['billing']['billing_city']);
-  unset($fields['billing']['billing_postcode']);
-  unset($fields['billing']['billing_country']);
-  //unset($fields['billing']['billing_state']);
-  unset($fields['order']['order_comments']);
-  unset($fields['billing']['billing_email']);
-  unset($fields['account']['account_username']);
-  unset($fields['account']['account_password']);
-  unset($fields['account']['account_password-2']);
-  return $fields;
-}
-*/
-add_filter( 'woocommerce_checkout_fields' , 'misha_not_required_fields', 9999 );
-
-function misha_not_required_fields( $f ) {
-	
-	unset( $f['billing']['billing_address_1']['required'] ); // that's it
-  unset( $f['billing']['billing_country']['required'] );
-  unset( $f['billing']['billing_postcode']['required'] );
-  unset( $f['billing']['billing_phone']['required'] );
-  
-
-
-	// the same way you can make any field required, example:
-	// $f['billing']['billing_company']['required'] = true;
-	
-	return $f;
-}
-add_filter( 'woocommerce_default_address_fields' , 'misha_disable_address_fields_validation' );
-
-function misha_disable_address_fields_validation( $address_fields_array ) {
-
-	unset( $address_fields_array['address_1']['validate']);
-	unset( $address_fields_array['address_2']['validate']);
-  unset( $address_fields_array['city']['validate']);
-  unset( $address_fields_array['country']['validate']);
-  unset( $address_fields_array['company']['validate']);
-	// you can also hook first_name and last_name, company, country, city, address_1 and address_2
-
-	return $address_fields_array;
-
-}
-add_filter( 'woocommerce_billing_fields', 'ts_unrequire_wc_phone_field');
-function ts_unrequire_wc_phone_field( $fields ) {
-  $fields['billing_company']['required'] = false;
-  return $fields;
-}
-
 //Checkout Aditional Fields 
-/*
-function custom_checkout_fields($fields){
-  $fields['extra_fields'] = array(
-    'test_field' => array(
-      'type'          => 'checkbox',
-      'required'      => true,
-      'label'         => __('Test Extra Field'),
-      'autocomplete'  => 'address-level2',
-      'name'          => 'test-field',
-      'value'         => 'aditional-field'
-    )
-  );
-  return $fields;
-}
-add_filter('woocommerce_checkout_fields', 'custom_checkout_fields');
-
-function extra_checkout_fields(){
-  $checkout = WC()->checkout();?>
-  <div class="aditional_fields">
-    <h3><?php _e('Aditional Fields'); ?></h3>
-    <?php foreach($checkout->checkout_fields['extra_fields'] as $key => $field) : ?>
-      <?php woocommerce_form_field($key, $field, $checkout->get_value($key)); ?>
-    <?php endforeach; ?>
-  </div>
-<?php
-}
-add_action( 'aditional_fields_for_checkout', 'extra_checkout_fields' ); 
-*/
 function custom_checkout_fields($fields){
   $fields['payer_type'] = array(
     'type_1'          => array(
@@ -649,28 +564,6 @@ function vicodemedia_save_extra_details( $post_id, $post ){
 }
 // save data from admin
 add_action( 'woocommerce_process_shop_order_meta', 'vicodemedia_save_extra_details', 45, 2 );
-
-
-add_filter( 'woocommerce_checkout_fields', 'misha_remove_fields', 9999 );
-function misha_remove_fields( $woo_checkout_fields_array ) {
-	// she wanted me to leave these fields in checkout
-	// unset( $woo_checkout_fields_array['billing']['billing_first_name'] );
-	// unset( $woo_checkout_fields_array['billing']['billing_last_name'] );
-	// unset( $woo_checkout_fields_array['billing']['billing_phone'] );
-	 unset( $woo_checkout_fields_array['billing']['billing_email'] );
-	 unset( $woo_checkout_fields_array['order']['order_comments'] ); // remove order notes
-	// and to remove the billing fields below
-	unset( $woo_checkout_fields_array['billing']['billing_company'] ); // remove company field
-	//unset( $woo_checkout_fields_array['billing']['billing_country'] );
-	//unset( $woo_checkout_fields_array['billing']['billing_address_1'] );
-	//unset( $woo_checkout_fields_array['billing']['billing_address_2'] );
-	//unset( $woo_checkout_fields_array['billing']['billing_city'] );
-	unset( $woo_checkout_fields_array['billing']['billing_state'] ); // remove state field
-	unset( $woo_checkout_fields_array['billing']['billing_postcode'] ); // remove zip code field
-	return $woo_checkout_fields_array;
-}
-
-
 
 add_filter( 'woocommerce_checkout_fields' , 'override_billing_checkout_fields', 20, 1 );
 function override_billing_checkout_fields( $fields ) {

@@ -32,7 +32,12 @@ if ( post_password_required() ) {
 }
 ?>
 <?php echo get_template_part('template-parts/breadcrumbs') ?>
-
+<style>
+	.product-page.sale .container .product-page-right-col .product-page-data-wrapper .product-page-data div.price p.price del > span::before,
+	.product-page.sale .container .product-page-right-col .product-page-data-wrapper .product-page-data div.price p.price ins > span::before {
+		content: "<?php _e('Ціна') ?>";
+	}
+</style>
 <section id="product-<?php the_ID(); ?>" <?php wc_product_class( 'product-page', $product ); ?>>
     <div class="container">
         <div class="row">

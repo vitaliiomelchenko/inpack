@@ -1,4 +1,12 @@
 .breadcrumbs 
+    .container 
+        max-width: 1440px 
+        padding-left: 40px 
+.katalog
+    .container 
+        max-width: 1360px
+        padding-right: 30px
+.breadcrumbs 
     margin-top: 20px
     .container 
         line-height: 1
@@ -16,6 +24,8 @@
                     position: relative
                     margin: 0 12px
                     display: inline-block
+                    &:first-child
+                        margin-left: 0
                     &::after 
                         content: ""
                         position: absolute
@@ -53,25 +63,17 @@
                         margin-right: 17px 
                         &::after
                             right: -17px
-@media(min-width: 1400px)
-    .container 
-        max-width: 1330px
-    .breadcrumbs 
-        .container 
-            max-width: 1360px
-    .katalog
-        .container 
-            max-width: 1360px
-            padding-right: 30px
 @media(max-width: 1199px)
     @media ( min-width: 993px )
         .breadcrumbs
             .container
                 max-width: 100%
+                padding-left: 45px 
 @media( max-width: 992px  )
     .breadcrumbs 
         .container
             max-width: 100%
+            padding-left: 30px
 @media(max-width: 768px)
     .breadcrumbs
         display: none

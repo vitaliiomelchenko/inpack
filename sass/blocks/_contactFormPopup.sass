@@ -1,0 +1,83 @@
+.contact_form_wrapper
+    position: fixed 
+    opacity: 0
+    visibility: hidden
+    z-index: -1 
+    top: 50% 
+    left: 50% 
+    transform: translate( -50%, -20px )
+    transition: .3s 
+    width: 374px 
+    background: #fff
+    padding-top: 39px 
+    padding-left: 27px 
+    padding-right: 27px 
+    padding-bottom: 35px 
+    form 
+        .popup_title
+            color: #4f4f4f
+            font-size: 16px 
+            font-weight: 600
+            margin-bottom: 32px
+            padding-left: 5px 
+            line-height: 1.85
+        p 
+            .wpcf7-form-control-wrap
+                display: block
+                & + br 
+                    display: none
+                input 
+                    width: 100%
+                    padding-top: 13px 
+                    padding-bottom: 12px 
+                    padding-left: 15px 
+                    color: #bdbdbd
+                    border: 1px solid #e5e5e5
+                    border-radius: 10px 
+                    margin-bottom: 10px 
+                    line-height: 1.8
+                    &::placeholder
+                        color: 
+                        font-weight: 400
+                        color: #bdbdbd
+                &:nth-last-of-type(1)
+                    input 
+                        margin-top: 5px 
+                        margin-bottom: 32px 
+        .submit_button_wrapper
+            display: flex 
+            justify-content: center 
+            align-items: center
+            margin-right: -48px 
+            input[type="submit"]
+                padding: 16px 9px 12px 
+                width: auto 
+                font-size: 16px 
+                color: #fff 
+                font-weight: 600
+                height: auto 
+                line-height: 1.4
+            .ajax-loader
+                margin-right: 12px 
+                margin-left: 12px
+    .close_popup_cross
+        cursor: pointer
+        position: absolute
+        top: 15px 
+        right: 12px 
+        width: 15px 
+        height: 15px 
+        svg 
+            path 
+                fill: #E30613
+body.opened_contactForm_popup 
+    .overlay
+        opacity: 1
+        visibility: visible
+    .contact_form_wrapper 
+        transform: translate(-50%, -50%)
+        opacity: 1
+        visibility: visible
+        z-index: 999
+
+    

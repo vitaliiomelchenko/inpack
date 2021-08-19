@@ -74,26 +74,11 @@ $('.appear').each(function() {
 });
 
 $('.katalog-items .product').each(function(){
-    var w = $(window).width();
-    if(w > 992){
-      var newLabel = $(this).find('.new-label').length;
-      var onSale = $(this).find('.onsale').length;
-      if(newLabel > 0 ){
-        $(this).addClass('new-product');
-        var aditionalOffset = 10;
-      }
-      else if(onSale > 0){
-        var aditionalOffset = 10;
-      }
-      else{
-        var aditionalOffset = 0;
-      }
-      var productTitleHeigt = $(this).find('.woocommerce-loop-product__title').height();
-      var productDataHeight = $(this).find('.product-data').height();
-      var outOfStockElements = $(this).find('.out-of-stock-label-wrapper').height() + $(this).find('.out-of-stock-button-wrapper').height();
-      
-      $(this).find('.cart-icon').css('bottom', productTitleHeigt + productDataHeight + outOfStockElements + aditionalOffset + 24);
-    }
+  var newLabel = $(this).find('.new-label').length;
+  if(newLabel > 0 ){
+    $(this).addClass('new-product');
+    var aditionalOffset = 10;
+  }
 });
 
 jQuery(window).on('load', function(){
@@ -342,16 +327,42 @@ $(document).ready(function(){
 
 //Mobile sort by list 
 $(document).ready(function(){
-  $('.woocommerce-shop .sort_by').click(function(event){
-    $(this).find('.filter-list').slideToggle();
-    $(this).find('.filter-title').toggleClass('opened_list');
+  var w = $(window).width();
+  if(w <= 992) {
+    $('.woocommerce-shop .sort_by').click(function(event){
+      $(this).find('.filter-list').slideToggle();
+      $(this).find('.filter-title').toggleClass('opened_list');
+    });
+    $('.woocommerce-shop .top-filter-row .mobile_open_filter_button').click(function(){
+      $('body').addClass('opened_filter_menu');
+      $('body .filter-col .filter_wrapper.filters').addClass('opened');
+      $('.opened_filter_menu .overlay').click(function(){
+        $('body .filter-col .filter_wrapper.filters').removeClass('opened');
+        $('body').removeClass('opened_filter_menu');
+      });
+    });
+  }
+});
+
+$(document).ready(function(){
+  $('.clear-search-field').click(function(){
+    $('.is-search-input').val('');
   });
-  $('.woocommerce-shop .top-filter-row .mobile_open_filter_button').click(function(){
-    $('body').addClass('opened_filter_menu');
-    $('body .filter-col .filter_wrapper.filters').addClass('opened');
-    $('.opened_filter_menu .overlay').click(function(){
-      $('body .filter-col .filter_wrapper.filters').removeClass('opened');
-      $('body').removeClass('opened_filter_menu');
+  $('.search-arrow').click(function(){
+    $('body').removeClass('active-search');
+    $('.is-search-input').val('');
+  });
+})
+
+//Contact form popup
+$(document).ready(function(){
+  $('.header .header-bottom .icons .list').click(function(){
+    $('body').addClass('opened_contactForm_popup');
+    $('body.opened_contactForm_popup .overlay').click(function(){
+      $('body').removeClass('opened_contactForm_popup');
+    });
+    $('body.opened_contactForm_popup .contact_form_wrapper .close_popup_cross').click(function(){
+      $('body').removeClass('opened_contactForm_popup');
     });
   });
-});
+}); 

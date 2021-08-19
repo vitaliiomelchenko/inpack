@@ -92,7 +92,11 @@
 					<img src="<?php echo get_template_directory_uri(  ) ?>/assets/img/open_menu_button.svg" alt="">
 				</div>
 				<div class="search-form">
+					<div class="search-arrow">
+					</div>
 					<?php echo do_shortcode('[ivory-search id="391" title="Default Search Form"]'); ?>
+					<div class="clear-search-field">
+					</div>
 				</div>
 				<?php if(is_user_logged_in()): ?>
 				<?php $link = get_home_url() . '/my-account'; ?>
@@ -152,9 +156,9 @@
 			</div>
 			
 		</div>
-		<div class="mobile_katalog_button">
+		<a class="mobile_katalog_button" href="<?php echo get_home_url() ?>/categories-page">
 			<?php _e('Каталог товарів'); ?>
-		</div>
+		</a>
 		<div class="mobile_menu">
 			<div class="mobile_menu_close_button">
 			</div>
@@ -217,6 +221,14 @@
 	</header>
 	<div class="overlay"></div>
 	<div class="wrong_account_data woocommerce_message"><?php do_action( 'woocommerce_before_customer_login_form' ); ?></div>
+	<div class="contact_form_wrapper">
+		<?php echo do_shortcode('[contact-form-7 id="472" title="Contact header form"]'); ?>
+		<div class="close_popup_cross">
+			<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M15 1.93376L13.0481 0L7.49963 5.50193L1.95094 0L0 1.93469L5.54813 7.43662L0 12.9389L1.95094 14.8732L7.49963 9.37187L13.0481 14.8732L15 12.9389L9.45094 7.43662L15 1.93376Z" fill="white"/>
+			</svg>
+		</div>
+	</div>
 	<?php if(!is_user_logged_in()): ?>
 		<div class="log-in_popup-wrapper">
 			<div class="log-in_popup">

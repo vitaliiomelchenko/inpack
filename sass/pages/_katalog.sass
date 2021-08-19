@@ -21,7 +21,7 @@
         .katalog-items
             .row 
                 margin-left: 0
-                align-items: flex-start
+                align-items: stretch
             .top-filter-row
                 display: flex
                 margin-bottom: 45px
@@ -99,6 +99,22 @@
                 position: relative
                 margin-bottom: 30px
                 transition: .3s
+                &::before 
+                    content: ""
+                    position: absolute
+                    top: -20px 
+                    left: -2px
+                    right: -9px 
+                    bottom: -20px
+                    background-color: #fff
+                    opacity: 0
+                    z-index: -1
+                    transition: .3s
+                    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2)
+                    border-radius: 5px
+                &:hover
+                    &::before 
+                        opacity: 1
                 a
                     display: block
                     position: relative
@@ -197,6 +213,7 @@
                     position: absolute
                     right: 15px
                     width: 40px
+                    top: 170px 
                     .add_to_cart_button 
                         font-size: 0
                         background-color: transparent
@@ -255,10 +272,18 @@
                             display: block
                     .like-icon
                         .yith-wcwl-add-button 
-                            .delete_item,
+                            .delete_item 
+                                i 
+                                    background-image: url('../assets/img/filled_grey_heart.svg')
+                                    background-size: contain 
+                                    background-repeat: no-repeat
                             .add_to_wishlist 
                                 i
-                                    color: #c4c4c4
+                                    background-image: url('../assets/img/grey_heart.svg')
+                                    background-size: contain 
+                                    background-repeat: no-repeat
+                                    &:hover 
+                                        background-image: url('../assets/img/filled_grey_heart.svg')
                     .woocommerce-loop-product__title,
                     .product-data
                         color: #828282
@@ -304,6 +329,11 @@
                                             color: #E30613
                     .like-icon 
                         top: -2px
+                    .cart-icon 
+                        top: 152.5px 
+                &.new-product 
+                    .cart-icon 
+                        top: 152.5px 
             .show-more-button
                 text-align: center
                 margin-top: 28px
@@ -450,6 +480,13 @@
                                 margin-left: 10px
                                 img 
                                     object-position: left
+                            .cart-icon 
+                                top: 120px 
+                            &.sale,
+                            &.new-product
+                                .cart-icon 
+                                    top: 104.5px 
+
                 .filter_wrapper
                     .price 
                         .wpf_items_wrapper 
@@ -748,7 +785,8 @@
                     .pagination
                         display: none
                     .show-more-button
-                        margin-top: 30px 
+                        margin-top: 20px 
+                        line-height: 1.95
                         .misha_loadmore
                             padding: 13px 51px 12px 31px 
                             font-family: Montserrat
@@ -873,6 +911,8 @@
                             border-radius: 10px 
                             margin-bottom: 24px
                             position: relative
+                            &::before
+                                content: none
                             .out-of-stock-button-wrapper
                                 .button
                                     color: #fafafa
@@ -904,7 +944,8 @@
                             .cart-icon
                                 bottom: 7px 
                                 right: 9px 
-                                width: 30px 
+                                width: 30px
+                                top: auto 
                                 .add_to_cart_button
                                     width: 30px
                                     height: 30px 
