@@ -8,7 +8,7 @@
             <h2 class="advantages__title"><?php echo $advantagesTitle;?></h2>
         <?php endif;?>
             <div class="row advantages__row ">
-            <div class="col-lg-auto advantages__itemWrapper">
+            <div class="col-xl-auto advantages__itemWrapper">
                     <?php if (have_rows('first_repeater') ): ?>
                         <?php while(have_rows('first_repeater') ) : the_row();
                             $advantages_itemTitle = get_sub_field('advantages_itemTitle'); 
@@ -30,7 +30,7 @@
 
 
 
-                <div class="col-lg-auto advantages__item__big__wrapper">
+                <div class="col-xl-auto advantages__item__big__wrapper">
                     <?php if (have_rows('advantages_third') ): ?>
                         <?php while(have_rows('advantages_third') ) : the_row();
                             $advantagesBigTitle = get_sub_field('advantagesBigTitle'); 
@@ -48,7 +48,7 @@
                     </div>
                     <?php endif;?> 
 
-                <div class="col-lg-auto advantages__itemWrapper">
+                <div class="col-xl-auto advantages__itemWrapper advantages__itemWrapper--featured">
                     <?php if (have_rows('advantages_second') ): ?>
                         <?php while(have_rows('advantages_second') ) : the_row();
                             $advantages_itemTitle = get_sub_field('advantages_itemTitle_second'); 
@@ -62,16 +62,16 @@
                         <div class="advantages__item__content"><?php echo $advantages_itemContent;?></div>
                     <?php endif;?>
                     </div>
-                    <?php endwhile;?>    
+                    <?php endwhile;?>
+
                 </div>
                 <?php endif;?>
                 </div>
             </div>
+        </div>    
+        <div class="container">
+            <div class=" catalog__btn">
+                <a href="#">Перейти в каталог</a>
+            </div>
         </div>
-    </section>
-    <div class="container">
-        <div class=" catalog__btn">
-            <a href="#">Перейти в каталог</a>
-        </div>
-    </div>
-    </div>
+                    </section>

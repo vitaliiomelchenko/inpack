@@ -118,4 +118,33 @@
 	<?php endif; ?>
 	<?php wp_footer(); ?>
 </body>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+  jQuery('.promo_row').slick({
+	dots: true,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  responsive: [
+    {
+      breakpoint: 2560,
+      settings: "unslick"
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }],
+  });
+});
+</script>
 </html>
+
+
+

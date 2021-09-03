@@ -4,8 +4,14 @@
     padding-top: 60px    
     margin-bottom: 188px
     margin-top: 85px
+    +max-screen($breakpoint-md)
+        background: #34A853
+        color: #fff
     &__title 
         color: #34A853
+        +max-screen($breakpoint-md)
+            color: #fff
+            font-size: 22px
     &__content 
         font-family: Gilroy
         font-style: normal
@@ -14,20 +20,23 @@
         line-height: 140%
         color: #34A853
         padding-bottom: 109px
-        @media only screen and (max-width: 991px)
+        +max-screen($breakpoint-lg)
             font-size: 18px
-        @media only screen and (max-width: 768px)
-            font-size: 16px
+            color: #34A853
+        +max-screen($breakpoint-md)
+            font-size: 18px
+            padding-bottom: 30px
+            color: #fff
+            
     &__img__wrapper 
         margin-top: -115px
         position: relative
         z-index: 1
         padding-left: 200px
-        @media only screen and (max-width: 991px)
+        +max-screen($breakpoint-lg)
             margin-top: 20px
             padding-left: 40px
-        @media only screen and (max-width: 550px)
-            padding-left: 5px
+            text-align: right
         img
             width: 400px
             height: 400px
@@ -47,15 +56,11 @@
             z-index: -1
             bottom: -90px
             left: 265px
-            @media only screen and (max-width: 991px)
+            +max-screen($breakpoint-lg)
                 left: 0px
                 top: 30px
                 height: 300px
                 width: 300px
-            @media only screen and (max-width: 550px)
-                left: 0px
-            @media only screen and (max-width: 420px)
-                height: 300px
-                width: 300px
-    &__wrapper
+            +max-screen($breakpoint-md)
+                display: none
         padding-bottom: 95px

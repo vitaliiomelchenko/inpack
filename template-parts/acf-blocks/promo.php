@@ -15,7 +15,7 @@
             <?php if ($promoTitleBack) : ?>
                 <div class="titlePseudo"><?php echo $promoTitleBack;?></div>
             <?php endif;?>
-            <div class="row">
+            <div class="row promo_row">
                 <div class="col-lg-7 promo__item__wrapper">
                     <div class="promo__item">
                         <?php if ($promoItemContent_1) : ?>

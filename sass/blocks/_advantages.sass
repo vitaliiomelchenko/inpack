@@ -1,10 +1,9 @@
 .advantages
     margin-bottom: 50px
-    
     &__title 
         color: #333333
         margin-bottom: 57px
-        @media only screen and (max-width: 991px)
+        +max-screen($breakpoint-xl)
             text-align: center
     &__item 
         border: 1.5px solid #32BA7C
@@ -15,6 +14,12 @@
         margin-bottom: 30px
         width: 315px
         max-width: 100%
+        position: relative
+        +max-screen($breakpoint-xl)
+            border: none
+            width: fit-content
+            margin-bottom: 0
+            height: 100%
         &Title 
             color: #34A853
         &__content 
@@ -36,6 +41,7 @@
             display: flex
             justify-content: center
             flex-direction: column
+            position: relative
             @media only screen and (max-width: 450px)
                 padding-left: 30px
                 padding-right: 30px
@@ -52,12 +58,46 @@
     &__row 
         justify-content: flex-start
 .advantages__itemWrapper
-    @media only screen and (max-width: 991px)
+    +max-screen($breakpoint-xl)
         display: flex
         align-items: center
         flex-direction: column
 .advantages__item__big__wrapper
-    @media only screen and (max-width: 991px)
+    +max-screen($breakpoint-xl)
         display: flex
         align-items: center
         flex-direction: column
+        order: -1
+.advantages__item__big
+    +max-screen($breakpoint-xl)
+        padding: 6px 12px
+        width: 100%
+        height: fit-content
+        border-radius: 10px
+        margin-bottom: 15px
+    &__title
+        +max-screen($breakpoint-xl)
+            margin-bottom: 5px
+            font-size: 18px
+.advantages__item
+    &::before
+        content: " "
+        width: 5px
+        height: 5px
+        background: #34A853
+        position: absolute
+        transform: rotate(45deg)
+        top: 27px
+        left: 5px
+        +min-screen($breakpoint-xl)
+            display: none
+    &::after
+        content: " "
+        position: absolute
+        width: 2px
+        border-left: 1px dotted #34A853
+        height: 102%
+        left: 7px
+        top: -50px
+        +min-screen($breakpoint-xl)
+            display: none

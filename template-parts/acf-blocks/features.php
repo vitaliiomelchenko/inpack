@@ -13,7 +13,7 @@
              $featuresIcon = get_sub_field('featuresIcon'); 
              $featuresContent = get_sub_field('featuresContent'); 
         ?>
-               <div class="col-lg-6 col-xl-4 features__item">
+               <div class="col-md-6 col-xl-4 features__item">
                     <div class="features__itemInner">
                         <?php if( !empty( $featuresIcon ) ): ?>
                             <div class="features__icon">

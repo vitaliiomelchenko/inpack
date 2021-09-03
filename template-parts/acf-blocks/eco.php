@@ -18,7 +18,7 @@
                     
                     <div class="eco__img__wrapper">
                     <?php if(!empty( $ecoImage) ): ?>
-                        <img src="<?php echo esc_url($aboutImg['url']);?>" alt="">
+                        <img src="<?php echo esc_url($ecoImage['url']);?>" alt="">
                     <?php endif;?>
                     </div>
                 </div>
