@@ -73,11 +73,10 @@ $('.appear').each(function() {
     });
 });
 
-$('.katalog-items .product').each(function(){
+$('.product').each(function(){
   var newLabel = $(this).find('.new-label').length;
   if(newLabel > 0 ){
     $(this).addClass('new-product');
-    var aditionalOffset = 10;
   }
 });
 

@@ -14,13 +14,13 @@
         </div>
          <div data-slick='{"slidesToShow": 6, "slidesToScroll": 4}'>
             <div class="container slider">
-                <div class=" slider_wrapper">
+                <div class="row  slider_wrapper">
                 <?php if (have_rows('slider_item') ): ?>
                     <?php while(have_rows('slider_item') ) : the_row();
                         $slider_itemImg = get_sub_field('slider_itemImg'); 
                     ?>
                         <div class="slider_item_wrapper ">
-                            <div class="slider_item">
+                            <div class="slider_item col-lg-auto">
                                 <?php if(!empty( $slider_itemImg) ): ?>
                                     <img src="<?php echo esc_url($slider_itemImg['url']);?>" alt="<?php echo esc_attr($slider_itemImg['alt']); ?>" class="slider_itemImg">
                                 <?php endif;?>
@@ -32,4 +32,5 @@
         </div>
     </div> 
 </section> 
+
     <?php endif;?>

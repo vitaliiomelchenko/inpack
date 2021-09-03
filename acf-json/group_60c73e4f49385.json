@@ -1568,6 +1568,50 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_6130f5045840e": {
+                    "key": "layout_6130f5045840e",
+                    "name": "bets_products",
+                    "label": "Хіти продажу",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_613121e6d1b41",
+                            "label": "Заголовок блока",
+                            "name": "block_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_613121f5d1b42",
+                            "label": "Кнопка",
+                            "name": "button",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Добавить",
@@ -1592,5 +1636,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1626080904
+    "modified": 1630609941
 }

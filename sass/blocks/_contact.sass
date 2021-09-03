@@ -7,7 +7,7 @@
         font-family: "Days One"
         margin-bottom: 34px
         z-index: 5
-        margin-left: -17px
+        margin-left: -7px
         &Pseudo
             position: absolute
             top: -66px
@@ -18,16 +18,13 @@
             color: #E0E0E0
             opacity: 0.4
             z-index: 1
-            @media only screen and (max-width: 510px)
-                font-size: 70px
-            @media only screen and (max-width: 370px)
-                display: none
     &__item
         display: flex
         margin-bottom: 40px
-        padding: 0
         &__loc
             margin-bottom: 50px
+            padding-left: 15px 
+            padding-right: 15px 
         &Icon
             background: #E30613
             height: 50px
@@ -74,7 +71,7 @@
             line-height: 140%
             color: #333333
 .contact__itemContentNOICON
-    padding-left: 77px
+    padding-left: 92px
     p
         font-size: 16px 
 .titlePseudo
@@ -87,10 +84,6 @@
     top: 0px
     opacity: 0.4
     text-transform: uppercase
-    @media only screen and (max-width: 510px)
-        font-size: 70px
-    @media only screen and (max-width: 370px)
-        display: none
 .contact__itemContent_location
     width: 80%
     font-size: 18px
@@ -102,8 +95,10 @@
     position: relative
     padding-top: 66px
     margin-right: auto
+    padding-right: 94px
     margin-left: auto
     z-index: 1
+    padding-left: 49px 
 .contact__form
     position: relative
     padding-bottom: 39px
@@ -144,10 +139,6 @@
     margin-bottom: 20px
 .contact__itemContentNOICON__wrapper
     margin-bottom: 0
-.contactFormIcon
-    position: absolute
-    top: 15px
-    right: 25px
 .contact__formInner .contact__formButtonWrapper .button, input[type=submit]
     padding: 6px 31px 
     width: 160px 
@@ -162,3 +153,67 @@
 .contact__formButtonWrapper
     display: flex
     flex-direction: column
+@media(max-width: 1199px)
+    @media(min-width:993px)
+        .contact
+            &__content__wrapper
+                padding-left: 30px 
+                padding-right: 30px
+                .contact_page_top
+                    .titlePseudo
+                        font-size: 68px
+                        left: 5px 
+                        top: 30px 
+                .contact__itemWrapper
+                    .contact__item
+                        .contact__itemContent
+                            * 
+                                font-size: 16px
+                        &.contact__item__loc
+                            .contact__itemContent_location
+                                font-size: 16px
+                .contact__formWrapper
+                    .contact__form
+                        p
+                            font-size: 18px
+                        .popup_title
+                            font-size: 16px
+@media(max-width: 992px)
+    .contact
+        &__content__wrapper
+            padding-left: 21px 
+            padding-right: 21px
+            padding-top: 29px
+            .contact__itemWrapper
+                .contact__item
+                    margin-bottom: 20px
+                    .contact__itemIcon
+                        width: 30px 
+                        height: 30px 
+                        svg
+                            width: 15px  
+                            height: 15px  
+                    .contact__itemContent
+                        padding-left: 8px 
+                        * 
+                            font-size: 12px
+                    &.contact__item__loc
+                        margin-bottom: 17px 
+                        .contact__itemContent_location
+                            font-size: 12px
+                            padding-left: 8px
+                    &.contact__itemContentNOICON__wrapper
+                        margin-bottom: 0
+                        .contact__itemContentNOICON
+                            padding-left: 21px 
+                            p
+                                font-size: 12px 
+                                line-height: 1.85
+                                display: block
+@media(max-width:768px)
+    .contact
+        margin-top: 0
+        margin-bottom: 29px
+        &__formWrapper
+            display: none
+
