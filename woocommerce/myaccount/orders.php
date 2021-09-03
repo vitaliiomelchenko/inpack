@@ -44,15 +44,21 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 								$canceled_order = get_field( 'canceled_order_icon', 'option' );
 							?>
 							<div class="status">
-								<div class="completed_order status-icon">
-									<?php echo file_get_contents(wp_get_original_image_path($completed_icon['id'])); ?>
-								</div>
-								<div class="order_in_progres status-icon">
-									<?php echo file_get_contents(wp_get_original_image_path($order_in_progres['id'])); ?>
-								</div>
-								<div class="canceled_order status-icon">
-									<?php echo file_get_contents(wp_get_original_image_path($canceled_order['id'])); ?>
-								</div>
+								<?php if(!empty($completed_icon)): ?>
+									<div class="completed_order status-icon">
+										<?php echo file_get_contents(wp_get_original_image_path($completed_icon['id'])); ?>
+									</div>
+								<?php endif; ?>
+								<?php if(!empty($order_in_progres)): ?>
+									<div class="order_in_progres status-icon">
+										<?php echo file_get_contents(wp_get_original_image_path($order_in_progres['id'])); ?>
+									</div>
+								<?php endif; ?>
+								<?php if(!empty($canceled_order)): ?>
+									<div class="canceled_order status-icon">
+										<?php echo file_get_contents(wp_get_original_image_path($canceled_order['id'])); ?>
+									</div>
+								<?php endif; ?>
 								<?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?>
 							</div>
 						</div>
