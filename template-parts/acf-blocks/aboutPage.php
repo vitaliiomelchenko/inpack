@@ -6,13 +6,14 @@
  ?>
 <section class="aboutPage">
     <div class="aboutPage__contentWrapper">
-        <div class="container--xlg">
-        <?php if ($aboutPageTitle) : ?>
-                <div class="aboutPage__title h2"><?php echo $aboutPageTitle;?></div>
-            <?php endif;?>
-            <?php if ($aboutPageTitleBack) : ?>
-                <div class="titlePseudo"><?php echo $aboutPageTitleBack;?></div>
-            <?php endif;?>
+            <div class="page_title_wrapper">
+                <?php if ($aboutPageTitle) : ?>
+                    <div class="aboutPage__title page_title h2"><?php echo $aboutPageTitle;?></div>
+                <?php endif;?>
+                <?php if ($aboutPageTitleBack) : ?>
+                    <div class="titlePseudo page_background_title"><?php echo $aboutPageTitleBack;?></div>
+                <?php endif;?>
+            </div>
             <div class="row">
                 <div class="col-lg-5 aboutPage__ImageWrapper">
                 <?php if(!empty( $aboutPageImg) ): ?>
@@ -25,6 +26,5 @@
                 <?php endif;?>
                 </div>
             </div>
-        </div>
     </div>
 </section>

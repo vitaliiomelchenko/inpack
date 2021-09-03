@@ -5,29 +5,29 @@
     $contactItemIconLoc = get_sub_field('contactItemIconLoc');
     $contactItemContentLoc = get_sub_field('contactItemContentLoc');
     $contactItemContentNoIcon = get_sub_field('contactItemContentNoIcon');
-    $contactFormIcon = get_sub_field('contactFormIcon');
 ?>
 
 <section class="contact">
     <div class="contact__content__wrapper">
-        <div class="container--lg">
-        <?php if ($contactTitle) : ?>
-                <div class="contact__title h2"><?php echo $contactTitle;?></div>
-            <?php endif;?>
-            <?php if ($contactTitleBack) : ?>
-                <div class="titlePseudo"><?php echo $contactTitleBack;?></div>
-            <?php endif;?>
+            <div class="contact_page_top">
+                <?php if ($contactTitle) : ?>
+                    <div class="contact__title h2"><?php echo $contactTitle;?></div>
+                <?php endif;?>
+                <?php if ($contactTitleBack) : ?>
+                    <div class="titlePseudo"><?php echo $contactTitleBack;?></div>
+                <?php endif;?>
+            </div>
             <div class="row">
-                <div class="col-md-6 contact__itemWrapper row">
-            <?php if (have_rows('contactItem') ): ?>
-                <?php while(have_rows('contactItem') ) : the_row();
-                    $contactItemContent = get_sub_field('contactItemContent'); 
-                    $contactItemIcon = get_sub_field('contactItemIcon'); 
-                    
-                ?>
+                <div class="col-md-6 contact__itemWrapper">
+                    <div class="row">
+                    <?php if (have_rows('contactItem') ): ?>
+                    <?php while(have_rows('contactItem') ) : the_row();
+                        $contactItemContent = get_sub_field('contactItemContent'); 
+                        $contactItemIcon = get_sub_field('contactItemIcon'); 
+                        ?>
                 
                     <!-- rep -->
-                    <div class="contact__item col-lg-6">
+                    <div class="contact__item col-md-6">
                         <?php if ($contactItemIcon) : ?>
                             <div class="contact__itemIcon"> <?php echo file_get_contents(wp_get_original_image_path($contactItemIcon['id'])); ?></div>
                             <?php endif;?>
@@ -55,17 +55,14 @@
                     </div>
                     <!-- field -->
                 </div>
+                </div>
                 <div class="col-md-6 contact__formWrapper">
                     <div class="contact__form">
-                    <?php if ($contactFormIcon) : ?>
-                            <div class="contactFormIcon"><?php echo file_get_contents(wp_get_original_image_path($contactFormIcon['id'])); ?></div>
-                        <?php endif;?>
                     <?php if ($contactForm) : ?>
                         <?php echo $contactForm;?>
                     <?php endif;?>
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </section>
