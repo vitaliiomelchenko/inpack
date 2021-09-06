@@ -15,7 +15,7 @@
             <p class="heroBanner__text">
                 <?php echo  $hero_content ?>
             </p>
-            <a href="" class="button"><?php echo $hero_button['title'] ?></a>
+            <a href="<?php echo $hero_button['url'] ?>" class="button"><?php echo $hero_button['title'] ?></a>
         </div>
     </div>
     <div class="heroBanner__sliderWrapper">
