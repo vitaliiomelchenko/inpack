@@ -24,9 +24,9 @@
                     "sub_fields": [
                         {
                             "key": "field_60c73fbbc2e40",
-                            "label": "Фоновая Картинка Баннера",
-                            "name": "hero_background",
-                            "type": "image",
+                            "label": "Слайдер",
+                            "name": "heroSlider",
+                            "type": "repeater",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -35,16 +35,37 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array",
-                            "preview_size": "medium",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_613626e038509",
+                                    "label": "Картинка",
+                                    "name": "hero_background",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                }
+                            ]
                         },
                         {
                             "key": "field_60c740f1c2e41",
@@ -1599,5 +1620,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1630921902
+    "modified": 1630938878
 }

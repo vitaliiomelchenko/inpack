@@ -48,6 +48,8 @@
         left: 190px
         top: 180px
         transform: rotate(45deg)
+        +max-screen($breakpoint-md)
+            display: none
     .slick-prev
         position: absolute
         height: 20px
@@ -57,5 +59,9 @@
         right: 190px
         top: 180px
         transform: rotate(225deg)
+        +max-screen($breakpoint-md)
+            display: none
     .slick-list
         overflow-x: hidden
+    .titlePseudo
+        top: -50px

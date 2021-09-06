@@ -365,3 +365,38 @@ $(document).ready(function(){
     });
   });
 }); 
+// hero slider 
+$('.heroBanner__sliderWrapper').slick({
+  dots: false,
+  infinite: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  prevArrow: $('.heroBanner .slick-prev'),
+  nextArrow: $('.heroBanner .slick-next'),
+});
+//Partners slider
+$('.partners__row').slick({
+  infinite: true,
+  slidesToShow: 6,
+  slidesToScroll: 1,
+  prevArrow: $('.partners__content__wrapper .slick-prev'),
+  nextArrow: $('.partners__content__wrapper .slick-next'),
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        slidesToShow: 3
+      }
+    }
+  ]
+});

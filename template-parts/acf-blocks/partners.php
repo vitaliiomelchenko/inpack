@@ -29,12 +29,6 @@
         </div>
 </section> 
 <script>
-      jQuery('.partners__row').slick({
-        infinite: true,
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        prevArrow: jQuery('.partners__content__wrapper .slick-prev'),
-        nextArrow: jQuery('.partners__content__wrapper .slick-next'),
-});
+
 </script>
     <?php endif;?>
