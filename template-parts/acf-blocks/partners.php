@@ -2,7 +2,7 @@
     $partnersTitle = get_sub_field('partnersTitle');
     $partnersTitleBack = get_sub_field('partnersTitleBack');
 ?>
-<section class="partners">
+<section class="">
     <div class="partners__content__wrapper">
         <div class="container">
         <?php if ($partnersTitle) : ?>
@@ -15,7 +15,7 @@
             <div class="container slider">
             <div class="slick-next"></div>
             <div class="slick-prev"></div>
-                <div class="partners__row row">
+                <div class="partners__row ">
                 <?php if (have_rows('slider_item') ): ?>
                     <?php while(have_rows('slider_item') ) : the_row();
                         $slider_itemImg = get_sub_field('slider_itemImg'); 
@@ -30,9 +30,11 @@
 </section> 
 <script>
       jQuery('.partners__row').slick({
-  infinite: false,
-  slidesToShow: 6,
-  slidesToScroll: 1
+        infinite: true,
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        prevArrow: jQuery('.partners__content__wrapper .slick-prev'),
+        nextArrow: jQuery('.partners__content__wrapper .slick-next'),
 });
 </script>
     <?php endif;?>

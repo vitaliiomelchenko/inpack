@@ -19,14 +19,7 @@
 
     .slick-slide
         max-width: 144px
-    .slick-track
-        display: flex
-        flex-direction: row
-        align-items: center
-        justify-content: center
-        width: 100%
-    .slick-list
-        width: 100%
+
     .slick-initialized .slick-slide 
         text-align: -webkit-center
     .partners__content__wrapper
@@ -36,6 +29,33 @@
         margin-right: auto
         margin-left: auto
 .slider_itemImg
-    width: 144px
-    height: 46px
-
+    object-fit: contain
+    background: #fff
+    box-shadow: 0px 30px 40px rgba(212, 217, 232, 0.2)
+    border-radius: 16px
+    height: 96px
+    padding: 12px 25px
+    margin-right: 20px
+.partners__content__wrapper
+    position: relative
+    margin-bottom: 48px
+    .slick-next
+        position: absolute
+        height: 20px
+        width: 20px
+        border-left: 2px solid #000
+        border-bottom: 2px solid #000
+        left: 190px
+        top: 180px
+        transform: rotate(45deg)
+    .slick-prev
+        position: absolute
+        height: 20px
+        width: 20px
+        border-left: 2px solid #000
+        border-bottom: 2px solid #000
+        right: 190px
+        top: 180px
+        transform: rotate(225deg)
+    .slick-list
+        overflow-x: hidden
