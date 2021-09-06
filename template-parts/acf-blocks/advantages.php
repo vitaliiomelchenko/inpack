@@ -1,5 +1,6 @@
 <?php 
-    $advantagesTitle = get_sub_field('advantagesTitle'); 
+    $advantagesTitle = get_sub_field('advantagesTitle');
+    $advantages_button= get_sub_field('advantages_button');
 ?>
 
 <section class="advantages">
@@ -71,7 +72,7 @@
         </div>    
         <div class="container">
             <div class=" catalog__btn">
-                <a href="#">Перейти в каталог</a>
+                <a href="<?php echo $advantages_button['url'] ?>"><?php echo $advantages_button['title'] ?></a>
             </div>
         </div>
-                    </section>
+    </section>

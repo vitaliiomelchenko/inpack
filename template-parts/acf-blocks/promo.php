@@ -5,6 +5,7 @@
     $promoItemContent_3 = get_sub_field('promoItemContent_3');
     $promoButton = get_sub_field('promoButton');
     $promoTitleBack = get_sub_field('promoTitleBack');
+    $promo_button_cat = get_sub_field('promo_button_cat');
 ?>
 <section class="promo">
     <div class="promo__content__wrapper">
@@ -52,7 +53,7 @@
 
             </div>
             <div class=" catalog__btn">
-                <a href="#">Перейти в каталог</a>
+                <a href="<?php echo $promo_button_cat['url'] ?>"><?php echo $promo_button_cat['title'] ?></a>
             </div>
         </div>
     </div>

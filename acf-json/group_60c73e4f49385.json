@@ -436,8 +436,8 @@
                         {
                             "key": "field_60c76dd9712d7",
                             "label": "кнопка в каталог",
-                            "name": "catalogButton",
-                            "type": "text",
+                            "name": "promo_button_cat",
+                            "type": "link",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -446,11 +446,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "return_format": "array"
                         }
                     ],
                     "min": "",
@@ -657,6 +653,21 @@
                                     "maxlength": ""
                                 }
                             ]
+                        },
+                        {
+                            "key": "field_6135e36734bb4",
+                            "label": "кнопка",
+                            "name": "advantages_button",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
                         }
                     ],
                     "min": "",
@@ -1588,5 +1599,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1630912203
+    "modified": 1630921902
 }
