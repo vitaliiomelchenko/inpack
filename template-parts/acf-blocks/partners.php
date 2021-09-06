@@ -31,7 +31,7 @@
 <script>
       jQuery('.partners__row').slick({
   infinite: false,
-  slidesToShow: 1,
+  slidesToShow: 6,
   slidesToScroll: 1
 });
 </script>
