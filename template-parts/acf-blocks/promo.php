@@ -10,40 +10,46 @@
     <div class="promo__content__wrapper">
         <div class="container container--md ">
             <?php if ($promoTitle) : ?>
-                <div class="promo__title h2"><?php echo $promoTitle;?></div>
+            <div class="promo__title h2"><?php echo $promoTitle;?></div>
             <?php endif;?>
             <?php if ($promoTitleBack) : ?>
-                <div class="titlePseudo"><?php echo $promoTitleBack;?></div>
+            <div class="titlePseudo"><?php echo $promoTitleBack;?></div>
             <?php endif;?>
             <div class="row promo_row">
+
                 <div class="col-lg-7 promo__item__wrapper">
                     <div class="promo__item">
                         <?php if ($promoItemContent_1) : ?>
-                            <div class="promo__item__content"><?php echo $promoItemContent_1;?></div>
+                        <div class="promo__item__content"><?php echo $promoItemContent_1;?></div>
                         <?php endif;?>
                         <?php if ($promoButton) : ?>
-                            <a href="#" class="promo__btn"><?php echo $promoButton;?></a>
+                        <a href="#" class="promo__btn"><?php echo $promoButton;?></a>
                         <?php endif;?>
                     </div>
+                </div>
+                
+                <div class="col-lg-7 promo__item__wrapper">
                     <div class=" promo__item promo__item__second">
-                    <?php if ($promoItemContent_2) : ?>
-                            <div class="promo__item__content"><?php echo $promoItemContent_2;?></div>
+                        <?php if ($promoItemContent_2) : ?>
+                        <div class="promo__item__content"><?php echo $promoItemContent_2;?></div>
                         <?php endif;?>
                         <?php if ($promoButton) : ?>
-                            <a href="#" class="promo__btn"><?php echo $promoButton;?></a>
+                        <a href="#" class="promo__btn"><?php echo $promoButton;?></a>
                         <?php endif;?>
                     </div>
                 </div>
-                <div class="col-lg-5 promo__item__wrapper">
+
+                <div class="col-lg-5 promo__item__wrapper" style="margin-top: -275px">
                     <div class="promo__item__big">
-                    <?php if ($promoItemContent_3) : ?>
-                            <div class="promo__item__content"><?php echo $promoItemContent_3;?></div>
+                        <?php if ($promoItemContent_3) : ?>
+                        <div class="promo__item__content"><?php echo $promoItemContent_3;?></div>
                         <?php endif;?>
                         <?php if ($promoButton) : ?>
-                            <a href="#" class="promo__btn"><?php echo $promoButton;?></a>
+                        <a href="#" class="promo__btn"><?php echo $promoButton;?></a>
                         <?php endif;?>
                     </div>
                 </div>
+
             </div>
             <div class=" catalog__btn">
                 <a href="#">Перейти в каталог</a>
@@ -51,3 +57,26 @@
         </div>
     </div>
 </section>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('.').slick({
+            dots: true,
+            infinite: false,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            responsive: [{
+                    breakpoint: 2560,
+                    settings: "unslick"
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ],
+        });
+    });
+</script>
