@@ -68,7 +68,188 @@ if ( woocommerce_product_loop() ) {
 	<div class="container" id="shop_container">
         <div class="row">
             <div class="col-lg-3 col-12 filter-col">
-				<div class="filter_wrapper category">
+				<div class="filter_wrapper"><?php dynamic_sidebar('shop-filters');?></div>
+				<div class="" style="display:;">
+				<?php
+
+				// задаем нужные нам критерии выборки данных из БД
+				$args = array(
+					'post_type' => 'product',
+					'posts_per_page' => -1,
+					'orderby' => 'comment_count'
+				);
+
+				$query = new WP_Query( $args );
+
+				// Цикл
+				if ( $query->have_posts() ) {
+					$product_attributes_names = array();
+					while ( $query->have_posts() ) {
+						$query->the_post();
+						global $product;
+
+						//Getting product attributes
+						$product_attributes = $product->get_attributes();
+				
+						if(!empty($product_attributes)){
+				
+							//Getting product attributes slugs
+							$product_attribute_slugs = array_keys($product_attributes);
+							$count_slug = 0;
+				
+							
+							foreach ($product_attribute_slugs as $product_attribute_slug){
+								$count_slug++;
+								$attribute_name =  ucfirst( str_replace('pa_', '', $product_attribute_slug) );
+								array_push($product_attributes_names, $product_attribute_slug);
+								$product_attributes_names = array_unique($product_attributes_names);
+							}
+							
+						}
+						
+					}
+					
+				}
+				// Возвращаем оригинальные данные поста. Сбрасываем $post.
+				wp_reset_postdata();
+				?>
+				<div class="filter_wrapper">
+				<div class="filter_title">Фільтр</div>
+
+					<?php
+					//echo do_shortcode('[woocommerce_product_filter_price fields="no"]');
+					foreach ($product_attributes_names as $product_attributes_name){ 
+
+						/*get term name by slug */
+						$product_attributes_slug = str_replace('pa_', 'filter_', $product_attributes_name);
+						?>
+
+						<div class="filter__inner filter__inner-<?php echo $product_attributes_slug; ?>">
+						<div class="filter__titleWrapper">
+							<div class="filter__title" data-sort="<?php echo $product_attributes_slug;?>"><?php echo wc_attribute_label($product_attributes_name);?></div>
+						</div>
+						<?php
+
+						$attribute_values = get_terms($product_attributes_name);
+						if( $attribute_values && ! is_wp_error($attribute_values) ){
+							?>
+
+							<ul class="filterGroup" data-sort="<?php echo $product_attributes_slug;?>">
+							<?php
+							foreach( $attribute_values as $attribute_values ){
+								echo "<li data-slug=" .$attribute_values->slug .">". $attribute_values->name ."</li>";
+						
+							}
+							echo "</ul>";
+						}
+						$count_value = 0;
+						foreach($attribute_values as $attribute_value){
+							$count_value++;
+							$attribute_name_value = $attribute_value->name; // name value
+							$attribute_slug_value = $attribute_value->slug; // slug value
+							$attribute_slug_value = $attribute_value->term_id; // ID value
+		
+							// Displaying HERE the "names" values for an attribute
+							//echo $attribute_name_value;
+							//if($count_value != count($attribute_values)) echo ', ';
+						}
+						echo '</div>';
+					}
+?>
+<div class="filter__inner">
+	<div class="inpack_submit button">Показати</div>
+</div>
+
+<?php
+
+if(isset($_GET['perpage']))
+{
+    echo $_GET['perpage'];
+}
+?>
+
+<script>
+jQuery(document).ready(function($){
+	let loadedQueryString = window.location.href;
+	console.log(loadedQueryString);
+	console.log(window.location.search);
+	let newQueryString = '';
+	$('li').on("click",function(){
+		$(this).toggleClass('active');
+	});
+	
+	$('.inpack_submit').on("click",function(){
+		newQueryString = '';
+
+		$( ".filter-col li.active" ).each(function() {
+			$(this).parent().addClass('active');
+		});
+
+		let filtersSize = $('.filter-col ul.active').size() - 1;
+
+		$( ".filter-col ul.active" ).each(function(index) {
+			filterQuery = $(this).data('sort') + '=';
+			let childrenSize = $(this).find('li.active').size() - 1;
+			$(this).find('li.active').each(function(index) {
+
+				if ( index == childrenSize) {
+					itemQuery =  $(this).data('slug');
+				}
+				else {
+					itemQuery = $(this).data('slug') + ',';
+				}
+				filterQuery = filterQuery + itemQuery;
+			});
+
+			if ( index == filtersSize) {
+				filterQuery = filterQuery;
+			} else {
+				filterQuery = filterQuery + '&';
+			}
+			newQueryString = newQueryString + filterQuery;
+			console.log(index + filterQuery);
+		});
+
+		newQueryString = '?' + newQueryString;
+		$(location).prop('href', newQueryString);
+	});
+
+	// $(".filterby").on("click", function(e){
+	// 	e.preventDefault();
+	// 	let orderby = $(this).attr('href');
+	// 	orderby = text.replace("lollypops", "marshmellows");
+    // 	//$(this).text(text);
+		
+	// 	//let loadedQueryString = window.location.href;
+	// 	//let newOrderQueryString = '';
+	// 	if( loadedQueryString.includes("?orderby='*'")) {
+	// 		text = text.replace("lollypops", "marshmellows");
+    // 		// $(this).text(text);
+	// 		// newOrderQueryString = loadedQueryString + '&' + orderby;
+	// 	} 
+	// 	// else if(loadedQueryString.includes("?")){
+
+	// 	// } else {
+	// 	// 	newOrderQueryString = loadedQueryString + '?' + orderby;
+	// 	// }
+
+	// 	$(location).prop('href', newOrderQueryString);
+	// });
+});
+</script>
+
+<style>
+ li.active {
+	color: green;
+}
+.filter-wrapper-artykul {
+	display: none;
+}
+</style>
+					
+				</div>
+				</div>
+				<!-- <div class="filter_wrapper category">
 					<div class="filter_title">
 						Категорія
 					</div>
@@ -89,7 +270,7 @@ if ( woocommerce_product_loop() ) {
 							<?php echo do_shortcode( '[searchandfilter id="wpf_60d466c7f358a"]' ) ?>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 
             <div class="col-lg-9 col-12 katalog-items">
@@ -103,14 +284,14 @@ if ( woocommerce_product_loop() ) {
 							<?php do_action( 'woocommerce_before_shop_loop' ); //Фильтр архивной страницы ?>
 						</ul>
 					</div>
-					<div class="count">
+					<!-- <div class="count">
 						<div class="filter-title">Кількість товару:</div>
 						<ul class="filter-list">
 							<li class="active">10</li>
 							<li>20</li>
 							<li>30</li>
 						</ul>
-					</div>
+					</div> -->
                 </div>
                 <div class="row">
 				<?php
@@ -179,7 +360,7 @@ $(document).ready(function(){
   var selectedOrder = $('.post-type-archive-product .woocommerce-ordering select').find('option[selected="selected"]');
   var selectedOrderClass = $(selectedOrder).attr('value');
   $('.' + selectedOrderClass).addClass('active');
-  console.log(<?php echo "'" . get_home_url() . "'"; ?>);
+  //console.log(<?php echo "'" . get_home_url() . "'"; ?>);
   if(wLink != "<?php echo get_home_url(); ?>/shop/" && selectedOrderClass == "popularity"){ 
     if(wLink != "<?php echo get_home_url(); ?>/shop/page/<?php echo $paged; ?>/"){
       $('.post-type-archive-product').find('.filter-list-item').removeClass('active');

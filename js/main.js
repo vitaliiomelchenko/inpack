@@ -365,6 +365,7 @@ $(document).ready(function(){
     });
   });
 }); 
+
 // hero slider 
 $('.heroBanner__sliderWrapper').slick({
   dots: false,
@@ -400,3 +401,19 @@ $('.partners__row').slick({
     }
   ]
 });
+
+/*Shop filter dropwodn */
+
+$(document).ready(function(){
+  $('.filter__titleWrapper').on("click",function(){
+    $(this).parent().toggleClass("active");
+    $(this).parent().find('.filterGroup').slideToggle();
+  });
+  $('.wc-block-product-categories-list--depth-1').each(function(){
+    $(this).parent().addClass('has-children');
+  });
+  $(".has-children").on("click", function(e){
+    e.preventDefault();
+    $(this).find(".wc-block-product-categories-list--depth-1").slideToggle();
+  });
+})

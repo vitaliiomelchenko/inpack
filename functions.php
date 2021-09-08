@@ -142,6 +142,18 @@ function register_my_widgets(){
 		'after_title'   => "</h2>\n",
 		'before_sidebar' => '', // WP 5.6
 		'after_sidebar'  => '', // WP 5.6
+  ) );
+  register_sidebar( array(
+		'name'          => "Боковая панель магазина",
+		'id'            => "shop-filters",
+		'description'   => '',
+		'class'         => '',
+		'before_widget' => '<li id="%1$s" class="widget %2$s">',
+		'after_widget'  => "</li>\n",
+		'before_title'  => '<h2 class="widgettitle">',
+		'after_title'   => "</h2>\n",
+		'before_sidebar' => '', // WP 5.6
+		'after_sidebar'  => '', // WP 5.6
 	) );
 }
 add_action( 'product_image' ,'woocommerce_show_product_images' );
@@ -624,4 +636,33 @@ function custom_override_shipping_fields( $fields ) {
     unset($fields['shipping_company']);
     unset($fields['shipping_country']);
     return $fields;
+}
+
+
+ /** Product per page woocommerce */
+
+add_action( 'woocommerce_before_shop_loop', 'ps_selectbox', 45 );
+function ps_selectbox() {
+    $per_page = filter_input(INPUT_GET, 'perpage', FILTER_SANITIZE_NUMBER_INT);     
+    echo '<div class="count">';
+    echo '<div class="filter-title">Кількість товару:</div>';
+    echo '<ul class="filter-list">';   
+    $orderby_options = array(
+        '9' => '9',
+        '15' => '15',
+        '30' => '30'
+    );
+    foreach( $orderby_options as $value => $label ) {
+        echo "<li><a href='?perpage=$value'>$label<a></li>";
+    }
+    echo '</ul>';
+    echo '</div>';
+}
+
+add_action( 'pre_get_posts', 'ps_pre_get_products_query' );
+function ps_pre_get_products_query( $query ) {
+   $per_page = filter_input(INPUT_GET, 'perpage', FILTER_SANITIZE_NUMBER_INT);
+   if( $query->is_main_query() && !is_admin() && is_post_type_archive( 'product' ) ){
+        $query->set( 'posts_per_page', $per_page );
+    }
 }

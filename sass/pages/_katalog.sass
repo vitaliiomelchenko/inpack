@@ -154,7 +154,74 @@
                         &:last-child
                             margin-right: 0
         .filter-col
-            padding-right: 0 
+            padding-right: 0
+    .filter
+        &__inner-artykul
+            display: none       
+        &__inner
+            padding: 10px 18px 
+            .inpack_submit
+                display: block
+                width: 100%
+                margin-bottom: 15px
+        &_title
+            margin-bottom: 15px
+        &__title
+            position: relative
+            display: inline-block
+            font-weight: 700
+            color: #4f4f4f
+            &::after
+                content: ""
+                width: 11px
+                height: 9px
+                background-image: url(../assets/img/filter_arrow.png)
+                background-size: cover
+                background-repeat: no-repeat
+                position: absolute
+                right: -16.5px
+                top: 49%
+                -webkit-transform: translateY(-50%)
+                transform: translateY(-50%)
+                -webkit-transition: .3s
+                transition: .3s
+    .has-children
+        position: relative
+        &::after
+            content: ""
+            width: 11px
+            height: 9px
+            background-image: url(../assets/img/filter_arrow.png)
+            background-size: cover
+            background-repeat: no-repeat
+            position: absolute
+            right: 0
+            top: 18px
+            -webkit-transition: .3s
+            transition: .3s
+    .filterGroup
+        display: none
+    .wc-block-product-categories
+        padding: 11px 20px 30px
+        li
+            color: #4f4f4f
+            font-weight: 500
+            font-size: 18px
+            padding: 10px 0
+    .wc-block-product-categories-list--depth-1
+        display: none
+        padding: 15px 7px
+        background: #fafafa
+        border-radius: 5px
+        li
+            color: #828282
+            display: flex
+            font-size: 14px
+            margin-right: 0
+            font-weight: 400
+            transition: .3s
+            padding: 5px 0
+
 .product
     position: relative
     margin-bottom: 30px
