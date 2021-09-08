@@ -653,7 +653,7 @@ function ps_selectbox() {
         '30' => '30'
     );
     foreach( $orderby_options as $value => $label ) {
-        echo "<li><a href='?perpage=$value'>$label<a></li>";
+        echo "<li class='perpage perpage-$value'><a href='?perpage=$value'>$label<a></li>";
     }
     echo '</ul>';
     echo '</div>';

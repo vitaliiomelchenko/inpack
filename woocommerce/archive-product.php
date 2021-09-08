@@ -117,6 +117,7 @@ if ( woocommerce_product_loop() ) {
 				<div class="filter_title">Фільтр</div>
 
 					<?php
+					//get_template_part( '/woocommerce/content-widget-price-filter' );
 					//echo do_shortcode('[woocommerce_product_filter_price fields="no"]');
 					foreach ($product_attributes_names as $product_attributes_name){ 
 
@@ -162,10 +163,46 @@ if ( woocommerce_product_loop() ) {
 
 <?php
 
-if(isset($_GET['perpage']))
-{
-    echo $_GET['perpage'];
+if(isset($_GET['perpage'])) { ?>
+	
+	<script>
+
+		jQuery(document).ready(function($){
+			let perpage = '.perpage-' + <?php echo $_GET['perpage']; ?>;
+			$('.perpage').removeClass('active');
+			$(perpage).addClass('active');
+		});
+
+	</script>
+
+    <?php
+} else { ?>
+	<script>
+
+		jQuery(document).ready(function($){
+			$('.perpage-9').addClass('active');
+		});
+
+	</script>
+<?php } ?>
+
+<?php
+
+foreach($_GET as $key => $value) {
+	?>
+	<script>
+		jQuery(document).ready(function($){
+			let key = '<?php echo $key; ?>';
+			let value = '<?php echo $value; ?>';
+
+			$('ul[data-sort="' + key + '"] li[data-slug="' + value + '"]').addClass('active');
+			$('ul[data-sort="' + key + '"]').slideToggle();
+			
+		});
+	</script>
+	<?php
 }
+
 ?>
 
 <script>
