@@ -406,6 +406,18 @@ $(document).ready(function(){
   }
 });
 </script>
+<script>
+	$(document).ready(function(){
+		$('.katalog-items a').each(function(){
+			if((this).hasAttribute('href')){
+				
+			}
+			else{
+				$(this).remove();
+			}
+		});
+	});
+</script>
 <?php
 /**
  * Hook: woocommerce_sidebar.

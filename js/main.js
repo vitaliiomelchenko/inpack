@@ -412,8 +412,8 @@ $(document).ready(function(){
   $('.wc-block-product-categories-list--depth-1').each(function(){
     $(this).parent().addClass('has-children');
   });
-  $(".has-children").on("click", function(e){
+  $(".has-children > a").on("click", function(e){
     e.preventDefault();
-    $(this).find(".wc-block-product-categories-list--depth-1").slideToggle();
+    $(this).parent().find(".wc-block-product-categories-list--depth-1").slideToggle();
   });
 })

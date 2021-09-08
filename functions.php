@@ -365,7 +365,7 @@ function bbloomer_new_badge_shop_page() {
 add_filter('woocommerce_sale_flash', 'woocommerce_custom_sale_text', 10, 3);
 function woocommerce_custom_sale_text($text, $post, $_product)
 {
-    return '<span class="onsale">Акції!</span>';
+    return '<span class="onsale">Акції</span>';
 }
 
 

@@ -184,6 +184,8 @@
                 transform: translateY(-50%)
                 -webkit-transition: .3s
                 transition: .3s
+    .wc-block-product-categories-list-item span 
+        display: none
     .has-children
         position: relative
         &::after
@@ -198,6 +200,23 @@
             top: 18px
             -webkit-transition: .3s
             transition: .3s
+        &.wc-block-product-categories-list-item
+            &::after 
+                content: none
+            & > a
+                position: relative
+                &::after 
+                    content: ""
+                    width: 11px
+                    height: 9px
+                    background-image: url(../assets/img/filter_arrow.png)
+                    background-size: cover
+                    background-repeat: no-repeat
+                    position: absolute
+                    right: -18px
+                    top: 4px
+                    -webkit-transition: .3s
+                    transition: .3s
     .filterGroup
         display: none
     .wc-block-product-categories

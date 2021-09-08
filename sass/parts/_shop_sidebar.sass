@@ -7,59 +7,6 @@
     .filter_wrapper 
         box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1)
         background: #fff
-        .filter 
-            form 
-                margin-bottom: 40px
-        .wpf_item 
-            padding: 11px 20px 30px
-            ul 
-                li
-                    color: #4F4F4F
-                    font-weight: 500
-                    font-size: 18px
-                    margin-bottom: 10px
-                    margin-right: 0
-                li.has_child
-                    & > label
-                        position: relative
-                        -webkit-touch-callout: none
-                        -webkit-user-select: none
-                        -khtml-user-select: none 
-                        -moz-user-select: none 
-                        -ms-user-select: none 
-                        user-select: none
-                        &::after 
-                            content: ""
-                            width: 11px
-                            height: 9px
-                            background-image: url('../assets/img/filter_arrow.png')
-                            background-size: cover
-                            background-repeat: no-repeat
-                            position: absolute
-                            right: -16.5px
-                            top: 49%
-                            transform: translateY(-50%) 
-                            transition: .3s
-                        &.open::after 
-                            top: 50%
-                            transform: translateY(-50%) rotate(180deg)
-                    ul
-                        border: 0
-                        padding: 15px 7px                    
-                        background: #FAFAFA
-                        border-radius: 5px
-                        display: none
-                        li
-                            margin-left: 0
-                            color: #828282
-                            margin-bottom: 12px
-                            display: flex
-                            font-size: 16px
-                            margin-right: 0
-                            font-weight: 400
-                            transition: .3s
-                            &:hover
-                                color: #E30613
         .filter_title, .widget_block h3
             font-family: Gilroy
             background: #F44336
@@ -69,148 +16,46 @@
             padding-left: 20px
             padding-top: 8px
             padding-bottom: 9px
-        .wpf_item 
-            li 
-                input 
-                    visibility: hidden
-                    width: 0
-                    height: 0
-                    opacity: 0
-                    margin: 0
-                    padding: 0
-        .price
-            form
-                margin-bottom: 0
-            .price-range-title
-                font-weight: 500
-                font-size: 18px
-                padding-left: 19px
-                margin-top: 23px
-            .wpf_items_wrapper 
-                display: flex
-                flex-direction: column
-                .wpf_item 
-                    display: flex
-                    flex-direction: row
-                    flex-wrap: wrap
-                    padding-right: 18px
-                    padding-left: 18px
-                    .wpf_slider 
-                        width: calc(100% - 11px)
-                        margin-bottom: 40px
-                    .wpf_price_from
-                        order: -2
-                        width: 70px
-                    .wpf_price_to
-                        order: -1
-                        width: 70px
-                .wpf_item_price
-                    z-index: 2
-                    padding-bottom: 0
-                    .wpf-slider-label
-                        display: none
-                    input[type="number"]
-                        box-shadow: inset 0px 1px 5px rgba(0, 0, 0, 0.1)
-                        background: #fff
-                        color: #4F4F4F
-                        font-size: 18px
-                        font-weight: 500
-                        margin-right: 36px
-                        padding: 9.5px 2px
-                        text-align: center
-                        border: 0
-                    .ui-slider-handle
-                        background: #32BA7C
-                        border: 0
-                        width: 20px
-                        height: 20px 
-                        top: -.5em
-                    .ui-slider-range
-                        background: #E5E5E5
-                        height: 2px 
-                    .wpf_slider 
-                        background: #E5E5E5
-                        height: 2px 
-                        margin-top: 35px
-                .wpf_item_submit
-                    order: -1
-                    justify-content: flex-end
-                    margin-bottom: -81px
-                    button 
-                        z-index: 3
-                        background: #7CBF65
-                        border-radius: 5px
-                        color: #fff
-                        font-size: 16px
-                        font-weight: 700
-                        padding: 10px 36px
-        .product_attributes
-            .wpf_item 
-                display: flex
-                flex-direction: column
-                align-items: flex-start
-                padding-top: 0
+        .filter__inner
+            .filter__titleWrapper
+                cursor: pointer
+            &.active 
+                .filter__title
+                    &::after 
+                        transform: translateY(-50%) rotate(180deg)
+            ul.filterGroup
+                padding: 10px 
+                padding-top: 10px 
+                padding-bottom: 28px 
+                background: #FAFAFA
+                border-radius: 5px
+                margin-top: 10px 
                 li 
-                    input
-                        visibility: visible
-                        width: 15px
-                        height: 15px
-                        opacity: 1
-                        margin: auto
-                        padding: auto
+                    color: #000 
+                    position: relative
+                    padding-left: 26px 
+                    margin-bottom: 10px 
+                    cursor: pointer
+                    &:last-child
+                        margin-bottom: 0
+                    &::before 
+                        content: ""
+                        position: absolute
+                        width: 15px 
+                        height: 15px 
                         border: 1px solid #C4C4C4
-                        border-radius: 3px
-                        margin-right: 11px
-                        position: relative
-                        &.checked
+                        border-radius: 3px 
+                        left: 0
+                        top: 4px
+                    &.active 
+                        &::before 
                             background: #34A853
-                            border: 1px solid #34A853
-                        &::before
+                            border-color: #34A853
+                        &::after 
                             content: ""
-                            background-image: url('../assets/img/filter_checkbox_tick.svg')
+                            position: absolute
+                            top: 8px 
+                            left: 1px 
                             width: 13px 
                             height: 8px
-                            position: absolute
-                            background-size: contain
-                            background-repeat: no-repeat
-                            top: 7px
-                            left: 50%
-                            transform: translate(-50%, -50%)
-            .wpf_column_horizontal
-                border: 0
-                padding: 15px 7px
-                background: #fafafa
-                border-radius: 5px
-                width: 100%
-                display: none
-                li 
-                    width: 100%
-                    display: block
-            .wpf_item_name
-                border: 0
-                color: #4F4F4F
-                padding: 0
-                position: relative
-                width: auto
-                cursor: pointer
-                 -webkit-touch-callout: none
-                -webkit-user-select: none
-                -khtml-user-select: none 
-                -moz-user-select: none 
-                -ms-user-select: none 
-                user-select: none
-                &::after 
-                    content: ""
-                    width: 11px
-                    height: 9px
-                    background-image: url('../assets/img/filter_arrow.png')
-                    background-size: cover
-                    background-repeat: no-repeat
-                    position: absolute
-                    right: -16.5px
-                    top: 49%
-                    transform: translateY(-50%) 
-                    transition: .3s
-                &.open::after 
-                    top: 50%
-                    transform: translateY(-50%) rotate(180deg)
+                            background-image: url('../assets/img/filter_checkbox_tick.svg')
