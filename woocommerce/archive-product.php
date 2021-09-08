@@ -69,7 +69,7 @@ if ( woocommerce_product_loop() ) {
         <div class="row">
             <div class="col-lg-3 col-12 filter-col">
 				<div class="filter_wrapper"><?php dynamic_sidebar('shop-filters');?></div>
-				<div class="" style="display:;">
+				<div class="filters">
 				<?php
 
 				// задаем нужные нам критерии выборки данных из БД
