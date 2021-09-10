@@ -63,15 +63,15 @@
 <script type="text/javascript">
 
     var w = jQuery(window).width();
-if(w <= 768){
-     jQuery('.promo_row').slick({
-            dots: true,
-            infinite: true,
-            speed: 300,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-        });
-}
+    if(w <= 768){
+        jQuery('.promo_row').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            });
+    }
 
 
        

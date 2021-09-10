@@ -441,7 +441,15 @@ $(document).ready(function(){
 });
 
 
-
-
-
-    
+//Product Page form 
+$(document).ready(function(){
+  $('.add-to-cart-button a.out-of-stock-button').click(function(){
+    $('body').addClass('product_page_opened_form');
+  });
+  $('body.product_page_opened_form .overlay').click(function(){
+    $('body').removeClass('product_page_opened_form');
+  });
+  $('form .close_form_cross').click(function(){
+    $('body').removeClass('product_page_opened_form');
+  });
+});
