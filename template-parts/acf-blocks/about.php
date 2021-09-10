@@ -3,7 +3,7 @@
     $aboutImg= get_sub_field('aboutImg'); 
 ?>
 
-<section class="about">
+<section class="about homeAbout">
     <div class="container container--lg">
         <div class="row">
             <div class="col-lg-10">
@@ -31,11 +31,10 @@
                 </div>
             </div>
                     <?php endif;?>
-                <div class="col-lg-2 about__img__wrapper">
                     <?php if(!empty( $aboutImg) ): ?>
-                      <img src="<?php echo esc_url($aboutImg['url']);?>" alt="<?php echo esc_attr($aboutImg['alt']); ?>">
+                      <img class="homeAbout__img" src="<?php echo esc_url($aboutImg['url']);?>" alt="<?php echo esc_attr($aboutImg['alt']); ?>">
                     <?php endif;?>
-            </div>
+
         </div>
     </div>
 </section>
