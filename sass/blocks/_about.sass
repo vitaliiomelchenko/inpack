@@ -38,10 +38,13 @@
     overflow-x: hidden
     &__img
         position: absolute
-        right: -150px
-        height: 350px
+        right: 0
+        height: 400px
         max-width: 100%
         object-fit: contain
+        +max-screen($breakpoint-lg)
+            position: static
+            right: -15px
 
 
        
