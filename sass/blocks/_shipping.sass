@@ -35,6 +35,7 @@
             @media only screen and (max-width: 450px)
                 font-size: 14px
 
+
 .shipping__item
     &:nth-last-child(-n+2)
         margin-bottom: 0
@@ -42,7 +43,7 @@
     &:nth-child(2n)
         padding-left: 48px
         +max-screen($breakpoint-md)
-            padding-left: 0
+            padding-left: 15px
 .shipping__content__wrapper
     max-width: 1440px
     position: relative
@@ -61,3 +62,8 @@
     z-index: -1 !important
     @media only screen and (max-width: 1098px)
         display: none
++max-screen($breakpoint-sm)
+    .shipping__itemRow
+        max-width: 300px
+        margin-right: auto
+        margin-left: auto
