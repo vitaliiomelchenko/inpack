@@ -123,6 +123,7 @@
 					$args = array(
 						'taxonomy' 		=> 'product_cat',
 						'orderby' 		=> 'name',
+						'parent' => '0',
 						'order'   		=> 'ASC',
 						'number'		=>	9,
 						'hide_empty' 	=> false,
