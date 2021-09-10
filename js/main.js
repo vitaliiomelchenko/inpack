@@ -364,10 +364,10 @@ $('.heroBanner__sliderWrapper').slick({
 
 $('.partners__row').slick({
   dots: false,
-  infinite: false,
+  infinite: true,
   speed: 300,
   slidesToShow: 6,
-  slidesToScroll: 4,
+  slidesToScroll: 1,
   prevArrow: $('.partners__content__wrapper .slick-prev'),
   nextArrow: $('.partners__content__wrapper .slick-next'),
   responsive: [
@@ -375,7 +375,7 @@ $('.partners__row').slick({
       breakpoint: 1024,
       settings: {
         slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToScroll: 1,
         infinite: true,
         arrows: false,
         dots: false
@@ -385,7 +385,7 @@ $('.partners__row').slick({
       breakpoint: 600,
       settings: {
         slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToScroll: 1,
         arrows: false,
         dots: false
       }
