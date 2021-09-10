@@ -4,14 +4,15 @@
 ?>
 <section class="">
     <div class="partners__content__wrapper">
-        <div class="container">
-        <?php if ($partnersTitle) : ?>
-            <div class="partners__title h1"><?php echo $partnersTitle;?></div>
-        <?php endif;?>
+        <div class="container titlePseudo--container">
+            <?php if ($partnersTitle) : ?>
+                <div class="partners__title h1"><?php echo $partnersTitle;?></div>
+            <?php endif;?>
             <?php if ($partnersTitleBack) : ?>
                 <div class="titlePseudo"><?php echo $partnersTitleBack;?></div>
             <?php endif;?>
         </div>
+        <div class="container">
             <div class="container slider">
             <div class="slick-next"></div>
             <div class="slick-prev"></div>
