@@ -20,7 +20,7 @@
         <div class="container container--md ">
             <div class="row promo_row">
 
-                <div class="col-lg-7 promo__item__wrapper">
+                <div class="promo__item__wrapper">
                     <div class="promo__item">
                         <?php if ($promoItemContent_1) : ?>
                         <div class="promo__item__content"><?php echo $promoItemContent_1;?></div>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 
-                <div class="col-lg-7 promo__item__wrapper">
+                <div class=" promo__item__wrapper">
                     <div class=" promo__item promo__item__second">
                         <?php if ($promoItemContent_2) : ?>
                         <div class="promo__item__content"><?php echo $promoItemContent_2;?></div>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-5 promo__item__wrapper" style="margin-top: -275px">
+                <div class="promo__item__wrapper" style="margin-top: -275px">
                     <div class="promo__item__big">
                         <?php if ($promoItemContent_3) : ?>
                         <div class="promo__item__content"><?php echo $promoItemContent_3;?></div>
@@ -60,18 +60,14 @@
         </div>
     </div>
 </section>
-<!-- <script type="text/javascript">
-    jQuery(document).ready(function () {
-        jQuery('.').slick({
+<script type="text/javascript">
+        jQuery('.promo_row').slick({
             dots: true,
             infinite: false,
             speed: 300,
             slidesToShow: 4,
             slidesToScroll: 4,
-            responsive: [{
-                    breakpoint: 2560,
-                    settings: "unslick"
-                },
+            responsive: [
                 {
                     breakpoint: 768,
                     settings: {
@@ -81,5 +77,4 @@
                 }
             ],
         });
-    });
-</script> -->
+</script> 
