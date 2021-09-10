@@ -387,7 +387,7 @@ $('.partners__row').slick({
         slidesToShow: 2,
         slidesToScroll: 1,
         arrows: false,
-        dots: false
+        dots: true
       }
     },
     {
@@ -396,7 +396,7 @@ $('.partners__row').slick({
         slidesToShow: 2,
         slidesToScroll: 1,
         arrows: false,
-        dots: false
+        dots: true
       }
     }
     // You can unslick at a given breakpoint now by adding:
