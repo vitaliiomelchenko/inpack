@@ -56,13 +56,19 @@
             .row
                 margin-right: -10px 
                 margin-left: -10px 
-                .product_category_item__wrapper 
+                .product_category_item__wrapper
                     padding: 0 10px
                     -moz-user-select: none
                     -khtml-user-select: none
                     -webkit-user-select: none
                     -ms-user-select: none
                     user-select: none
+                    +max-screen($breakpoint-md)
+                        max-width: 100%
+                        margin-bottom: 0
+                        border: 0
+                    &:nth-child(n)
+                        margin: 0
                     .product_category_item 
                         border: 1px solid #E30613
                         background: #fff
