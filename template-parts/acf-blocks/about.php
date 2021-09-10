@@ -1,5 +1,6 @@
 <?php 
     $aboutTitle = get_sub_field('aboutTitle'); 
+    $aboutImg= get_sub_field('aboutImg'); 
 ?>
 
 <section class="about">
