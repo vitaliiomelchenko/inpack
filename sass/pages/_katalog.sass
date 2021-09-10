@@ -240,7 +240,7 @@
             transition: .3s
             padding: 5px 0
 
-.product
+body:not(.single-product) .product
     position: relative
     margin-bottom: 30px
     transition: .3s
@@ -824,7 +824,7 @@
                         margin-left: 0 
                         margin-right: 0
                         align-items: stretch
-    .product
+    body:not(.single-product) .product
         max-width: calc( 33.33% - 15px )
         padding-left: 6px 
         padding-right: 6px 
@@ -952,7 +952,7 @@
                             i
                                 background-image: url('../assets/img/grey_heart.svg')
     @media( min-width: 769px )
-        .product 
+        body:not(.single-product) .product
             &:nth-child(3n + 1)
                 margin-right: 15px 
             &:nth-child( 3n + 2 )
@@ -1002,14 +1002,14 @@
                             margin-left: 2px 
                         .sort_by
                             right: -2px
-    .product
+    body:not(.single-product) .product
         max-width: calc( 50% - 3px )
         margin-right: 3px 
         margin-bottom: 10px
         &:nth-child(2n)
             margin-right: 0
             margin-left: 3px
-    .woocommerce div.product 
+    .woocommerce divbody:not(.single-product) .product
         margin-bottom: 10px                       
 @media(min-width: 993px )
     .top-filter-row
