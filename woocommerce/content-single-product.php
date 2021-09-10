@@ -134,21 +134,24 @@ if ( post_password_required() ) {
 </section>
 <?php //do_action( 'related_products' ); ?>
 <?php //do_action( 'woocommerce_after_single_product' ); ?>
-
 <script>
-	jQuery(function(){
-
-		jQuery('.quantity input[type="number"]').niceNumber();
-
-	});
-	jQuery('.quantity input[type="number"]').each(function(){
+	var $ = jQuery;
+	$('.quantity input[type="number"]').niceNumber();
+	$('.quantity input[type="number"]').each(function(){
 		var itemAttr = this.getAttribute('max');
+		$(this).removeAttr('data-nice-number-initialized');
+		$(this).parent().find('.plus').click(function(event){
+			event.preventDefault();
+			var numberField = $(this).parent().find('input[type="number"]');
+			var currentValue = $(numberField).val();
+			$(numberField).attr('value', parseInt(currentValue) + 1);
+		});
 		if(itemAttr == ""){
 			this.removeAttribute('max');
 		}
 	});
-	jQuery('.single_add_to_cart_button').click(function(){
-		jQuery('.add_to_cart_popup').addClass('active');
+	$('.single_add_to_cart_button').click(function(){
+		$('.add_to_cart_popup').addClass('active');
 	});
 </script>
 <?php 

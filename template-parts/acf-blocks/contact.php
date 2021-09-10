@@ -9,7 +9,7 @@
 
 <section class="contact">
     <div class="contact__content__wrapper">
-            <div class="contact_page_top">
+            <div class="contact_page_top" style="position: relative;">
                 <?php if ($contactTitle) : ?>
                     <div class="contact__title h2"><?php echo $contactTitle;?></div>
                 <?php endif;?>
