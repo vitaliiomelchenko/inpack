@@ -118,6 +118,9 @@
             display: block
     form.woocommerce-checkout 
         display: flex
+        flex-wrap: wrap
+        .woocommerce-NoticeGroup 
+            width: 100%
         .woocommerce-checkout-review-order
             max-width: 394px 
             width: 100%
@@ -179,7 +182,7 @@
             display: none
         .chechout_fields_wrapper 
             display: flex
-            width: 100%
+            width: calc( 100% - 394px )
             flex-wrap: wrap
             .payer_type_wrapper 
                 max-width: 267px 

@@ -420,6 +420,31 @@
     #sidebar,
     .woocommerce-breadcrumb
         display: none
+.logged-in
+    .product-page .container .product-page-right-col .product-page-data .add-to-cart-button .out-of-stock
+        margin: 0
+        display: none
+    .add-to-cart-button
+        #yith-wcwtl-output 
+            margin-bottom: 0
+            p 
+                margin: 0
+            a 
+                display: inline-block
+                border: 1px solid #e30613
+                color: #e30613
+                padding: 11px 8px
+                border-radius: 5px
+                font-size: 20px
+                font-weight: 600
+                -webkit-transition: .23s
+                transition: .23s
+                margin-top: 8px
+                background: transparent
+                margin-top: 0
+                &:hover 
+                    background: #e30613
+                    color: #fff
 @media(max-width: 992px)
     @media(min-width: 769px)
         .product-page

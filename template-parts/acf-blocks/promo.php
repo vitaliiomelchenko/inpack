@@ -60,6 +60,14 @@
         </div>
     </div>
 </section>
+<style>
+    .promo__content__wrapper .slick-track{
+        display: flex;
+    }
+    .promo__content__wrapper .promo_row {
+        display: block;
+    }
+</style>
 <script type="text/javascript">
         jQuery('.promo_row').slick({
             dots: true,
