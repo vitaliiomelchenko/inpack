@@ -135,15 +135,17 @@
 					foreach($cats as $cat) {?>
 					
 						<li class="katalog-category">
-							<?php 
-								$icon = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
-							?>
-							<?php if(!empty($icon)): ?>
-								<div class="category-image">
-									<?php echo file_get_contents(wp_get_original_image_path($icon)); ?>
-								</div>
-							<?php endif; ?>
-							<div class="category-name"><?php echo $cat->name; ?></div>
+							<a href="<?php echo get_category_link( $cat->term_id );?>" class="">
+								<?php 
+									$icon = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
+								?>
+								<?php if(!empty($icon)): ?>
+									<div class="category-image">
+										<?php echo file_get_contents(wp_get_original_image_path($icon)); ?>
+									</div>
+								<?php endif; ?>
+								<div class="category-name"><?php echo $cat->name; ?></div>
+							</a>
 						</li>
 					<?php 
 					};
