@@ -52,13 +52,13 @@
                 </div>
 
             </div>
-            <div class=" catalog__btn">
+            <div class="catalog__btn">
                 <a href="<?php echo $promo_button_cat['url'] ?>"><?php echo $promo_button_cat['title'] ?></a>
             </div>
         </div>
     </div>
 </section>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     jQuery(document).ready(function () {
         jQuery('.').slick({
             dots: true,
@@ -80,4 +80,4 @@
             ],
         });
     });
-</script>
+</script> -->

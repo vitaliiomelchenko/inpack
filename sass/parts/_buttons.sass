@@ -76,14 +76,38 @@ button,
         background: white
         text-decoration: none
 
-.catalog__btn a::before
-        content: ''
-        width: 54px
-        height: 2px
-        border-bottom: 2px solid #E30613
-        position: absolute
-        transform: rotate(0.73deg)
-        top: 10px
-        left: 0px
+.catalog__btn 
+    display: inline-block
+    transition: padding .3s ease
+    padding: .625rem .625rem .625rem 5rem
+    a
+        &::before
+            content: ''
+            width: 54px
+            height: 2px
+            border-bottom: 2px solid #E30613
+            position: absolute
+            transform: translate(-50%)
+            top: 50%
+            left: 27px
+            transition: width .3s ease
+        &::after
+            content: ''
+            width: 0
+            height: 2px
+            border-bottom: 2px solid #E30613
+            position: absolute
+            transform: translate(-50%)
+            top: 50%
+            right: -27px
+            transition: width .3s ease
+    &:hover
+        padding: .625rem 5rem .625rem .625rem
+        a
+            &::before
+                width: 0
+            &::after
+                width: 54px
+
     
         
