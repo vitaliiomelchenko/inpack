@@ -10,7 +10,7 @@
     <div id="app" class="app-container" data-namespace="page">
         <?php /*=====WRITE YOUR CODE HERE=====*/ ?>
             
-			<div id="post-<?php the_ID('default-page'); ?>" <?php post_class('best_products'); ?>>
+			<div id="post-<?php the_ID('default-page'); ?>" <?php post_class(''); ?>>
               <?php if(have_rows('flexible_content')):
                 while(have_rows('flexible_content')): the_row(); ?>
                   <?php get_template_part('/template-parts/acf-blocks/' . get_row_layout()); ?>

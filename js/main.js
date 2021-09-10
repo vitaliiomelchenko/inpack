@@ -405,3 +405,25 @@ $(document).ready(function(){
     $(this).parent().find(".wc-block-product-categories-list--depth-1").slideToggle();
   });
 })
+
+/**Restrict access for user, if not logged in */
+
+$(document).ready(function(){
+  $('.wishlist_wrapper .woocommerce-MyAccount-navigation-link--orders a').on("click", function(e){
+    e.preventDefault();
+    $('body').addClass('open-popup');
+    $('body').addClass('log-in-popup');
+  });
+
+  $('.wishlist_wrapper .woocommerce-MyAccount-navigation-link--edit-account a').on("click", function(e){
+    e.preventDefault();
+    $('body').addClass('open-popup');
+    $('body').addClass('log-in-popup');
+  });
+});
+
+
+
+
+
+    
