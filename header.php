@@ -148,7 +148,7 @@
 					?>
 				</ul>
 				<div class="katalog-menu-button-wrapper">
-					<a href="<?php echo get_home_url() ?>/shop" class="button">Всі товари</a>
+					<a href="<?php echo get_home_url() ?>/categories-page/" class="button">Всі товари</a>
 				</div>
 				<div class="close-menu-icon">
 					<img src="<?php echo get_template_directory_uri() ?>/assets/img/close_header_icon.svg" alt="">
