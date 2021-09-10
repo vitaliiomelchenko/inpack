@@ -9,13 +9,15 @@
 ?>
 <section class="promo">
     <div class="promo__content__wrapper">
-        <div class="container container--md ">
+        <div class="container titlePseudo--container">
             <?php if ($promoTitle) : ?>
-            <div class="promo__title h2"><?php echo $promoTitle;?></div>
+                <div class="promo__title h2"><?php echo $promoTitle;?></div>
             <?php endif;?>
             <?php if ($promoTitleBack) : ?>
-            <div class="titlePseudo"><?php echo $promoTitleBack;?></div>
+                <div class="titlePseudo"><?php echo $promoTitleBack;?></div>
             <?php endif;?>
+        </div>
+        <div class="container container--md ">
             <div class="row promo_row">
 
                 <div class="col-lg-7 promo__item__wrapper">
