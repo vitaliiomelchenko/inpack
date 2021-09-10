@@ -25,14 +25,13 @@ Template Name: Categories Page
                     <a href="<?php echo $button_file; ?>" class="above_sidebar_download_button" download><?php echo $button_title; ?></a>
                 </div>
             <?php endif; ?>
-            <div class="filter_wrapper category">
-				<div class="filter_title">
-					Категорія
-				</div>
-				<div class="filter">
-					<?php echo do_shortcode( '[searchandfilter id="wpf_60d358e92dfeb"]' ) ?>
-				</div>
-			</div>
+            <div class="katalog">
+                <div class="filter_wrapper category">
+                    <div class="filter">
+                        <div class="filter_wrapper"><?php dynamic_sidebar('shop-filters');?></div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-md-9 col-12 product_categories_list">
             <div class="row">
