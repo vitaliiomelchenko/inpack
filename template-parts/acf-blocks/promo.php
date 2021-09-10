@@ -20,7 +20,7 @@
         <div class="container container--md ">
             <div class="row promo_row">
 
-                <div class="promo__item__wrapper">
+                <div class=" col-lg-7 promo__item__wrapper">
                     <div class="promo__item">
                         <?php if ($promoItemContent_1) : ?>
                         <div class="promo__item__content"><?php echo $promoItemContent_1;?></div>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 
-                <div class=" promo__item__wrapper">
+                <div class="col-lg-7 promo__item__wrapper">
                     <div class=" promo__item promo__item__second">
                         <?php if ($promoItemContent_2) : ?>
                         <div class="promo__item__content"><?php echo $promoItemContent_2;?></div>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
 
-                <div class="promo__item__wrapper" style="margin-top: -275px">
+                <div  class="col-lg-5 promo__item__wrapper" style="margin-top: -275px">
                     <div class="promo__item__big">
                         <?php if ($promoItemContent_3) : ?>
                         <div class="promo__item__content"><?php echo $promoItemContent_3;?></div>
@@ -60,29 +60,19 @@
         </div>
     </div>
 </section>
-<style>
-    .promo__content__wrapper .slick-track{
-        display: flex;
-    }
-    .promo__content__wrapper .promo_row {
-        display: block;
-    }
-</style>
 <script type="text/javascript">
-        jQuery('.promo_row').slick({
+
+    var w = jQuery(window).width();
+if(w <= 768){
+     jQuery('.promo_row').slick({
             dots: true,
-            infinite: false,
+            infinite: true,
             speed: 300,
-            slidesToShow: 4,
-            slidesToScroll: 4,
-            responsive: [
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-            ],
+            slidesToShow: 1,
+            slidesToScroll: 1,
         });
+}
+
+
+       
 </script> 

@@ -82,3 +82,45 @@
 .col-lg-5.promo__item__wrapper
     +max-screen($breakpoint-lg)
         margin-top: 0 !important
+.promo__content__wrapper
+     .button, .woocommerce .button, .woocommerce a.button, .woocommerce button[type=submit], .woocommerce input[type=submit], button
+        display: inline-block
+        padding: 0
+        background: #fff
+        border-radius: 50%
+        text-align: center
+        text-decoration: none
+        color: #fff
+        line-height: 1.4
+        width: 10px
+        font-size: 0
+        height: 10px
+        border: 1px solid #e30613
+.promo__content__wrapper  
+    .promo_row
+        +max-screen($breakpoint-md)
+            display: block
+.promo__content__wrapper
+    .slick-track
+        display: flex
+.promo__content__wrapper  
+    .slick-dots
+        display: flex
+        align-items: center
+        justify-content: center
+        overflow: hidden
+        max-width: 60px
+        margin-left: auto
+        margin-right: auto  
+        li
+            padding-right: 10px    
+        .slick-active
+            button
+                background: #e30613
+.promo__content__wrapper
+    .slick-arrow
+        display: none !important
+.promo__item__wrapper
+    +max-screen($breakpoint-md)
+        margin-top: 0 !important
+        height: fit-content
