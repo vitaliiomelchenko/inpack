@@ -5,9 +5,9 @@
 
 <section class="shipping shipping_section">
     <div class="shipping__content__wrapper">
-    <div class="container--featured">
+    <div class="container--featured titlePseudo--container">
         <?php if ($shippingTitle) : ?>
-            <div class="shippingTitle h2"><?php echo $shippingTitle;?></div>
+            <div class="shippingTitle h2 text-color-primary"><?php echo $shippingTitle;?></div>
         <?php endif;?>
         <?php if ($shippingTitleBack) : ?>
                 <div class="titlePseudo shippingPseudo"><?php echo $shippingTitleBack;?></div>
