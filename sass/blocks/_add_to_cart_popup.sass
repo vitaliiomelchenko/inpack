@@ -7,10 +7,10 @@
     width: 100%
     max-width: 564px
     height: 528px
-    z-index: 999
     padding-top: 122px
     padding-left: 71px
     padding-right: 71px
+    z-index: -1
     transition: opacity .3s
     .add_to_cart_popup
         h2 
@@ -36,6 +36,7 @@
 .open-popup 
     .add_to_cart_popup_wrapper
         opacity: 1 !important
+        z-index: 999
 @media(max-width: 768px )
     .add_to_cart_popup_wrapper
         padding-left: 13px 

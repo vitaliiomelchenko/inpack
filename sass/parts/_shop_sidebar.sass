@@ -68,6 +68,48 @@
                             width: 13px 
                             height: 8px
                             background-image: url('../assets/img/filter_checkbox_tick.svg')
+.price_fields
+    padding-left: 18px  
+    padding-right: 18px 
+    .price_fields_title 
+        font-size: 18px 
+        font-weight: 500
+        margin-bottom: 11px 
+        margin-top: 23px
+.price_slider_wrapper
+    display: flex 
+    .price_slider_amount
+        input 
+            width: 70px 
+            height: 40px 
+            box-shadow: inset 0px 1px 5px rgba(0, 0, 0, 0.1)
+            text-align: center
+            padding: 8px 
+            border: 0
+            &:first-of-type
+                margin-right: 18px
+            &:last-of-type
+                margin-left: auto
+            &::placeholder 
+                color: #4F4F4F
+                font-weight: 500  
+                font-size: 18px 
+        button 
+            padding: 9px 36px  
+            font-size: 16px 
+            color: #FAFAFA
+            background: #7CBF65
+            border-radius: 5px 
+            min-width: auto
+            margin-left: 18px 
+            text-transform: uppercase
+.price-slider-wrapper 
+    margin-left: 11px
+    margin-right: 22px 
+    padding-top: 9px
+    padding-bottom: 17px
+    margin-top: 20px
+    margin-bottom: 20px 
 @media(max-width: 768px)
     .filter-col
         & > .filter_wrapper 

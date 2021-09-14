@@ -138,6 +138,9 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
 						do_action( 'woocommerce_order_details_after_order_table_items', $order );
 						?>
+						<div class="mobile_repeat_order_button">
+							<div class="button"><a href="<?php echo wp_nonce_url( add_query_arg( 'order_again', $order->get_id(), wc_get_cart_url() ), 'woocommerce-order_again' ); ?>">Повторити замовлення</a></div>
+						</div>
 					</div>
 					</div>
 					</div>

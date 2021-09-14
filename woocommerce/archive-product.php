@@ -72,53 +72,61 @@ if ( woocommerce_product_loop() ) {
 				<div class="filters">
 				<?php
 
-				// задаем нужные нам критерии выборки данных из БД
-				$args = array(
-					'post_type' => 'product',
-					'posts_per_page' => -1,
-					'orderby' => 'comment_count'
-				);
+					// задаем нужные нам критерии выборки данных из БД
+					$args = array(
+						'post_type' => 'product',
+						'posts_per_page' => -1,
+						'orderby' => 'comment_count'
+					);
 
-				$query = new WP_Query( $args );
+					$query = new WP_Query( $args );
 
-				// Цикл
-				if ( $query->have_posts() ) {
-					$product_attributes_names = array();
-					while ( $query->have_posts() ) {
-						$query->the_post();
-						global $product;
+					// Цикл
+					if ( $query->have_posts() ) {
+						$product_attributes_names = array();
+						while ( $query->have_posts() ) {
+							$query->the_post();
+							global $product;
 
-						//Getting product attributes
-						$product_attributes = $product->get_attributes();
-				
-						if(!empty($product_attributes)){
-				
-							//Getting product attributes slugs
-							$product_attribute_slugs = array_keys($product_attributes);
-							$count_slug = 0;
-				
-							
-							foreach ($product_attribute_slugs as $product_attribute_slug){
-								$count_slug++;
-								$attribute_name =  ucfirst( str_replace('pa_', '', $product_attribute_slug) );
-								array_push($product_attributes_names, $product_attribute_slug);
-								$product_attributes_names = array_unique($product_attributes_names);
-							}
-							
-						}
+							//Getting product attributes
+							$product_attributes = $product->get_attributes();
 						
+							if(!empty($product_attributes)){
+							
+								//Getting product attributes slugs
+								$product_attribute_slugs = array_keys($product_attributes);
+								$count_slug = 0;
+							
+
+								foreach ($product_attribute_slugs as $product_attribute_slug){
+									$count_slug++;
+									$attribute_name =  ucfirst( str_replace('pa_', '', $product_attribute_slug) );
+									array_push($product_attributes_names, $product_attribute_slug);
+									$product_attributes_names = array_unique($product_attributes_names);
+								}
+
+							}
+
+						}
+
 					}
-					
-				}
-				// Возвращаем оригинальные данные поста. Сбрасываем $post.
-				wp_reset_postdata();
+					// Возвращаем оригинальные данные поста. Сбрасываем $post.
+					wp_reset_postdata();
 				?>
 				<div class="filter_wrapper">
 				<div class="filter_title">Фільтр</div>
 
+					<div class="price_fields">
+						<div class="price_fields_title">Ціна</div>
 					<?php
-					//get_template_part( '/woocommerce/content-widget-price-filter' );
-					//echo do_shortcode('[woocommerce_product_filter_price fields="no"]');
+					get_template_part( '/woocommerce/content-widget-price-filter' ); ?>
+					</div>
+					<div class="price-slider-wrapper" style="position: relative;">
+						<div class="slider-track"></div>
+						<input type="range" min="0" max="1000" value="0" id="slider-1" oninput="slideOne()">
+						<input type="range" min="0" max="1000" value="1000" id="slider-2" oninput="slideTwo()">
+					</div>
+					<?php
 					foreach ($product_attributes_names as $product_attributes_name){ 
 
 						/*get term name by slug */
@@ -212,6 +220,7 @@ jQuery(document).ready(function($){
 	console.log(window.location.search);
 	let newQueryString = '';
 	$('li').on("click",function(){
+		$(this).closest('.filter-list').find('.perpage').removeClass('active');
 		$(this).toggleClass('active');
 	});
 	
@@ -286,28 +295,6 @@ jQuery(document).ready(function($){
 					
 				</div>
 				</div>
-				<!-- <div class="filter_wrapper category">
-					<div class="filter_title">
-						Категорія
-					</div>
-					<div class="filter">
-						<?php echo do_shortcode( '[searchandfilter id="wpf_60d358e92dfeb"]' ) ?>
-					</div>
-				</div>
-				<div class="filter_wrapper filters">
-					<div class="filter_title">
-						Фільтр
-					</div>
-					<div class="filter">
-						<div class="price">
-							<div class="price-range-title wpf_item_name">Ціна</div>
-							<?php echo do_shortcode( '[searchandfilter id="wpf_60d3292edca4b"]' ) ?>
-						</div>
-						<div class="product_attributes">
-							<?php echo do_shortcode( '[searchandfilter id="wpf_60d466c7f358a"]' ) ?>
-						</div>
-					</div>
-				</div> -->
 			</div>
 
             <div class="col-lg-9 col-12 katalog-items">
@@ -321,14 +308,10 @@ jQuery(document).ready(function($){
 							<?php do_action( 'woocommerce_before_shop_loop' ); //Фильтр архивной страницы ?>
 						</ul>
 					</div>
-					<!-- <div class="count">
+					<div class="count">
 						<div class="filter-title">Кількість товару:</div>
-						<ul class="filter-list">
-							<li class="active">10</li>
-							<li>20</li>
-							<li>30</li>
-						</ul>
-					</div> -->
+						<?php do_action('woocommerce_count_filter'); ?>
+					</div>
                 </div>
                 <div class="row">
 				<?php
@@ -397,7 +380,6 @@ $(document).ready(function(){
   var selectedOrder = $('.post-type-archive-product .woocommerce-ordering select').find('option[selected="selected"]');
   var selectedOrderClass = $(selectedOrder).attr('value');
   $('.' + selectedOrderClass).addClass('active');
-  //console.log(<?php echo "'" . get_home_url() . "'"; ?>);
   if(wLink != "<?php echo get_home_url(); ?>/shop/" && selectedOrderClass == "popularity"){ 
     if(wLink != "<?php echo get_home_url(); ?>/shop/page/<?php echo $paged; ?>/"){
       $('.post-type-archive-product').find('.filter-list-item').removeClass('active');
@@ -427,3 +409,119 @@ $(document).ready(function(){
 //do_action( 'woocommerce_sidebar' );
 
 get_footer(  );
+
+?>
+<style>
+input[type="range"]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    outline: none;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    pointer-events: none;
+}
+.slider-track{
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+	background: #e5e5e5;
+    border-radius: 5px;
+}
+input[type="range"]::-webkit-slider-runnable-track{
+    -webkit-appearance: none;
+    height: 1px;
+}
+input[type="range"]::-moz-range-track{
+    -moz-appearance: none;
+    height: 1px;
+}
+input[type="range"]::-ms-track{
+    appearance: none;
+    height: 1px;
+}
+input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 1.7em;
+    width: 1.7em;
+    background-color: #32BA7C;
+    cursor: pointer;
+    margin-top: -9px;
+    pointer-events: auto;
+    border-radius: 50%;
+}
+input[type="range"]::-moz-range-thumb{
+    -webkit-appearance: none;
+    height: 1.7em;
+    width: 1.7em;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #32BA7C;
+    pointer-events: auto;
+}
+input[type="range"]::-ms-thumb{
+    appearance: none;
+    height: 1.7em;
+    width: 1.7em;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #32BA7C;
+    pointer-events: auto;
+}
+.values{
+    background-color: #32BA7C;
+    width: 32%;
+    position: relative;
+    margin: auto;
+    padding: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 25px;
+    color: #ffffff;
+}
+.values:before{
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-top: 15px solid #3264fe;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    margin: auto;
+    bottom: -14px;
+    left: 0;
+    right: 0;
+}
+</style>
+
+<script>
+	window.onload = function(){
+		slideOne();
+		slideTwo();
+	}
+	let sliderOne = document.getElementById("slider-1");
+	let sliderTwo = document.getElementById("slider-2");
+	let minGap = 0;
+	let sliderTrack = document.querySelector(".slider-track");
+	let sliderMaxValue = document.getElementById("slider-1").max;
+	function slideOne(){
+		if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+			sliderOne.value = parseInt(sliderTwo.value) - minGap;
+		}
+		jQuery('.price_slider_amount #min_price').attr('value', sliderOne.value);
+	}
+	function slideTwo(){
+		if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+			sliderTwo.value = parseInt(sliderOne.value) + minGap;
+		}
+		jQuery('.price_slider_amount #max_price').attr('value', sliderTwo.value);
+	}
+</script>

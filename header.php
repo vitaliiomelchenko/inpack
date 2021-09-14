@@ -223,6 +223,9 @@
 			<?php endif; ?>
 		</div>
 	</header>
+	<?php if(is_shop()){
+		get_template_part('/template-parts/add_to_cart_message');
+	}; ?>
 	<div class="overlay"></div>
 	<div class="wrong_account_data woocommerce_message"><?php do_action( 'woocommerce_before_customer_login_form' ); ?></div>
 	<div class="contact_form_wrapper">

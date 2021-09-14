@@ -626,11 +626,9 @@ function custom_override_shipping_fields( $fields ) {
 
  /** Product per page woocommerce */
 
-add_action( 'woocommerce_before_shop_loop', 'ps_selectbox', 45 );
+add_action( 'woocommerce_count_filter', 'ps_selectbox', 45 );
 function ps_selectbox() {
     $per_page = filter_input(INPUT_GET, 'perpage', FILTER_SANITIZE_NUMBER_INT);     
-    echo '<div class="count">';
-    echo '<div class="filter-title">Кількість товару:</div>';
     echo '<ul class="filter-list">';   
     $orderby_options = array(
         '9' => '9',
@@ -641,7 +639,6 @@ function ps_selectbox() {
         echo "<li class='perpage perpage-$value'><a href='?perpage=$value'>$label<a></li>";
     }
     echo '</ul>';
-    echo '</div>';
 }
 
 add_action( 'pre_get_posts', 'ps_pre_get_products_query' );
