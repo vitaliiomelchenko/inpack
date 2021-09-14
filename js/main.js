@@ -142,11 +142,13 @@ $(window).on('load', function() {
     var filterTitle = $('.filter_wrapper > .filter_title');
     $(filterTitle).click(function(){
       var openedElement = $('.filter__inner.active').size();
-      if(openedElement == 1){
+      var priceFilterTitle = jQuery('.opened_price_slider').size();
+      if(openedElement == 1 || priceFilterTitle == 1 ){
         $(this).parent().find('.filter__inner.active').removeClass('active');
+        $('.opened_price_slider').removeClass('opened_price_slider');
         $(this).html('Фільтр');
       }
-      if( openedElement == 0 ){
+      else{
         $('body').removeClass('opened_filter_menu');
         $('.filters').removeClass('opened');
       }
@@ -458,4 +460,13 @@ jQuery(document).ready(function(){
   jQuery('.cart-icon').click(function(){
     $('body').addClass('open-popup');
   }); 
+});
+
+jQuery(document).ready(function(){
+  var w = jQuery(window).width();
+  if(w <= 992){
+    jQuery('.price_fields_title').click(function(){
+      jQuery(this).parent().addClass('opened_price_slider');
+    });
+  }
 });
