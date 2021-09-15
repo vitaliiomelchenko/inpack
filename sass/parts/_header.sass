@@ -43,30 +43,33 @@
 				width: calc(50% - 100px)
 				margin-left: 20px
 				.lang-wrapper
-					display: flex
-					.lang 
-						color: #DADADA
-						font-size: 16px
-						margin: 0 10px
-						position: relative
-						padding: 4px 0
-						font-weight: 500
-						&::after 
-							content: ""
-							position: absolute 
-							right: -10px
-							top: 0
-							height: 100% 
-							width: 1px
-							background: #E5E5E5
-						&:first-child
-							margin-left: 0
-						&.current-lang 
-							color: #E30613 
-						&:last-child
-							margin-right: 0
+					ul
+						display: flex
+						li.wpml-ls-menu-item
+							margin: 0 10px
+							position: relative
+							padding: 4px 0
+							a
+								color: #DADADA
+								font-size: 16px
+								font-weight: 500
 							&::after 
-								display: none
+								content: ""
+								position: absolute 
+								right: -10px
+								top: 0
+								height: 100% 
+								width: 1px
+								background: #E5E5E5
+							&:first-child
+								margin-left: 0
+							&.wpml-ls-current-language
+								a
+									color: #E30613 
+							&:last-child
+								margin-right: 0
+								&::after 
+									display: none
 				.phone_numbers_wrapper
 					display: flex
 					max-width: 270px

@@ -57,8 +57,24 @@
 						<?php endif; ?>
 					</div>
 					<div class="lang-wrapper">
-						<div class="lang current-lang">УКР</div>
-						<div class="lang">РУС</div>
+						<?php 	
+							wp_nav_menu( [
+								'theme_location'  => 'lang-switcher',
+								'menu'            => '',
+								'container'       => '',
+								'container_class' => '',
+								'container_id'    => '',
+								'menu_class'      => '',
+								'menu_id'         => '',
+								'echo'            => true,
+								'fallback_cb'     => 'wp_page_menu',
+								'before'          => '',
+								'after'           => '',
+								'link_before'     => '',
+								'link_after'      => '',
+								'items_wrap'      => '<ul id="menu-header-menu" class="%2$s">%3$s</ul>',
+							] );
+						?>
 					</div>
 				</div>
 			</div>

@@ -203,10 +203,6 @@ $(document).ready(function(){
   if(popup > 0){
     $('body.single-product').addClass('open-popup');
   };
-  $('.overlay').click(function(){
-    $('body').removeClass('open-popup');
-    $('.add_to_cart_popup_wrapper').css('z-index', '-1');
-  });
 });
 
 
@@ -315,11 +311,11 @@ $(document).ready(function(){
 $(document).ready(function(){
   var w = $(window).width();
   if(w <= 992) {
-    $('.woocommerce-shop .sort_by').click(function(event){
+    $('.sort_by').click(function(event){
       $(this).find('.filter-list').slideToggle();
       $(this).find('.filter-title').toggleClass('opened_list');
     });
-    $('.woocommerce-shop .top-filter-row .mobile_open_filter_button').click(function(){
+    $('.top-filter-row .mobile_open_filter_button').click(function(){
       $('body').addClass('opened_filter_menu');
       $('body .filter-col .filters').addClass('opened');
       $('.opened_filter_menu .overlay').click(function(){
