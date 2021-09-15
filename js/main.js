@@ -204,7 +204,7 @@ $(document).ready(function(){
     $('body.single-product').addClass('open-popup');
   };
   $('.overlay').click(function(){
-    $('body.single-product').removeClass('open-popup');
+    $('body').removeClass('open-popup');
     $('.add_to_cart_popup_wrapper').css('z-index', '-1');
   });
 });

@@ -115,16 +115,11 @@ if ( woocommerce_product_loop() ) {
 				?>
 				<div class="filter_wrapper">
 				<div class="filter_title">Фільтр</div>
-
+					
 					<div class="price_fields">
 						<div class="price_fields_title">Ціна</div>
 					<?php
 					get_template_part( '/woocommerce/content-widget-price-filter' ); ?>
-					</div>
-					<div class="price-slider-wrapper" style="position: relative;">
-						<div class="slider-track"></div>
-						<input type="range" min="0" max="1000" value="0" id="slider-1" oninput="slideOne()">
-						<input type="range" min="0" max="1000" value="1000" id="slider-2" oninput="slideTwo()">
 					</div>
 					<?php
 					foreach ($product_attributes_names as $product_attributes_name){ 
@@ -315,11 +310,6 @@ jQuery(document).ready(function($){
                 </div>
                 <div class="row">
 				<?php
-				$args = array(
-					'orderby' => 'popularity',
-					'order'   => 'ASC'
-				);
-				$the_query = new WP_Query( $args );
 				if ( wc_get_loop_prop( 'total' ) ) {
 					while ( have_posts() ):
 						the_post();
