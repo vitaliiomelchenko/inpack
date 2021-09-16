@@ -1,6 +1,7 @@
 <?php 
     $aboutTitle = get_sub_field('aboutTitle'); 
-    $aboutImg= get_sub_field('aboutImg'); 
+    $aboutImgDesktop = get_sub_field('aboutImg'); 
+    $aboutImgMobile = get_sub_field('aboutImgMobile'); 
 ?>
 
 <section class="about homeAbout">
@@ -31,9 +32,12 @@
                 </div>
             </div>
                     <?php endif;?>
-                    <?php if(!empty( $aboutImg) ): ?>
-                      <img class="homeAbout__img" src="<?php echo esc_url($aboutImg['url']);?>" alt="<?php echo esc_attr($aboutImg['alt']); ?>">
+                    <?php if(!empty( $aboutImgDesktop) ): ?>
+                      <img class="homeAbout__img desktop" src="<?php echo esc_url($aboutImgDesktop['url']);?>" alt="<?php echo esc_attr($aboutImgDesktop['alt']); ?>">
                     <?php endif;?>
+                    <?php if(!empty($aboutImgMobile)): ?>
+                      <img class="homeAbout__img mobile" src="<?php echo esc_url($aboutImgMobile['url']);?>" alt="<?php echo esc_attr($aboutImgMobile['alt']); ?>">
+                    <?php endif; ?>
 
         </div>
     </div>

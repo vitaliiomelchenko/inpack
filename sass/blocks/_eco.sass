@@ -7,6 +7,12 @@
     +max-screen($breakpoint-md)
         background: #34A853
         color: #fff
+    +max-screen(768px)
+        margin-top: 50px 
+        padding-top: 37px 
+        padding-left: 22px 
+        padding-right: 21px
+        margin-bottom: 50px 
     &__title 
         color: #34A853
         +max-screen($breakpoint-md)
@@ -26,6 +32,8 @@
             font-size: 18px
             padding-bottom: 30px
             color: #fff
+        +max-screen(768px)
+            padding-bottom: 0
             
     &__img__wrapper 
         margin-top: -115px
@@ -63,3 +71,8 @@
             +max-screen($breakpoint-md)
                 display: none
                 padding-bottom: 95px
+        +max-screen(768px)
+            margin-bottom: 30px 
+            img 
+                height: auto
+                width: 137px 

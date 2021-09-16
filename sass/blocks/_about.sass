@@ -4,14 +4,28 @@
     padding-top: 60px 
     padding-bottom: 66px
     margin-bottom: 120px
+    +max-screen(768px)
+        padding-top: 43px 
     &__title
         margin-bottom: 40px
         color: #333333
         max-width: 760px
+        font-size: 26px 
+        font-family: Days One
+        +max-screen(768px)
+            font-size: 18px 
+            margin-bottom: 16px
     &__item
         display: flex
         margin-bottom: 20px
         margin-top: 40px
+        +max-screen(768px)
+            margin-bottom: 20px
+            margin-top: 0 
+            display: flex 
+            align-items: center
+            &:last-child
+                margin-bottom: 0
         &__icon
             background-color: #E30613
             height: 50px
@@ -25,9 +39,17 @@
                 height: 30px
         &__content
             flex: 1 
+            +max-screen(768px)
+                p 
+                    font-weight: 500
+                    line-height: 1.45 
+                    font-size: 14px
     &__img__wrapper
         z-index: 1
-   
+    .row 
+        .col-lg-10 
+            padding-left: 19px 
+            padding-right: 13px 
 .main__about__img
     width: 400px
     height: 503px
@@ -36,6 +58,10 @@
 
 .homeAbout
     overflow-x: hidden
+    +max-screen(768px)
+        overflow: visible
+        padding-bottom: 0
+        margin-bottom: 50px
     &__img
         position: absolute
         right: 0
@@ -45,6 +71,16 @@
         +max-screen($breakpoint-lg)
             position: static
             right: -15px
+        +max-screen(768px)
+            &.desktop 
+                display: none
+            &.mobile 
+                height: auto
+                max-width: 219px 
+                margin-right: -4px 
+                margin-top: -50px 
+                margin-bottom: -17px 
+                margin-left: auto
 
 
        
