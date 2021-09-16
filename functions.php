@@ -14,7 +14,7 @@ function starter_setup(){
 	register_nav_menus(
 		array( 
 			'header-menu'           => __( 'Меню в шапці' ),
-			'lang-switcher'           => __( 'Переключатель мов' ),
+			'lang-switcher'           => __( 'Перемикач мов' ),
       'footer-menu'           => __( 'Меню в підвалі'),
 		)
 	);

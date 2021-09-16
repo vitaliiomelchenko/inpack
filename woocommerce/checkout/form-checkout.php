@@ -52,6 +52,16 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		<div class="shipping_method checkboxes_wrapper col-12">
 			<?php do_action('shipping_method_extra_feilds'); ?>
 		</div>
+
+		<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
+
+			<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
+
+			<?php wc_cart_totals_shipping_html(); ?>
+
+			<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
+
+		<?php endif; ?>
 		<div class="payment_method checkboxes_wrapper col-12">
 			<?php do_action('payment_method_extra_feilds'); ?>
 		</div>
