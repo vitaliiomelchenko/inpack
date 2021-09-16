@@ -6,6 +6,7 @@
         margin-bottom: 70px
         +max-screen($breakpoint-md)
             font-size: 22px
+            margin-bottom: 23px 
     .slider
         &_item_wrapper 
             background: white
@@ -21,7 +22,6 @@
 
     .slick-slide
         max-width: 144px
-
     .slick-initialized .slick-slide 
         text-align: -webkit-center
     .partners__content__wrapper
@@ -38,18 +38,28 @@
     height: 96px
     padding: 12px 25px
     margin-right: 20px
+    opacity: 0
+    visibility: hidden 
+    transition: .3s
+    margin: 0 10px 
+    &.slick-active
+        opacity: 1
+        visibility: visible
 .partners__content__wrapper
     position: relative
     margin-bottom: 48px
+    +max-screen(768px)
+        margin-bottom: 42px
     .slick-prev
         position: absolute
         height: 20px
         width: 20px
         border-left: 2px solid #000
         border-bottom: 2px solid #000
-        left: 0
+        left: -20px
         top: 40px
         transform: rotate(45deg)
+        z-index: 11
         +max-screen($breakpoint-md)
             display: none
     .slick-next
@@ -58,15 +68,17 @@
         width: 20px
         border-left: 2px solid #000
         border-bottom: 2px solid #000
-        right: 0
+        right: -20px
         top: 40px
         transform: rotate(225deg)
+        z-index: 11
         +max-screen($breakpoint-md)
             display: none
-    .slick-list
-        overflow-x: hidden
     .slider
         position: relative
+    .slick-list 
+        margin-left: -10px 
+        margin-right: -10px 
 .partners__content__wrapper .titlePseudo
     +max-screen($breakpoint-md)
         font-size: 34px
@@ -96,4 +108,29 @@
                 background: #e30613
         li
             padding-right: 10px
-
+    .container:not(.titlePseudo--container)
+        max-width: 1320px 
+        padding-left: 40px
+        padding-right: 80px  
+        &.slider 
+            padding: 0
+        .slick-list 
+            max-width: 1127px 
+            margin-left: auto 
+            margin-right: auto
+        +max-screen(1200px)
+            padding-right: 50px 
+            padding-left: 50px 
+            .slick-next
+                right: -30px 
+            .slick-prev 
+                left: -30px 
+        +max-screen(768px)
+            padding-left: 11px 
+            padding-right: 71px 
+            .slick-slide 
+                opacity: 1
+                visibility: visible
+            .slick-dots 
+                width: calc( 100% + 60px )
+                margin-top: 14px 

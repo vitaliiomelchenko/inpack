@@ -11,6 +11,8 @@
         color: #E30613
         margin-bottom: 70px
         margin-left: 29px
+        +max-screen(768px)
+            margin-bottom: 21px 
     &__item   
         background: #FDD087
         border-radius: 20px
@@ -34,8 +36,9 @@
             line-height: 140%
             color: #FAFAFA
         &__content 
-            color: #FAFAFA
             margin-bottom: 62px
+            * 
+                color: #FAFAFA
         &__second 
             background: #FFBC00
             margin-bottom: 0
@@ -57,7 +60,28 @@
             font-size: 36px
             line-height: 140%
             color: #FAFAFA
-
+        +max-screen(768px)
+            padding-top: 23px 
+            padding-left: 24px
+            padding-right: 12px 
+            margin-bottom: 12px 
+            &__content 
+                margin-bottom: 0
+                max-width: 180px 
+                h1 
+                    font-size: 24px
+                    margin-bottom: 0
+                h2
+                    font-size: 18px 
+            .promo__btn
+                font-size: 12px
+                margin-left: auto 
+                padding-bottom: 4px 
+                &::before 
+                    width: 100% 
+                    top: auto 
+                    bottom: 0px  
+                    height: 1px 
     &__btn 
         font-family: Gilroy
         font-weight: bold

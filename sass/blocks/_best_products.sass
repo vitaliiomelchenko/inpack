@@ -18,11 +18,15 @@
                 text-transform: uppercase
                 opacity: .4
                 margin-bottom: 100px
+                +max-screen(768px)
+                    margin-bottom: 18px
             .block_title
                 color: #E30613
                 position: absolute
                 top: 68px 
                 font-family: Days One
+                +max-screen(768px)
+                margin-left: 28px
         .woocommerce
             .products
                 margin-bottom: 0
@@ -273,6 +277,12 @@
             margin-bottom: 112px
             .button        
                 padding: 21px 86.5px 
+            +max-screen(768px)
+                .button
+                    font-size: 14px 
+                    padding: 15.5px 70.5px
+                    border-radius: 10px
+                    font-family: Montserrat
 @media(max-width: 767px)
     .best_products
         .container
@@ -425,6 +435,3 @@
             .button_wrapper
                 margin-bottom: 50px 
                 margin-top: 20px
-                .button        
-                    padding: 15px 70px                   
-
