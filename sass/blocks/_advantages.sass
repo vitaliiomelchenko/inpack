@@ -12,20 +12,21 @@
             text-align: left
             max-width: 180px 
     .catalog__btn
-        padding: 0
-        display: block
-        a
-            background: #E30613
-            width: 200px 
-            height: 50px 
-            color: #fff
+        +max-screen(768px)
+            padding: 0
             display: block
-            border-radius: 10px 
-            margin-left: auto 
-            margin-right: auto
-            &::before,
-            &:after 
-                content: none
+            a
+                background: #E30613
+                width: 200px 
+                height: 50px 
+                color: #fff
+                display: block
+                border-radius: 10px 
+                margin-left: auto 
+                margin-right: auto
+                &::before,
+                &:after 
+                    content: none
     &__item 
         border: 1.5px solid #32BA7C
         box-sizing: border-box

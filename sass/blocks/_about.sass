@@ -12,6 +12,9 @@
         max-width: 760px
         font-size: 26px 
         font-family: Days One
+        +max-screen(992px)
+            +min-screen(769px)
+                margin-right: -50%
         +max-screen(768px)
             font-size: 18px 
             margin-bottom: 16px
@@ -66,11 +69,15 @@
         position: absolute
         right: 0
         height: 400px
-        max-width: 100%
         object-fit: contain
         +max-screen($breakpoint-lg)
             position: static
             right: -15px
+        +max-screen(992px)
+            +min-screen(769px)
+                margin-top: auto
+                height: auto
+                padding-right: 0
         +max-screen(768px)
             &.desktop 
                 display: none

@@ -4,9 +4,20 @@
     &__title
         color: #E30613
         margin-bottom: 70px
+        max-width: 1404px 
+        margin-left: auto 
+        margin-right: auto 
+        padding-left: 120px 
+        padding-right: 120px 
         +max-screen($breakpoint-md)
             font-size: 22px
             margin-bottom: 23px 
+        +max-screen(992px)
+            padding-left: 60px 
+            padding-right: 60px 
+        +max-screen(768px)
+            padding-left: 3px 
+            padding-right: 3px 
     .slider
         &_item_wrapper 
             background: white
@@ -134,3 +145,7 @@
             .slick-dots 
                 width: calc( 100% + 60px )
                 margin-top: 14px 
+.container.titlePseudo--container
+    max-width: 1440px 
+    .titlePseudo
+        left: 0

@@ -1,0 +1,1 @@
+<div class='waiting_list_message'><div class='close_popup_cross'></div><div class='waiting_list_popup'><h2>Як тільки товар з’явиться в наявності, ми Вам повідомимо</h2><div class='buttons'><a href='<?php echo get_home_url() ?>/shop'>До каталогу товарів</a><a href='<?php echo get_home_url() ?>/cart'>Перейти у кошик</a></div></div></div>

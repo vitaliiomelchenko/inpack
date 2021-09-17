@@ -1,6 +1,8 @@
 .promo
     overflow-x: hidden
-    .container
+    .container:not(.titlePseudo--container)
+        max-width: 1268px
+        padding-left: 28px 
     &__content__wrapper
         max-width: 1440px
         position: relative
@@ -97,7 +99,12 @@
         text-decoration: none
     &__btn:hover
         color: #FAFAFA
-
+    .titlePseudo--container
+        .promo__title
+            max-width: 1268px 
+            padding-left: 60px
+            margin-left: auto 
+            margin-right: auto
 .promo__btn::before 
     content: ''
     width: 88px

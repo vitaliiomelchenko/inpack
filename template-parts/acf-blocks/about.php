@@ -7,7 +7,7 @@
 <section class="about homeAbout">
     <div class="container container--lg">
         <div class="row">
-            <div class="col-lg-10">
+            <div class="col-lg-10 col-md-8">
                 <?php if ($aboutTitle) : ?>
                     <div class="about__title"><?php echo $aboutTitle;?></div>
                 <?php endif;?>
@@ -33,7 +33,7 @@
             </div>
                     <?php endif;?>
                     <?php if(!empty( $aboutImgDesktop) ): ?>
-                      <img class="homeAbout__img desktop" src="<?php echo esc_url($aboutImgDesktop['url']);?>" alt="<?php echo esc_attr($aboutImgDesktop['alt']); ?>">
+                      <img class="homeAbout__img desktop col-md-4" src="<?php echo esc_url($aboutImgDesktop['url']);?>" alt="<?php echo esc_attr($aboutImgDesktop['alt']); ?>">
                     <?php endif;?>
                     <?php if(!empty($aboutImgMobile)): ?>
                       <img class="homeAbout__img mobile" src="<?php echo esc_url($aboutImgMobile['url']);?>" alt="<?php echo esc_attr($aboutImgMobile['alt']); ?>">

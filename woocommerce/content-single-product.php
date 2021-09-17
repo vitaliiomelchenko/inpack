@@ -177,3 +177,20 @@ if ( post_password_required() ) {
 		}
 	});
 </script>
+<script>
+	var $ = jQuery;
+	$(document).ready(function(){
+		var removeLink = '<?php echo the_permalink(); ?>?_yith_wcwtl_users_list=<?php echo get_the_ID(); ?>&_yith_wcwtl_users_list-action=leave';
+		var wooMessage = $('.woocommerce_message .woocommerce-message').size();
+		var buttonLink = $('#yith-wcwtl-output a').attr('href');
+		if(wooMessage == 1 && buttonLink == removeLink){
+			jQuery('.woocommerce_message').html("<?php echo get_template_part('template-parts/waiting_list_message'); ?>");
+			jQuery('.woocommerce_message').addClass('waiting_list_message_wrapepr');
+			jQuery('body').addClass('open-popup');
+			$('.waiting_list_message_wrapepr .close_popup_cross').click(function(){
+				jQuery('body').removeClass('open-popup');
+				jQuery('.woocommerce_message').remove()
+			});
+		}
+	});
+</script>
