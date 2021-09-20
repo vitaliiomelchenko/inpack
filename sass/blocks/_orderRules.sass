@@ -1,10 +1,23 @@
 .orderRules
     margin-bottom: 89px
+    max-width: 1440px 
+    margin-left: auto 
+    margin-right: auto
+    +max-screen(991px)
+        margin-bottom: 40px
+    +max-screen(768px)
+        margin-bottom: 35px
     &__title
         color: #E30613
         margin-bottom: 63px
         font-family: Days one
-        margin-left: 20px
+        margin-left: 40px
+        +max-screen(991px)
+            margin-bottom: 0
+        +max-screen(768px)
+            font-size: 22px
+            max-width: 230px 
+            line-height: 1.55
     &__item
         position: relative
         &Title
@@ -14,61 +27,86 @@
             color: #333333
             margin-bottom: 11px
             max-width: 363px
-            @media only screen and (max-width: 450px)
-                font-size: 18px
-            
+            +max-screen(768px)
+                font-size: 16px 
+                margin-bottom: 5px
+                padding-top: 22px 
+                max-width: 180px 
         &Content
             color: #4F4F4F
             font-weight: 500
             max-width: 295px
-            @media only screen and (max-width: 450px)
-                font-size: 14px
+            +max-screen(768px)
+                font-size: 12px 
+                max-width: 100%
         &Inner
             display: flex
             flex-direction: column
-            padding-left: 30px
-            padding-right: 25px
             +max-screen($breakpoint-sm)
-            padding-left: 45px
-
+    .container
+        max-width: 1360px 
+        padding-left: 50px 
+        margin-left: 10px 
+        margin-right: auto 
+        padding-right: 60px 
+        +max-screen(1240px)
+            padding-left: 30px 
+            padding-right: 30px 
+            margin-left: 0
+        +max-screen(991px)
+            padding-left: 0
+            padding-right: 0
 ol
     list-style: none
-    li
+    li.orderRules__item
         counter-increment: inpack
-        &:nth-child(1)
-            &::before
-                content: counter(inpack)
-                color: #E0E0E0
-                opacity: 0.4
-                font-size: 100px
-                font-family: Days one
-                position: absolute
-                left: -23px
-                top: -33px
-                display: inline-block
-                min-width: 70px
-                text-align: center
-                +max-screen($breakpoint-sm)
-                    left: 0
-                    top: -15px
-                    font-size: 50px
-                
-            
-        &::before
-            content: counter(inpack)
-            color: #E0E0E0
-            opacity: 0.4
+        display: flex 
+        align-items: center
+        .item_number 
             font-size: 100px
-            font-family: Days one
-            position: absolute
-            left: -40px
-            top: -33px
-            display: inline-block
-            min-width: 70px
-            text-align: center
-            +max-screen($breakpoint-sm)
-                font-size: 50px
-                left: 0
+            line-height: 1.4 
+            color: #E0E0E0
+            opacity: .4
+            font-family: Days One 
+            padding-right: 11px 
+            +max-screen(768px)
+                padding-right: 10px
+                font-size: 70px
+        +max-screen(768px)
+            padding-left: 23px
+            padding-right: 33px 
+            margin-bottom: 15px 
+            align-items: flex-start
+            &:last-child
+                margin-bottom: 0
+            &:first-child
+                .orderRules__itemTitle
+                    margin-bottom: 2px 
+                    padding-top: 27px 
+                
+                .item_number 
+                    padding-left: 12px 
+                    padding-right: 15px 
+        &:nth-child(3n + 2)
+            .item_number 
+                padding-right: 25px 
+    +max-screen(991px)
+        +min-screen(769px)
+            padding-left: 35px 
+            padding-right: 35px
+            li.orderRules__item
+                .item_number 
+                    min-width: 60px 
+                    box-sizing: content-box
+                    padding-right: 20px 
+                    text-align: center
+                    font-size: 80px
+                .orderRules__itemTitle 
+                    max-width: 100% 
+                    font-size: 20px 
+                .orderRules__itemContent 
+                    max-width: 100% 
+                    font-size: 14px 
 
 
 

@@ -1,12 +1,30 @@
 .paymentInfo
     margin-bottom: 122px
+    +max-screen(991px)
+        +min-screen(769px)
+            margin-bottom: 50px 
+            .container--featured--sm
+                padding-left: 35px 
+                padding-right: 35px
+    +max-screen(768px)
+        margin-bottom: 42px
     &__title
        color:#E30613
        margin-bottom: 33px
+       +max-screen(991px)
+            margin-left: 5px
+       +max-screen(768px)
+        margin-bottom: 15px 
     &__item
         display: flex
         align-items: center
         margin-bottom: 33px
+        +max-screen(991px)
+            margin-left: 30px 
+        +max-screen(768px)
+            margin-bottom: 15px
+            &:last-child
+                margin-bottom: 0
         &Icon
             background: #E30613
             height: 50px
@@ -16,8 +34,21 @@
             display: flex
             justify-content: center
             align-items: center
+            +max-screen(991px)
+                width: 40px 
+                height: 40px 
+                padding: 5px 
+                margin-top: 12px 
+            +max-screen(768px)
+                width: 30px 
+                height: 30px 
+                padding: 4px
+                margin-right: 13px 
         &Content
             color: #333333
             font-size: 24px
+            font-weight: 500
+            +max-screen(991px)
+                font-size: 20px
             @media only screen and (max-width: 768px)
                 font-size: 14px
