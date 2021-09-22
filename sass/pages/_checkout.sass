@@ -110,6 +110,9 @@
     .container 
         max-width: 1440px 
         padding: 0 95px
+        +max-screen(1400px)
+            +min-screen(993px)
+                padding: 0 50px
         & > h1 
             display: none
         h1.checkout_page_title
@@ -184,6 +187,25 @@
             display: flex
             width: calc( 100% - 394px )
             flex-wrap: wrap
+            +max-screen(768px)
+                width: 100%
+            .shipping_method
+                .col2-set 
+                    display: flex 
+                    flex-wrap: wrap 
+                    .chekout_col_title_wrapper
+                        width: 100%
+                    .form-row
+                        width: 281px
+                        margin-bottom: 0
+                        +max-screen(768px)
+                            width: auto
+                        .form-row 
+                            width: auto
+                    +max-screen(1199px)
+                        flex-direction: column
+                        p.form-row 
+                            margin-bottom: 20px 
             .payer_type_wrapper 
                 max-width: 267px 
             .client_data 
@@ -303,6 +325,163 @@
                             margin: 0
                         .optional 
                             display: none
+                            
+.shipping_fields_wrapper
+    font-size: 0
+    background: rgba(238, 238, 238, .2)
+    padding: 24px 25px 21px 29px 
+    border-radius: 20px 
+    width: 281px
+    ul#shipping_method
+        font-size: initial
+        li 
+            line-height: 1
+            margin-bottom: 22px
+            .wc-ukr-shipping-np-fields
+                .form-row 
+                    margin-left: 0
+            label 
+                position: relative
+                padding-left: 31px
+                font-size: 14px 
+                line-height: 1.45
+                font-weight: 500
+                color: #828282
+                display: inline-block
+                &::before 
+                    content: ""
+                    border-radius: 50%
+                    position: absolute
+                    left: 0
+                    top: 0
+                    width: 20px
+                    border: 1px solid #DADADA
+                    height: 20px
+                &.checked 
+                    &::before 
+                        border-color: #34A853
+                    &::after 
+                        content: ""
+                        position: absolute
+                        top: 5px
+                        left: 5px 
+                        width: 10px 
+                        height: 10px 
+                        border-radius: 50% 
+                        background: #34A853
+            input 
+                visibility: hidden 
+                width: 0
+                height: 0
+                margin: 0
+        
+.woocommerce
+    .woocommerce-additional-fields
+        margin-top: 8px
+        h3 
+            display: none
+        p.form-row 
+            padding: 0
+            margin: 0
+        span.select2-selection
+            border: 1px solid #e5e5e5
+            border-radius: 10px 
+            padding-left: 14px 
+            height: 37px 
+            margin-bottom: 12px
+            display: flex 
+            align-items: center
+            .select2-selection__rendered
+                color: #BDBDBD
+                font-size: 12px
+    .shipping_fields_wrapper
+        display: none
+        &.opened_list
+            display: block
+            margin-top: 23px
+            +max-screen(768px)
+                margin-top: 6px
+                margin-bottom: 24px
+.extra_shipping_types
+    width: 281px 
+    background: hsla(0,0%,93%,.2)
+    border-radius: 10px      
+    p.form-row 
+        label
+            span 
+                display: none
+.woocommerce-checkout 
+    form.woocommerce-checkout 
+        .chechout_fields_wrapper 
+            .shipping_method .extra_shipping_types
+                display: none 
+                padding: 24px 25px 21px 29px 
+                &.opened_list 
+                    display: block
+                    margin-top: 23px
+                    +max-screen(768px)
+                        margin-top: 6px 
+                    p.form-row 
+                        margin-left: 0
+                        margin-bottom: 22px
+                        .form-row
+                            &#customer_address_field
+                                width: 100%
+                                margin-top: 12px
+                            &#house_number_field
+                                width: 53%
+                                margin-right: auto
+                            &#flat_number_field
+                                width: 41% 
+                                margin-left: auto
+                            input[type="text"]
+                                border-radius: 10px
+                                border: 1px solid #E5E5E5
+                                height: 37px 
+                                color: #BDBDBD
+                                font-size: 12px 
+                                padding-left: 14px
+                                &::placeholder 
+                                    color: #BDBDBD
+                        &#customer_address_field,
+                        &#house_number_field,
+                        &#flat_number_field
+                            display: none
+                            margin-bottom: 0
+                        &.active-item
+                            display: flex 
+                            flex-wrap: wrap
+                            #customer_address_field
+                                margin-bottom: 12px
+                            #customer_address_field,
+                            #house_number_field,
+                            #flat_number_field
+                                display: block
+
+            .checkboxes_wrapper.extra_shipping_types
+                .woocommerce-input-wrapper 
+                    label.checkbox
+                        font-size: 14px 
+                        font-weight: 500
+                        color: #828282
+                        line-height: 1.45
+                        &::before
+                            border-radius: 50%
+                            width: 20px 
+                            height: 20px
+                        &.checked
+                            color: 
+                            &::before 
+                                background: transparent 
+                            &::after
+                                content: ""
+                                position: absolute
+                                top: 5px 
+                                left: 5px
+                                width: 10px
+                                height: 10px 
+                                border-radius: 50% 
+                                background: #34A853
 @media(max-width: 1199px)
     @media(min-width: 993px )
         .woocommerce-checkout 
@@ -338,6 +517,7 @@
                                     margin-bottom: 32px 
                         .chechout_fields_wrapper
                             flex-direction: row 
+                            width: calc( 100% - 275px )
                             .checkboxes_wrapper,
                             .client_data
                                 width: 100%
@@ -400,6 +580,19 @@
                             margin-bottom: 25px 
                             &.payment_method 
                                 margin-bottom: 34px 
+                            &.extra_shipping_types,
+                            .shipping_fields_wrapper
+                                padding: 19px 44px 15px 10px 
+                                margin-left: -30px
+                                margin-right: 4px
+                                width: calc( 100% + 26px )
+                                max-width: calc( 100% + 26px )
+                                .form-row 
+                                    label.checkbox 
+                                        line-height: 1.8
+                                        font-size: 11px 
+                                        &::before 
+                                            top: 0
                         .client_data
                             margin-bottom: 25px 
                             .col-12 
@@ -436,6 +629,7 @@
                                     top: 5px
                                 &::after 
                                     top: 11px 
+
                     .woocommerce-checkout-review-order
                         .woocommerce-checkout-review-order-table 
                             box-shadow: none

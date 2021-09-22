@@ -264,22 +264,26 @@ $(document).ready(function(){
       $(this).parent().attr('for', fieldId);
     });
     $(this).find('label.checkbox').click(function(){
-      $(checkboxWrapper).find('label.checkbox').not(this).find('.input-checkbox').prop('checked', false);
-      $(checkboxWrapper).find('.input-checkbox').parent().removeClass('checked');
+      $(this).closest('.checkboxes_wrapper').find('label.checkbox').not(this).not($(this).closest('.form-row').find('.form-row label')).removeClass('checked');
+      $(this).closest('.checkboxes_wrapper').find('input').not($(this).find('input')).not($(this).closest('.form-row').find('.form-row input')).prop('checked', false);
       if($(this).find('.input-checkbox').is(':checked')){
         $(this).addClass('checked');
       };
-      $('.required-checkbox').each(function(){
-        if($(this).hasClass('checked')){
-          $('body').addClass('delete-disable-class');
-        }
-      });
+      /*
       var payerType = $('.payer_type_wrapper .checkbox .input-checkbox');
       var shipping_method = $('.shipping_method .checkbox .input-checkbox');
       var payment_method = $('.payment_method .checkbox .input-checkbox');
-      if($(payerType).is(':checked') && $(shipping_method).is(':checked') && $(payment_method).is(':checked')){
-        $('#place_order').removeAttr('disabled');
+      var selfPickUp = $('#self-pickup');
+      var byCourier = $('#Courier');
+      if($(selfPickUp).is(':checked')){
+        var variants = $('#self-pickup_field ul input');
       }
+      if($(byCourier).is(':checked')){
+        var variants = $('.extra_shipping_types label input');
+      }
+      if($(payerType).is(':checked') && $(shipping_method).is(':checked') && $(payment_method).is(':checked') && $(variants).is(':checked')){
+        $('#place_order').removeAttr('disabled');
+      }*/
     });
   });
 });

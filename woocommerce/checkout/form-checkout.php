@@ -52,16 +52,41 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		<div class="shipping_method checkboxes_wrapper col-12">
 			<?php do_action('shipping_method_extra_feilds'); ?>
 		</div>
+		<div class="shipping_fields_wrapper">
+			<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
 
-		<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
+				<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
 
-			<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
+				<?php wc_cart_totals_shipping_html(); ?>
 
-			<?php wc_cart_totals_shipping_html(); ?>
+				<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
 
-			<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
+			<?php endif; ?>
+			<div class="woocommerce-additional-fields">
+				<?php do_action( 'woocommerce_before_order_notes', $checkout ); ?>
 
-		<?php endif; ?>
+				<?php if ( apply_filters( 'woocommerce_enable_order_notes_field', 'yes' === get_option( 'woocommerce_enable_order_comments', 'yes' ) ) ) : ?>
+
+					<?php if ( ! WC()->cart->needs_shipping() || wc_ship_to_billing_address_only() ) : ?>
+
+						<h3><?php esc_html_e( 'Additional information', 'woocommerce' ); ?></h3>
+
+					<?php endif; ?>
+
+					<div class="woocommerce-additional-fields__field-wrapper">
+						<?php foreach ( $checkout->get_checkout_fields( 'order' ) as $key => $field ) : ?>
+							<?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
+						<?php endforeach; ?>
+					</div>
+
+				<?php endif; ?>
+
+				<?php do_action( 'woocommerce_after_order_notes', $checkout ); ?>
+			</div>
+		</div>
+		<div class="checkboxes_wrapper extra_shipping_types">
+			<?php do_action('extra_shipping_types_a') ?>
+		</div>
 		<div class="payment_method checkboxes_wrapper col-12">
 			<?php do_action('payment_method_extra_feilds'); ?>
 		</div>
@@ -77,3 +102,58 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 </form>
 
 <?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
+
+<script>
+	jQuery(document).ready(function(){
+		jQuery('#shipping_method li input[checked="checked"]').prop('checked', false);
+		jQuery('#shipping_method li label').click(function(){
+			jQuery('#shipping_method li label').removeClass('checked');
+			jQuery(this).addClass('checked');
+			jQuery('.woocommerce-additional-fields').detach().appendTo(jQuery(this).parent());
+		});
+		jQuery('.shipping_fields_wrapper').detach().appendTo('#self-pickup_field');
+		jQuery('.extra_shipping_types').detach().appendTo('#Courier_field')
+	});
+	jQuery(document).ready(function(){
+		jQuery(jQuery('.shipping_method #self-pickup_field label')).on('change', function(event){
+			jQuery('.extra_shipping_types').removeClass('opened_list');
+			jQuery('#customer_address_field').detach().appendTo(jQuery('.extra_shipping_types > .col2-set'));
+			jQuery('#house_number_field').detach().appendTo(jQuery('.extra_shipping_types > .col2-set'));
+			jQuery('#flat_number_field').detach().appendTo(jQuery('.extra_shipping_types > .col2-set'));
+			if(jQuery(this).attr('class') == "checkbox checked"){
+				jQuery(this).closest('.form-row').find('.shipping_fields_wrapper').addClass('opened_list');
+			}
+			else{
+				jQuery(this).closest('.form-row').find('.shipping_fields_wrapper').removeClass('opened_list');
+			}
+		});
+	});
+	//Adding playholder for courier shipping fields 
+	jQuery(document).ready(function(){
+		jQuery('.extra_shipping_types .form-row label').not('.checkbox').remove();
+		jQuery('.extra_shipping_types').find('#customer_address').attr('placeholder', 'Вулиця');
+		jQuery('.extra_shipping_types').find('#house_number').attr('placeholder', 'Будинок');
+		jQuery('.extra_shipping_types').find('#flat_number').attr('placeholder', 'Квартира');
+
+	});
+	jQuery(document).ready(function(){
+		jQuery('.extra_shipping_types p.form-row label').click(function(){
+			jQuery('.extra_shipping_types p.form-row').removeClass('active-item');
+			jQuery(this).closest('.form-row').addClass('active-item');
+			jQuery('#customer_address_field').detach().appendTo(jQuery(this).closest('.form-row'));
+			jQuery('#house_number_field').detach().appendTo(jQuery(this).closest('.form-row'));
+			jQuery('#flat_number_field').detach().appendTo(jQuery(this).closest('.form-row'));
+		});
+	});
+	jQuery(document).ready(function(){
+		jQuery('#Courier_field > span > label').on( 'change', function(){
+			jQuery('.shipping_fields_wrapper').removeClass('opened_list');
+			if(jQuery(this).attr('class') == "checkbox checked"){
+				jQuery('.extra_shipping_types').addClass('opened_list');
+			}
+			else{
+				jQuery('.extra_shipping_types').removeClass('opened_list');
+			}
+		});
+	});
+</script>
