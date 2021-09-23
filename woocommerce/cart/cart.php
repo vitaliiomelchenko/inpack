@@ -48,8 +48,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 				<th class="product-thumbnail"><?php esc_html_e( 'Товар', 'woocommerce' ); ?></th>
 				<th class="product-name">&nbsp;</th>
 				<th class="product-sku"><?php _e('Артикул'); ?></th>
-				<th class="product-quantity"><?php esc_html_e( 'Кількість', 'woocommerce' ); ?></th>
-				<th class="product-price"><?php esc_html_e( 'Ціна', 'woocommerce' ); ?></th>
+				<th class="product-quantity"><?php if(get_locale() == 'uk'){echo 'Кількість';}elseif(get_locale() == 'ru_RU'){echo 'Количество';} ?></th>
+				<th class="product-price"><?php if(get_locale() == 'uk'){echo 'Ціна';}elseif(get_locale() == 'ru_RU'){echo 'Цена';} ?></th>
 				<th class="product-remove">&nbsp;</th>
 			</tr>
 		</thead>

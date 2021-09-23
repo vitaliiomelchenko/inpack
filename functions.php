@@ -194,11 +194,13 @@ function lw_loop_shop_per_page( $products ) {
 add_action('woocommerce_before_add_to_cart_button','show_stock_single');
 function show_stock_single() {
   global $product;
+  if(get_locale() == 'uk'){$inStock = 'Є в наявності'; $outOfStock = 'Немає в наявності';}
+  if(get_locale() == 'ru_RU'){$inStock = 'Имеется в наличии'; $outOfStock = 'Нет в наличии';}
   if ( ! $product->managing_stock() && ! $product->is_in_stock() ){
-    echo '<div class="stock out-of-stock">Немає в наявності</div>';
+    echo '<div class="stock out-of-stock">' . $outOfStock . '</div>';
   }
   else{
-    echo '<div class="stock in-stock">Є в наявності</div>';
+    echo '<div class="stock in-stock">' . $inStock . '</div>';
   }
 }
 
@@ -209,7 +211,9 @@ add_filter('woocommerce_get_availability_text', 'themeprefix_change_soldout', 10
 */
 function themeprefix_change_soldout ( $text, $product) {
 if ( !$product->is_in_stock() ) {
-$text = '<a class="out-of-stock-button" href="#">Повідомити про наявність</a>';
+  if(get_locale() == "uk"){$buttonLabel = 'Повідомити про наявність';}
+  elseif(get_locale() == 'ru_RU'){$buttonLabel = 'Сообщить о наличии';}
+$text = '<a class="out-of-stock-button" href="#">' . $buttonLabel . '</a>';
 }
 return $text;
 }
@@ -366,7 +370,8 @@ function bbloomer_new_badge_shop_page() {
 add_filter('woocommerce_sale_flash', 'woocommerce_custom_sale_text', 10, 3);
 function woocommerce_custom_sale_text($text, $post, $_product)
 {
-    return '<span class="onsale">Акції</span>';
+  if(get_locale() == 'uk'){$saleLabel = 'Акції';}elseif(get_locale() == 'ru_RU'){$saleLabel = 'Акции';}
+  return '<span class="onsale">' . $saleLabel . '</span>';
 }
 
 
@@ -402,95 +407,133 @@ function custom_catalog_ordering_args( $orderby ) {
 
 //Checkout Aditional Fields 
 function custom_checkout_fields($fields){
+  if(get_locale() == 'uk'){
+    $payer_type_1 = 'Фізична особа';
+    $payer_type_2 = 'Юридична особа';
+    $after_getting = 'Оплата при отриманні';
+    $by_cash_after_getting = 'Оплата готівкою при отриманні';
+    $by_card = 'Оплата карткою';
+    $transaction_on_company_account = 'Оплата на рахунок компанії';
+    $selfPickup = 'Самовивіз';
+    $Courier = 'Кур’єр';
+    $nova_poshta = 'Доставка Нова Пошта';
+    $delivery = 'Доставка Делівері';
+    $meest_express = 'Доставка Meest express';
+    $justin = 'Доставка Justin';
+    $ukr_poshta = 'Доставка УКРПОШТА';
+    $by_courier = 'Кур’єр за вашою адресою';
+    $customer_address = 'Вулиця';
+    $house_number = 'Будинок';
+    $flat_number = 'Квартира';
+  }
+  elseif(get_locale() == 'ru_RU'){
+    $payer_type_1 = 'Физическое лицо';
+    $payer_type_2 = 'Юридическое лицо';
+    $after_getting = 'Оплата при получении';
+    $by_cash_after_getting = 'Оплата наличными при получении';
+    $by_card = 'Оплата картой';
+    $transaction_on_company_account = 'Оплата на счет компании';
+    $selfPickup = 'Самовывоз';
+    $Courier = 'Курьер';
+    $nova_poshta = 'Доставка Новая Почта';
+    $delivery = 'Доставка Деливери';
+    $meest_express = 'Доставка Meest express';
+    $justin = 'Доставка Justin';
+    $ukr_poshta = 'Доставка Укрпочта';
+    $by_courier = 'Курьер по вашему адресу';
+    $customer_address = 'Улица';
+    $house_number = 'Дом';
+    $flat_number = 'Квартира';
+  }
   $fields['payer_type'] = array(
     'type_1'          => array(
       'type'          => 'checkbox',
       'required'      => false,
-      'label'         => __( 'Фізична особа' ),
+      'label'         => $payer_type_1,
     ),
     'type_2'          => array(
       'type'          => 'checkbox',
       'required'      => false,
-      'label'         => __( 'Юридична особа' ),
+      'label'         => $payer_type_2,
     )
   );
   $fields['payment_method'] = array(
     'after_getting' => array(
       'type'      => 'checkbox',
       'required'  => false,
-      'label'     => __( 'Оплата при отриманні' ),
+      'label'     => $after_getting,
     ),
     'by_cash_after_getting' => array(
       'type'      => 'checkbox',
       'required'  => false,
-      'label'     => __( 'Оплата готівкою при отриманні' ),
+      'label'     => $by_cash_after_getting,
     ),
     'by_card' => array(
       'type'      => 'checkbox',
       'required'  => false,
-      'label'     => __( 'Оплата карткою' ),
+      'label'     => $by_card,
     ),
     'transaction_on_company_account' => array(
       'type'      => 'checkbox',
       'required'  => false,
-      'label'     => __( 'Оплата на рахунок компанії' ),
+      'label'     => $transaction_on_company_account,
     ),
   );
   $fields['shipping_method'] = array(
     'self-pickup' => array(
-      'label'     => 'Самовивіз',
+      'label'     => $selfPickup,
       'type'      => 'checkbox',
       'required'  => false
     ),
     'Courier' => array(
-      'label'     => 'Кур’єр',
+      'label'     => $Courier,
       'type'      => 'checkbox',
       'required'  => false
     ),
   );
   $fields['courier_shipping_types'] = array(
     'nova_poshta' => array(
-      'label'     => 'Доставка Нова Пошта',
+      'label'     => $nova_poshta,
       'type'      => 'checkbox',
       'required'  => false,
     ),
     'delivery' => array(
-      'label'     => 'Доставка Делівері',
+      'label'     => $delivery,
       'type'      => 'checkbox',
       'required'  => false,
     ),
     'meest_express' => array(
-      'label'     => 'Доставка Meest express',
+      'label'     => $meest_express,
       'type'      => 'checkbox',
       'required'  => false,
     ),
     'justin' => array(
-      'label'     => 'Доставка Justin',
+      'label'     => $justin,
       'type'      => 'checkbox',
       'required'  => false,
     ),
     'ukr_poshta' => array(
-      'label'     => 'Доставка УКРПОШТА',
+      'label'     => $ukr_poshta,
       'type'      => 'checkbox',
       'required'  => false,
     ),
     'by_courier' => array(
-      'label'     => 'Кур’єр за вашою адресою',
+      'label'     => $by_courier,
       'type'      => 'checkbox',
       'required'  => false,
     ),
     'customer_address' => array(
-      'label'     => 'Вулиця',
+      'label'     => $customer_address,
       'type'      => 'text',
       'required'  => false,
     ),
     'house_number' => array(
-      'label'     => 'Будинок',
+      'label'     => $house_number,
       'type'      => 'text',
       'required'  => false,
     ),
     'flat_number' => array(
-      'label'     => 'Квартира',
+      'label'     => $flat_number,
       'type'      => 'text',
       'required'  => false,
     ),
@@ -511,7 +554,7 @@ add_action( 'extra_shipping_types_a' , 'extra_shipping_types' );
 function payer_type_extra_checkout_fields(){
   $checkout = WC()->checkout(); ?>
   <div class="col2-set">
-  <div class="chekout_col_title_wrapper"><span class="col-number">1</span><div class="chekout_col_title"><?php _e( 'Тип платника' ); ?></div></div>
+  <div class="chekout_col_title_wrapper"><span class="col-number">1</span><div class="chekout_col_title"><?php if(get_locale() == 'uk'){echo 'Тип платника';}elseif(get_locale() == 'ru_RU'){echo 'Тип плательщика';} ?></div></div>
   <?php
      foreach ( $checkout->checkout_fields['payer_type'] as $key => $field ) : ?>
           <?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
@@ -523,7 +566,7 @@ add_action( 'payer_type_checkout_fields' , 'payer_type_extra_checkout_fields' );
 function payment_method_fields() {
   $checkout = WC()->checkout(); ?>
   <div class="col2-set">
-  <div class="chekout_col_title_wrapper"><span class="col-number">4</span><div class="chekout_col_title"><?php _e( 'Оберіть спосіб оплати' ); ?></div></div>
+  <div class="chekout_col_title_wrapper"><span class="col-number">4</span><div class="chekout_col_title"><?php if(get_locale() == 'uk'){echo 'Оберіть спосіб оплати';}elseif(get_locale() == 'ru_RU'){echo 'Выберите способ оплаты';} ?></div></div>
   <?php
     foreach ( $checkout->checkout_fields['payment_method'] as $key => $field ) : ?>
           <?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
@@ -536,7 +579,7 @@ add_action( 'payment_method_extra_feilds', 'payment_method_fields');
 function shipping_method_feilds() {
   $checkout = WC()->checkout(); ?>
   <div class="col2-set">
-  <div class="chekout_col_title_wrapper"><span class="col-number">3</span><div class="chekout_col_title"><?php _e( 'Оберіть тип доставки' ); ?></div></div>
+  <div class="chekout_col_title_wrapper"><span class="col-number">3</span><div class="chekout_col_title"><?php if(get_locale() == 'uk'){echo 'Оберіть тип доставки';}elseif(get_locale() == 'ru_RU'){echo 'Выберите тип доставки';} ?></div></div>
   <?php
     foreach ( $checkout->checkout_fields['shipping_method'] as $key => $field ) : ?>
           <?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
@@ -744,9 +787,19 @@ add_action( 'woocommerce_process_shop_order_meta', 'vicodemedia_save_extra_detai
 
 add_filter( 'woocommerce_checkout_fields' , 'override_billing_checkout_fields', 20, 1 );
 function override_billing_checkout_fields( $fields ) {
-    $fields['billing']['billing_first_name']['placeholder'] = 'Ім’я';
-    $fields['billing']['billing_last_name']['placeholder'] = 'Прізвище';
-    $fields['billing']['billing_phone']['placeholder'] = 'Номер телефона';
+    if(get_locale() == 'uk'){
+      $name = 'Ім’я';
+      $surname = 'Прізвище';
+      $phoneNumber = 'Номер телефона';
+    }
+    elseif(get_locale() == 'ru_RU'){
+      $name = 'Имя';
+      $surname = 'Фамилия';
+      $phoneNumber = 'Номер телефона';
+    }
+    $fields['billing']['billing_first_name']['placeholder'] = $name;
+    $fields['billing']['billing_last_name']['placeholder'] = $surname;
+    $fields['billing']['billing_phone']['placeholder'] = $phoneNumber;
     return $fields;
 }
 

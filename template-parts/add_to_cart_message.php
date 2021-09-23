@@ -1,9 +1,14 @@
+<?php 
+    $title = get_field('add_to_cart_popup_title', 'option');
+    $catalogButton = get_field('add_to_cart_popup_button_1', 'option');
+    $cartButton = get_field('add_to_cart_popup_button_2', 'option');
+?>
 <div class="add_to_cart_popup_wrapper" style="opacity: 0">
     <div class="add_to_cart_popup">
-        <h2>Ваш товар додано у кошик!</h2>
+        <?php if($title): ?><h2><?php echo $title; ?></h2><?php endif; ?>
         <div class="buttons">
-            <a href="<?php echo get_home_url() ?>/shop">До каталогу товарів</a>
-            <a href="<?php echo get_home_url() ?>/cart">Перейти у кошик</a>
+            <?php if($catalogButton): ?><a href="<?php echo $catalogButton['url'] ?>"><?php echo $catalogButton['title']; ?></a><?php endif; ?>
+            <?php if($cartButton): ?><a href="<?php echo $cartButton['url'] ?>"><?php echo $cartButton['title']; ?></a><?php endif; ?>
         </div>
     </div>
 </div>

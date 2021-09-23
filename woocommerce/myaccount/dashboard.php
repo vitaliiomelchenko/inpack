@@ -32,7 +32,7 @@ $allowed_html = array(
 <?php $customer = new WC_Customer( $user_id ); ?>
 <div class="account-info">
 	<div class="info-type">
-		Ім’я
+		<?php if(get_locale() == 'uk'){echo "Ім'я";}elseif(get_locale() == 'ru_RU'){echo 'Имя';} ?>
 	</div>
 	<div class="info">
 		<?php if(!empty($current_user->user_lastname) or !empty($current_user->user_lastname)) : ?>
@@ -52,7 +52,7 @@ $allowed_html = array(
 </div>
 <div class="account-info">
 	<div class="info-type">
-		Адреса доставки
+		<?php if(get_locale() == 'uk'){echo "Адреса доставки";}elseif(get_locale() == 'ru_RU'){echo 'Адрес доставки';} ?>
 	</div>
 	<div class="info">
 		<?php if(!empty($customer->get_shipping_city())): ?>

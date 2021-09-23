@@ -527,23 +527,29 @@ body
 					font-size: 12px 
 					margin-bottom: 5px
 					padding-left: 2px
-				.languages_list 
+				ul 
 					display: flex 
-					.language_list_item
-						color: #c4c4c4
-						font-size: 12px 
-						font-weight: 500
-						padding: 8px 18.5px 
-						margin-right: 13px 
-						border: 1px solid #E5E5E5
-						border-radius: 2px 
-						font-family: Montserrat
+					li 
+						a
+							display: block
+							padding: 8px 18.5px 
+							margin-right: 13px 
+							border: 1px solid #E5E5E5
+							border-radius: 2px 
+							font-family: Montserrat
+							span 
+								color: #c4c4c4
+								font-size: 12px 
+								font-weight: 500
+								font-family: Gilroy
 						&:last-child
-							margin-right: 0
-						&.active
-							color: #fff
-							background-color: #E30613
-							border-color: #E30613
+							a
+								margin-right: 0
+						&.wpml-ls-current-language
+							a
+								color: #fff
+								background-color: #E30613
+								border-color: #E30613
 			div.menu 
 				margin-bottom: 16px
 				.account_menu_item

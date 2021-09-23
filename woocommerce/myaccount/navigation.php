@@ -48,7 +48,7 @@ do_action( 'woocommerce_before_account_navigation' );
             </li>
             <?php if($i == 1 ): ?>
             <li class="<?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
-                <a href="<?php echo get_home_url() ?>/wishlist">Список бажань</a>
+                <a href="<?php echo get_home_url() ?>/wishlist"><?php if(get_locale() == 'uk'){echo 'Список бажань';}elseif(get_locale() == 'ru_RU'){echo 'Список желаний';} ?></a>
             </li>
             <?php endif; ?>
             <?php $i++; ?>

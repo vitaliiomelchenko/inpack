@@ -63,16 +63,16 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 							</div>
 						</div>
 						<div class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-number order-number order-date col-lg-4 col-12" data-title="<?php echo esc_attr( $column_name ); ?>">
-							<span class="order_number"><?php echo esc_html( _x( '#', 'hash before order number', 'woocommerce' ) . $order->get_order_number() ); ?></span>
-							від
+							<span class="order_number"><?php echo '№' . $order->get_order_number(); ?></span>
+							<?php if(get_locale() == 'uk'){echo 'від';}elseif(get_locale() == 'ru_RU'){echo 'от';} ?>
 							<span class="order_time"><time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>"><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></time></span>
 						</div>
-						<div class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-total order-total col-lg-3 col-8" data-title="<?php echo esc_attr( $column_name ); ?>">
-							Сума замовлення 
+						<div class="woocommerce-orders-table__cell woocommerce-orders-table__cell-order-total order-total col-lg-3 col-8" data-title="<?php echo esc_attr( $column_name ); ?>"> 
+							<?php if(get_locale() == 'uk'){echo 'Сума замовлення ';}elseif(get_locale() == 'ru_RU'){echo 'Сумма заказа';} ?>
 							<?php echo wp_kses_post( sprintf( _n( '%1$s', '%1$s', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ) ); ?>
 						</div>
 						<div class="col-md-2 col-4 show_delails_button_wrapper">
-							Детальніше
+							<?php if(get_locale() == 'uk'){echo 'Детальніше';}elseif(get_locale() == 'ru_RU'){echo 'Подробнее';} ?>
 						</div>
 					</div>
 					<?php 
@@ -90,12 +90,12 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 							?>
 							<div class="col-lg-3 col-12 customer-data">
 								<div class="customer-order-number customer-order-date">
-									<?php echo esc_html( _x( '#', 'hash before order number', 'woocommerce' ) . $order->get_order_number() ); ?>
-									від
+									<?php echo esc_html( '№' . $order->get_order_number() ); ?>
+									<?php if(get_locale() == 'uk'){echo 'від';}elseif(get_locale() == 'ru_RU'){echo 'от';} ?>
 									<time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>"><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></time>
 								</div>
 								<div class="before_customer_data_title">
-									Інформація про замовлення
+									<?php if(get_locale() == 'uk'){echo 'Інформація про замовлення';}elseif(get_locale() == 'ru_RU'){echo 'Информация о заказе';} ?>
 								</div>
 								<div class="address">
 									<?php echo $shipping_address['city'] . ' ' . $shipping_address['address_1'] . ' ' . $shipping_address['address_2']; ?>
@@ -107,10 +107,24 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 							</div>
 							<div class="col-md-9 col-12 product-details">
 								<div class="order-details-head row">
-									<div class="col-md-5 col-12 product-image--name-head head-col">Товари:</div>
-									<div class="col-1 price-head head-col">Ціна:</div>
-									<div class="col-1 quantity-head head-col">Кількість:</div>
-									<div class="col-1 total-head head-col">Сумма:</div>
+									<?php 
+									if(get_locale() == 'uk'){
+										$imageHead = 'Товари';
+										$priceHead = 'Ціна';
+										$quantityHead = 'Кількість';
+										$totalHead = 'Сумма';
+									}
+									elseif(get_locale() == "ru_RU"){
+										$imageHead = 'Товары';
+										$priceHead = 'Цена';
+										$quantityHead = 'Количество';
+										$totalHead = 'Сумма';
+									} 
+									?>
+									<div class="col-md-5 col-12 product-image--name-head head-col"><?php echo $imageHead; ?>:</div>
+									<div class="col-1 price-head head-col"><?php echo $priceHead; ?>:</div>
+									<div class="col-1 quantity-head head-col"><?php echo $quantityHead; ?>:</div>
+									<div class="col-1 total-head head-col"><?php echo $totalHead; ?>:</div>
 									<div class="col-4 close-details-button-wrapper head-col">
 										<div class="close-details-button">
 											<img src="<?php echo get_template_directory_uri(  ) . '/assets/img/Vector.svg'; ?>" alt="">

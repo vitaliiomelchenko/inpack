@@ -1,3 +1,92 @@
+.price_fields 
+    input[type="range"]
+        -webkit-appearance: none
+        -moz-appearance: none
+        appearance: none
+        width: 100%
+        outline: none
+        position: absolute
+        margin: auto
+        top: 0
+        bottom: 0
+        background-color: transparent
+        pointer-events: none
+
+    .slider-track
+        width: 100%
+        height: 1px
+        position: absolute
+        margin: auto
+        top: 0
+        bottom: 0
+        background: #e5e5e5
+        border-radius: 5px
+
+    input[type="range"]::-webkit-slider-runnable-track
+        -webkit-appearance: none
+        height: 1px
+
+    input[type="range"]::-moz-range-track
+        -moz-appearance: none
+        height: 1px
+
+    input[type="range"]::-ms-track
+        appearance: none
+        height: 1px
+
+    input[type="range"]::-webkit-slider-thumb
+        -webkit-appearance: none
+        height: 1.7em
+        width: 1.7em
+        background-color: #32BA7C
+        cursor: pointer
+        margin-top: -9px
+        pointer-events: auto
+        border-radius: 50%
+
+    input[type="range"]::-moz-range-thumb
+        -webkit-appearance: none
+        height: 1.7em
+        width: 1.7em
+        cursor: pointer
+        border-radius: 50%
+        background-color: #32BA7C
+        pointer-events: auto
+
+    input[type="range"]::-ms-thumb
+        appearance: none
+        height: 1.7em
+        width: 1.7em
+        cursor: pointer
+        border-radius: 50%
+        background-color: #32BA7C
+        pointer-events: auto
+
+    .values
+        background-color: #32BA7C
+        width: 32%
+        position: relative
+        margin: auto
+        padding: 10px 0
+        border-radius: 5px
+        text-align: center
+        font-weight: 500
+        font-size: 25px
+        color: #ffffff
+
+    .values:before
+        content: ""
+        position: absolute
+        height: 0
+        width: 0
+        border-top: 15px solid #3264fe
+        border-left: 15px solid transparent
+        border-right: 15px solid transparent
+        margin: auto
+        bottom: -14px
+        left: 0
+        right: 0
+
 .katalog
     padding-bottom: 107px
     .container
@@ -80,12 +169,6 @@
                             &::before 
                                 color: #F44336
                                 font-weight: 600
-                        &.price 
-                            &::before 
-                                content: "за зростанням ціни"
-                        &.price-desc 
-                            &::before 
-                                content: "за зменшенням ціни"
                 .sort_by,
                 .count
                     display: flex
@@ -246,7 +329,7 @@
             transition: .3s
             padding: 5px 0
 
-body:not(.single-product) .product
+body:not(.single-product) .product:not(.product-category)
     position: relative
     margin-bottom: 30px
     transition: .3s
@@ -442,7 +525,7 @@ body:not(.single-product) .product
             opacity: .3 
         .out-of-stock-label-wrapper,
         .out-of-stock-button-wrapper
-            display: inline-block
+            display: block
             height: auto
     &.new-product 
         .product-image
@@ -830,7 +913,7 @@ body:not(.single-product) .product
                         margin-left: 0 
                         margin-right: 0
                         align-items: stretch
-    body:not(.single-product) .product
+    body:not(.single-product) .product:not(.product-category)
         max-width: calc( 33.33% - 15px )
         padding-left: 6px 
         padding-right: 6px 
@@ -958,7 +1041,7 @@ body:not(.single-product) .product
                             i
                                 background-image: url('../assets/img/grey_heart.svg')
     @media( min-width: 769px )
-        body:not(.single-product) .product
+        body:not(.single-product) .product:not(.product-category)
             &:nth-child(3n + 1)
                 margin-right: 15px 
             &:nth-child( 3n + 2 )
@@ -1008,7 +1091,7 @@ body:not(.single-product) .product
                             margin-left: 2px 
                         .sort_by
                             right: -2px
-    body:not(.single-product) .product
+    body:not(.single-product) .product:not(.product-category)
         max-width: calc( 50% - 3px )
         margin-right: 3px 
         margin-bottom: 10px

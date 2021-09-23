@@ -17,9 +17,23 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
+<?php 
+if(get_locale() == 'uk'){
+	$subtotalLabel = 'Товарів на сумму:';
+	$totalLabel = 'До сплати:';
+	$shippingPrice = 'За тарифами перевізника';
+	$shippingPriceLabel = 'Вартість доставки:';
+}
+elseif(get_locale() == 'ru_RU'){
+	$subtotalLabel = 'Товаров на сумму:';
+	$totalLabel = 'К оплате:';
+	$shippingPrice = 'По тарифам перевозчика';
+	$shippingPriceLabel = 'Стоимость доставки:';
+} 
+?>
 <div class="shop_table woocommerce-checkout-review-order-table">
 	<div class="cart-subtotal review_order_row">
-		<div class="review_order_row_title">Товарів на сумму: </div>
+		<div class="review_order_row_title"><?php echo $subtotalLabel; ?> </div>
 		<div class="review_order_row_data"><?php wc_cart_totals_subtotal_html(); ?></div>
 	</div>
 	<?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
@@ -33,8 +47,8 @@ defined( 'ABSPATH' ) || exit;
 		<?php wc_cart_totals_shipping_html(); ?>
 		<?php do_action( 'woocommerce_review_order_after_shipping' );*/ ?>
 		<div class="shipping review_order_row">
-			<div class="review_order_row_title">Вартість доставки:</div>
-			<div class="review_order_row_data">За тарифами перевізника</div>
+			<div class="review_order_row_title"><?php echo $shippingPriceLabel; ?></div>
+			<div class="review_order_row_data"><?php echo $shippingPrice; ?></div>
 		</div>
 	<?php endif; ?>
 	<?php foreach ( WC()->cart->get_fees() as $fee ) : ?>
@@ -60,11 +74,19 @@ defined( 'ABSPATH' ) || exit;
 	<?php endif; ?>
 	<?php do_action( 'woocommerce_review_order_before_order_total' ); ?>
 	<div class="order-total review_order_row">
-		<div class="review_order_row_title">До сплати:</div>
+		<div class="review_order_row_title"><?php echo $totalLabel; ?></div>
 		<div class="review_order_row_data"><?php wc_cart_totals_order_total_html(); ?></div>
 	</div>
 	<?php do_action( 'woocommerce_review_order_after_order_total' ); ?>
-	<?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Оформити замовлення" data-value="Оформити замовлення">Оформити замовлення</button>' ); // @codingStandardsIgnoreLine ?>
+	<?php 
+		if(get_locale() == 'uk'){
+			$buttonLabel = 'Оформити замовлення';
+		}
+		elseif(get_locale() == 'ru_RU'){
+			$buttonLabel = 'Оформить заказ';
+		}
+	?>
+	<?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="' . $buttonLabel . '" data-value="' . $buttonLabel . '">' . $buttonLabel . '</button>' ); // @codingStandardsIgnoreLine ?>
 
 
 </div>

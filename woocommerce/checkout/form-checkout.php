@@ -41,7 +41,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 			<div class="col2-set col-7 client_data" id="customer_details">
 				<div class="col-12">
-  					<div class="chekout_col_title_wrapper"><span class="col-number">2</span><div class="chekout_col_title"><?php _e( 'Ваші контактні данні' ); ?></div></div>
+  					<div class="chekout_col_title_wrapper"><span class="col-number">2</span><div class="chekout_col_title"><?php if(get_locale() == 'uk'){echo 'Ваші контактні данні';}elseif(get_locale() == 'ru_RU'){echo 'Ваши контактные данные';} ?></div></div>
 					<?php do_action( 'woocommerce_checkout_billing' ); ?>
 				</div>
 			</div>

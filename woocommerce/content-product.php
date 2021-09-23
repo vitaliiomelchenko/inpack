@@ -29,6 +29,15 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	global $product;
 	$koostis = $product->get_attribute( 'count-in-pack' );	
 	?>
+	<?php if(get_locale() == 'uk'){
+		$outOfStockText = 'Немає в наявності';
+		$outOfStockButton = 'Повідомити про наявність';
+	}
+	elseif(get_locale() == 'ru_RU'){
+		$outOfStockText = 'Нет в наличии';
+		$outOfStockButton = 'Сообщить о наличии';
+	} 
+	?>
 	<a href="<?php the_permalink(  ) ?>">
 		<div class="product-image">
 			<?php do_action( 'woocommerce_before_shop_loop_item_title' ); ?>
@@ -45,8 +54,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		<div class="cart-icon">
 			<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
 		</div>
-		<div class="out-of-stock-label-wrapper"><span class="out-of-stock-label">Немає в наявності</span></div>
-		<div class="out-of-stock-button-wrapper"><a href="#" class="button">Повідомити про наявність</a></div>   
+		<div class="out-of-stock-label-wrapper"><span class="out-of-stock-label"><?php echo $outOfStockText; ?></span></div>
+		<div class="out-of-stock-button-wrapper"><a href="#" class="button"><?php echo $outOfStockButton; ?></a></div>   
 	</a>
 </div>
 	<?php

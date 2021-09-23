@@ -114,10 +114,10 @@ if ( woocommerce_product_loop() ) {
 					wp_reset_postdata();
 				?>
 				<div class="filter_wrapper">
-				<div class="filter_title">Фільтр</div>
+				<div class="filter_title"><?php if(get_locale() == 'uk'){echo 'Фільтр';}elseif(get_locale() == 'ru_RU'){echo 'Фильтр';} ?></div>
 					
 					<div class="price_fields">
-						<div class="price_fields_title">Ціна</div>
+						<div class="price_fields_title"><?php if(get_locale() == 'uk'){echo 'Ціна';}elseif(get_locale() == 'ru_RU'){echo 'Цена';} ?></div>
 					<?php
 					get_template_part( '/woocommerce/content-widget-price-filter' ); ?>
 					</div>
@@ -161,7 +161,7 @@ if ( woocommerce_product_loop() ) {
 					}
 ?>
 <div class="filter__inner">
-	<div class="inpack_submit button">Показати</div>
+	<div class="inpack_submit button"><?php if(get_locale() == 'uk'){echo 'Показати';}elseif(get_locale() == 'ru_RU'){echo 'Показать';} ?></div>
 </div>
 
 <?php
@@ -211,7 +211,7 @@ foreach($_GET as $key => $value) {
 <script>
 jQuery(document).ready(function($){
 	let loadedQueryString = window.location.href;
-	console.log(loadedQueryString);
+	//console.log(loadedQueryString);
 	console.log(window.location.search);
 	let newQueryString = '';
 	$('li').on("click",function(){
@@ -293,18 +293,30 @@ jQuery(document).ready(function($){
 			</div>
 
             <div class="col-lg-9 col-12 katalog-items">
+				<?php 
+				if(get_locale() == 'uk'){
+					$mobileFiltersLabel = 'Фільтри';
+					$sortByLabel = 'Сортування';
+					$sortBtCountLabel = 'Кількість товару';
+				} 
+				elseif(get_locale() == 'ru_RU'){
+					$mobileFiltersLabel = 'Фильтры';
+					$sortByLabel = 'Сортировка';
+					$sortBtCountLabel = 'Количество товара';
+				}
+				?>
                 <div class="top-filter-row">
 					<div class="mobile_open_filter_button">
-						Фільтри
+						<?php echo $mobileFiltersLabel; ?>
 					</div>
 					<div class="sort_by">
-						<div class="filter-title">Сортування:</div>
+						<div class="filter-title"><?php echo $sortByLabel; ?>:</div>
 						<ul class="filter-list">
 							<?php do_action( 'woocommerce_before_shop_loop' ); //Фильтр архивной страницы ?>
 						</ul>
 					</div>
 					<div class="count">
-						<div class="filter-title">Кількість товару:</div>
+						<div class="filter-title"><?php echo $sortBtCountLabel; ?>:</div>
 						<?php do_action('woocommerce_count_filter'); ?>
 					</div>
                 </div>
@@ -333,7 +345,7 @@ jQuery(document).ready(function($){
 				 */
 				?>
 				
-				<div class="show-more-button"><a href="#" class="misha_loadmore">Показати більше</a></div>
+				<div class="show-more-button"><a href="#" class="misha_loadmore"><?php if(get_locale() == 'uk'){echo 'Показати більше';}elseif(get_locale() == 'ru_RU'){echo 'Показать больше';} ?></a></div>
 				<div class="pagination">
 					<?php do_action( 'woocommerce_after_shop_loop' ); ?>
 				</div>
@@ -402,94 +414,7 @@ get_footer(  );
 
 ?>
 <style>
-input[type="range"]{
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 100%;
-    outline: none;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    background-color: transparent;
-    pointer-events: none;
-}
-.slider-track{
-    width: 100%;
-    height: 1px;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-	background: #e5e5e5;
-    border-radius: 5px;
-}
-input[type="range"]::-webkit-slider-runnable-track{
-    -webkit-appearance: none;
-    height: 1px;
-}
-input[type="range"]::-moz-range-track{
-    -moz-appearance: none;
-    height: 1px;
-}
-input[type="range"]::-ms-track{
-    appearance: none;
-    height: 1px;
-}
-input[type="range"]::-webkit-slider-thumb{
-    -webkit-appearance: none;
-    height: 1.7em;
-    width: 1.7em;
-    background-color: #32BA7C;
-    cursor: pointer;
-    margin-top: -9px;
-    pointer-events: auto;
-    border-radius: 50%;
-}
-input[type="range"]::-moz-range-thumb{
-    -webkit-appearance: none;
-    height: 1.7em;
-    width: 1.7em;
-    cursor: pointer;
-    border-radius: 50%;
-    background-color: #32BA7C;
-    pointer-events: auto;
-}
-input[type="range"]::-ms-thumb{
-    appearance: none;
-    height: 1.7em;
-    width: 1.7em;
-    cursor: pointer;
-    border-radius: 50%;
-    background-color: #32BA7C;
-    pointer-events: auto;
-}
-.values{
-    background-color: #32BA7C;
-    width: 32%;
-    position: relative;
-    margin: auto;
-    padding: 10px 0;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: 500;
-    font-size: 25px;
-    color: #ffffff;
-}
-.values:before{
-    content: "";
-    position: absolute;
-    height: 0;
-    width: 0;
-    border-top: 15px solid #3264fe;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    margin: auto;
-    bottom: -14px;
-    left: 0;
-    right: 0;
-}
+
 </style>
 
 <script>

@@ -32,12 +32,41 @@ if ( post_password_required() ) {
 }
 ?>
 <?php echo get_template_part('template-parts/breadcrumbs') ?>
+<?php if(get_locale() == 'uk'){
+	$priceLabel = 'Ціна';
+	$descriptionLabel = 'Опис:';
+	$productSliderTitle = 'З цим товаром купують';
+	$addToCartButtonLabel = 'Додати у кошик';
+	$mobileAddToCartButtonLabel = 'У кошик';
+	$quantityLabel = 'Кількість';
+}
+elseif(get_locale() == "ru_RU"){
+	$priceLabel = 'Цена';
+	$descriptionLabel = 'Описание:';
+	$productSliderTitle = 'С этим товаром покупают';
+	$addToCartButtonLabel = 'Добавить в корзину';
+	$mobileAddToCartButtonLabel = 'В корзину';
+	$quantityLabel = 'Количество';
+}
+?>
 <style>
 	.product-page.sale .container .product-page-right-col .product-page-data-wrapper .product-page-data div.price p.price del > span::before,
 	.product-page.sale .container .product-page-right-col .product-page-data-wrapper .product-page-data div.price p.price ins > span::before {
-		content: "<?php _e('Ціна') ?>";
+		content: "<?php echo $priceLabel; ?>";
 	}
+	.product-page .container .product-page-right-col .product-page-data .add-to-cart-button form .quantity:before{
+		content: "<?php echo $quantityLabel; ?>";
+		left: <?php if(get_locale() == 'uk'){echo '38px';}elseif(get_locale() == 'ru_RU'){echo '31px';} ?>
+	}
+	<?php if(get_locale() == "ru_RU"): ?>
+		@media(max-width:768px){
+			.product-page .container .product-page-right-col .product-page-data-wrapper .product-page-data .add-to-cart-button form .quantity:before{
+				left: 14px;
+			}
+		}
+	<?php endif; ?>
 </style>
+
 <section id="product-<?php the_ID(); ?>" <?php wc_product_class( 'product-page', $product ); ?>>
     <div class="container">
         <div class="row">
@@ -56,7 +85,7 @@ if ( post_password_required() ) {
 							<?php do_action( 'product_image' ); ?>
 						</div>
                         <div class="description">
-                            <div class="description-title">Опис:</div>
+                            <div class="description-title"><?php echo $descriptionLabel; ?></div>
                             <ul class="product-attributes">
 								<?php do_action( 'woocommerce_product_additional_information', $product ); ?>
                             </ul>
@@ -65,7 +94,7 @@ if ( post_password_required() ) {
 							<?php endif; ?>
                         </div>
                         <div class="price h4">
-                            Ціна: <?php do_action('product_price'); ?>
+                            <?php echo $priceLabel . ':'; ?> <?php do_action('product_price'); ?>
                         </div>
                         <div class="add-to-cart-button"><?php do_action('product_add_to_cart'); ?></div>
                     </div>
@@ -77,7 +106,7 @@ if ( post_password_required() ) {
 <?php $id = get_the_ID() ?>
 <section class="product-slider-section">
     <div class="container">
-        <div class="h2">З цим товаром купують</div>
+        <div class="h2"><?php echo $productSliderTitle; ?></div>
         <div class="product-slider">
 			<?php 
 			// параметры по умолчанию
@@ -154,26 +183,14 @@ if ( post_password_required() ) {
 		$('.add_to_cart_popup').addClass('active');
 	});
 </script>
-<?php 
-/*
-?><section class="add_to_cart_popup">
-	<div class="popup_content">
-		<div class="h2">Ваш товар додано у кошик!</div>
-		<div class="popup_button">
-			<a href="<?php echo get_home_uri() ?>/shop" class="back_to_shop">До каталогу товарів</a>
-			<a href="<?php echo get_home_uri() ?>/cart" class="to_cart">Перейти у кошик</a>
-		</div>
-	</div>
-</section>
-<?php */ ?>
 <script>
 	var w = jQuery(window).width();
 	jQuery(document).ready(function(){
 		if(w > 768){
-			jQuery('.single-product .single_add_to_cart_button').html('<?php _e('Додати у кошик'); ?>');
+			jQuery('.single-product .single_add_to_cart_button').html('<?php echo $addToCartButtonLabel; ?>');
 		}
 		else{
-			jQuery('.single-product .single_add_to_cart_button').html('<?php _e('У кошик'); ?>');
+			jQuery('.single-product .single_add_to_cart_button').html('<?php echo $mobileAddToCartButtonLabel; ?>');
 		}
 	});
 </script>
@@ -192,5 +209,14 @@ if ( post_password_required() ) {
 				jQuery('.woocommerce_message').remove()
 			});
 		}
+	});
+	$(document).ready(function(){
+		if($('#yith-wcwtl-output a').attr('href') == "<?php echo get_permalink(  ) . '?_yith_wcwtl_users_list=' . get_the_ID() . '&_yith_wcwtl_users_list-action=register' ?>"){
+			$('#yith-wcwtl-output a').html('<?php if(get_locale() == 'uk'){echo 'Повідомити про наявність';}elseif(get_locale() == 'ru_RU'){echo 'Сообщить о наличии';} ?>');
+		}
+		else{
+			$('#yith-wcwtl-output a').html('<?php if(get_locale() == 'uk'){echo 'Не повідомляти про наявність';}elseif(get_locale() == 'ru_RU'){echo 'Не сообщать о наличии';} ?>');
+		}
+		$('#yith-wcwtl-output a').css('opacity', '1');
 	});
 </script>

@@ -29,9 +29,12 @@
 		<div class="top-header">
 			<div class="container">
 				<div class="left-column">
-					<div class="place-wrapper">
-						<div class="chosen-place text-m">Київ</div>
-					</div>
+					<?php $city = get_field( 'city', 'option' ); ?>
+					<?php if($city): ?>
+						<div class="place-wrapper">
+							<div class="chosen-place text-m"><?php echo $city; ?></div>
+						</div>
+					<?php endif; ?>
 				</div>
 				<?php $logo = get_field('header_logo', 'option') ?>
 				<?php if($logo) : ?>
@@ -103,7 +106,19 @@
 		</div>
 		<div class="header-bottom">
 			<div class="container">
-				<div class="katalog">Каталог</div>
+				<?php 
+				if(get_locale() == "uk"){
+					$catalogButtonLabel = 'Каталог';
+					$accountButtonLabel = 'Особистий кабінет';
+					$mobileCatalogButton = 'Каталог товарів';
+				}
+				elseif(get_locale() == "ru_RU"){
+					$catalogButtonLabel = 'Каталог';
+					$accountButtonLabel = 'Личный кабинет';
+					$mobileCatalogButton = 'Каталог товаров';
+				}
+				?>
+				<div class="katalog"><?php echo $catalogButtonLabel ?></div>
 				<div class="mobile_menu_open_button">
 					<img src="<?php echo get_template_directory_uri(  ) ?>/assets/img/open_menu_button.svg" alt="">
 				</div>
@@ -120,7 +135,7 @@
 				<?php $link = "#"; ?>
 				<?php endif; ?>
 				<a class="kabinet" href="<?php echo $link ?>">
-					Особистий кабінет
+					<?php echo $accountButtonLabel; ?>
 				</a>
 				
 				<div class="icons-wrapper">
@@ -177,7 +192,7 @@
 			
 		</div>
 		<a class="mobile_katalog_button" href="<?php echo get_home_url() ?>/categories-page">
-			<?php _e('Каталог товарів'); ?>
+			<?php echo $mobileCatalogButton; ?>
 		</a>
 		<div class="mobile_menu">
 			<div class="mobile_menu_close_button">
@@ -197,7 +212,7 @@
 						$link = get_home_url() . '/my-account/';
 					} 
 					?>
-					<a href="<?php echo $link; ?>" class="kabinet"><?php _e('Особистий кабінет'); ?></a>
+					<a href="<?php echo $link; ?>" class="kabinet"><?php echo $accountButtonLabel; ?></a>
 				</div>
 				<?php 	
 					wp_nav_menu( [
@@ -221,12 +236,26 @@
 			</div>
 			<div class="languages_wrapper">
 				<div class="language_title">
-					Мова
+					<?php if(get_locale() == 'uk'){ echo 'Мова'; }elseif(get_locale() == 'ru_RU'){ echo 'Язык'; } ?>
 				</div>
-				<ul class="languages_list">
-					<li class="language_list_item active">UA</li>
-					<li class="language_list_item">RU</li>
-				</ul>
+				<?php 	
+					wp_nav_menu( [
+						'theme_location'  => 'lang-switcher',
+						'menu'            => '',
+						'container'       => '',
+						'container_class' => '',
+						'container_id'    => '',
+						'menu_class'      => '',
+						'menu_id'         => '',
+						'echo'            => true,
+						'fallback_cb'     => 'wp_page_menu',
+						'before'          => '',
+						'after'           => '',
+						'link_before'     => '',
+						'link_after'      => '',
+						'items_wrap'      => '<ul id="menu-header-menu" class="%2$s">%3$s</ul>',
+					] );
+				?>
 			</div>
 			<?php if(have_rows('mobile_menu_social_media', 'option')): ?>
 			<div class="mobile_social_network_list">
@@ -253,9 +282,23 @@
 		</div>
 	</div>
 	<?php if(!is_user_logged_in()): ?>
+		<?php 
+		if(get_locale() == 'uk'){
+			$formTitle = 'Вхід';
+			$notRegisteredLabel = 'Не зареєстровані?';
+			$notRegisteredButton = 'Зареєструватися';
+			$registerFormTitle = 'Реєстрація';
+		}
+		if(get_locale() == 'ru_RU'){
+			$formTitle = 'Вход';
+			$notRegisteredLabel = 'Не зарегистрированы?';
+			$notRegisteredButton = 'Зарегистрироваться';
+			$registerFormTitle = 'Регистрация';
+		}
+		?>
 		<div class="log-in_popup-wrapper">
 			<div class="log-in_popup">
-				<div class="popup-title">Вхід</div>
+				<div class="popup-title"><?php echo $formTitle; ?></div>
 				<div class="close-icon"></div>
 				<form class="woocommerce-form woocommerce-form-login login" method="post">
 
@@ -267,8 +310,8 @@
 					</p>
 
 					<div class="not-registered">
-						Не зареєстровані? 
-						<a href="#">Зареєструватися</a>
+						<?php echo $notRegisteredLabel; ?>
+						<a href="#"><?php echo $notRegisteredButton; ?></a>
 					</div>
 
 					<p class="form-row submit-button-wrapper">
@@ -276,7 +319,7 @@
 							<input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span><?php esc_html_e( 'Remember me', 'woocommerce' ); ?></span>
 						</label>
 						<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
-						<button type="submit" class="woocommerce-button button woocommerce-form-login__submit" name="login" value="<?php esc_attr_e( 'Log in', 'woocommerce' ); ?>">Вхід</button>
+						<button type="submit" class="woocommerce-button button woocommerce-form-login__submit" name="login" value="<?php esc_attr_e( 'Log in', 'woocommerce' ); ?>"><?php if(get_locale() == 'uk'){ echo 'Вхід'; }elseif(get_locale() == 'ru_RU'){ echo 'Войти'; } ?></button>
 					</p>
 
 				</form>
@@ -284,7 +327,7 @@
 		</div>
 		<div class="register_popup-wrapper">
 			<div class="register_popup">
-				<div class="popup-title">Реєстрація</div>
+				<div class="popup-title"><?php echo $registerFormTitle; ?></div>
 				<div class="close-icon"></div>
 				
 				<?php if ( 'yes' === get_option( 'woocommerce_enable_myaccount_registration' ) ) : ?>
@@ -327,13 +370,13 @@
 						<div class="form-checkbox">
 							<input type="checkbox" id="rules">
 							<label for="rules">
-							Я приймаю умови <a href="">Угоди користувача</a> та згоден на обрабку персональних даних
+								<?php if(get_locale() == 'uk'){ echo 'Я приймаю умови <a href="">Угоди користувача</a> та згоден на обрабку персональних даних'; }elseif(get_locale() == 'ru_RU'){ echo 'Я принимаю условия <a href=""> Пользовательского соглашения </a> и согласен на обрабку персональных данных'; } ?>
 							</label>
 						</div>
 
 						<div class="registered">
-							Вже зареєстровані? 
-							<a href="#">Увійти</a>
+							<?php if(get_locale() == 'uk'){ echo 'Вже зареєстровані? '; }elseif(get_locale() == 'ru_RU'){ echo 'Уже зарегистрированы?'; } ?>
+							<a href="#"><?php if(get_locale() == 'uk'){ echo 'Увійти'; }elseif(get_locale() == 'ru_RU'){ echo 'Войти'; } ?></a>
 						</div>
 						<p class="woocommerce-form-row form-row submit-button-wrapper">
 							<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
