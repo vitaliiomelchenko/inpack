@@ -162,10 +162,10 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	jQuery(document).ready(function(){
 		jQuery('.shipping_fields #office').attr('placeholder', 'Місто');
 		jQuery('.shipping_fields #postOffice_number').attr('placeholder', 'Оберіть відділення');
-		jQuery('#shipping_method li label').not('label[for="shipping_method_0_nova_poshta_shipping10"]').on('click', function(){
+		jQuery('#shipping_method li label').not(jQuery('#shipping_method li').first().find('label')).on('click', function(){
 			jQuery('.shipping_fields').detach().appendTo(jQuery(this).parent());
 		});
-		jQuery('#shipping_method li label[for="shipping_method_0_nova_poshta_shipping10"]').on( 'click', function(){
+		jQuery('#shipping_method li').first().find('label').on( 'click', function(){
 			jQuery('.shipping_fields').detach().appendTo('.shipping_method .shipping_fields_wrapper');	
 		});
 	});
