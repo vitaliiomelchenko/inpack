@@ -425,6 +425,8 @@ function custom_checkout_fields($fields){
     $customer_address = 'Вулиця';
     $house_number = 'Будинок';
     $flat_number = 'Квартира';
+    $office = 'Місто';
+    $postOffice_number = 'Оберіть відділення';
   }
   elseif(get_locale() == 'ru_RU'){
     $payer_type_1 = 'Физическое лицо';
@@ -444,6 +446,8 @@ function custom_checkout_fields($fields){
     $customer_address = 'Улица';
     $house_number = 'Дом';
     $flat_number = 'Квартира';
+    $office = 'Город';
+    $postOffice_number = 'Выберите отделение';
   }
   $fields['payer_type'] = array(
     'type_1'          => array(
@@ -522,6 +526,8 @@ function custom_checkout_fields($fields){
       'type'      => 'checkbox',
       'required'  => false,
     ),
+  );
+  $fields['courier_shipping_fields'] = array(
     'customer_address' => array(
       'label'     => $customer_address,
       'type'      => 'text',
@@ -538,9 +544,41 @@ function custom_checkout_fields($fields){
       'required'  => false,
     ),
   );
+  $fields['shipping_fields'] = array(
+    'office' => array(
+      'type'          => 'text',
+      'required'      => false,
+      'label'         => $office,
+    ),
+    'postOffice_number' => array(
+      'type'          => 'text',
+      'required'      => false,
+      'label'         => $postOffice_number,
+    ),
+  );
   return $fields;
 }
 add_filter( 'woocommerce_checkout_fields', 'custom_checkout_fields' );
+function courier_shipping_fields(){
+  $checkout = WC()->checkout(); ?>
+  <div class="col2-set">
+    <?php foreach ( $checkout->checkout_fields['courier_shipping_fields'] as $key => $field ) : ?>
+        <?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
+    <?php endforeach; ?>
+  </div>
+<?php }
+add_action( 'courier_shipping_fields_a' , 'courier_shipping_fields' );
+
+function shipping_fields(){
+  $checkout = WC()->checkout(); ?>
+  <div class="col2-set">
+    <?php foreach ( $checkout->checkout_fields['shipping_fields'] as $key => $field ) : ?>
+        <?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
+    <?php endforeach; ?>
+  </div>
+<?php }
+add_action( 'shipping_fields_a' , 'shipping_fields' );
+
 function extra_shipping_types(){
   $checkout = WC()->checkout(); ?>
   <div class="col2-set">
@@ -643,6 +681,12 @@ function vicodemedia_save_extra_checkout_fields( $order_id, $posted ){
   if( isset( $posted['Courier'] ) ) {
     update_post_meta( $order_id, '_Courier', sanitize_text_field( $posted['Courier'] ) );
   }
+  if( isset( $posted['postOffice_number'] ) ) {
+    update_post_meta( $order_id, '_postOffice_number', sanitize_text_field( $posted['postOffice_number'] ) );
+  }
+  if( isset( $posted['office'] ) ) {
+    update_post_meta( $order_id, '_office', sanitize_text_field( $posted['office'] ) );
+  }
 }
 add_action( 'woocommerce_checkout_update_order_meta', 'vicodemedia_save_extra_checkout_fields', 10, 2 );
 
@@ -655,18 +699,11 @@ function vicodemedia_display_order_data_in_admin( $order ){  ?>
         <?php
             echo '<p style="margin-top: 20px; margin-bottom: 0;"><strong>' . __( 'Фізична особа' ) . '</strong></p>'; ?>
         </div>
-        <div class="edit_address">
-            <?php woocommerce_wp_text_input( array( 'id' => '_type_1', 'label' => __( 'Фізична особа' ), 'wrapper_class' => '_billing_company_field' ) ); ?>
-        </div>
       <?php elseif(!empty(get_post_meta( $order->id, '_type_2', true ))): ?>
         <?php
           echo '<p style="margin-top: 20px; margin-bottom: 0;"><strong>' . __( 'Юридична особа' ) . '</strong></p>'; ?>
         </div>
-        <div class="edit_address">
-          <?php woocommerce_wp_text_input( array( 'id' => '_type_2', 'label' => __( 'Юридична особа' ), 'wrapper_class' => '_billing_company_field' ) ); ?>
-        </div>
       <?php endif; ?>
-      <a href="#" class="edit_address" style="display: block; margin-top: 22px; margin-left: 2px;"><?php _e( 'Edit', 'woocommerce' ); ?></a>
   </div>
   <div class="order_data_column" style="display: flex; width: 100%;">
       <h4 style="margin-top: 20px;"><?php _e( 'Тип доставки:', 'woocommerce' ); ?></h4>
@@ -675,20 +712,13 @@ function vicodemedia_display_order_data_in_admin( $order ){  ?>
         <?php
             echo '<p style="margin-top: 20px; margin-bottom: 0;"><strong>' . __( ' Самовивіз' ) . '</strong></p>'; ?>
         </div>
-        <div class="edit_address">
-            <?php woocommerce_wp_text_input( array( 'id' => '_self-pickup', 'label' => __( ' Самовивіз' ), 'wrapper_class' => '_billing_company_field' ) ); ?>
-        </div>
       <?php elseif(!empty(get_post_meta( $order->id, '_Courier', true ))): ?>
         <?php
           echo '<p style="margin-top: 20px; margin-bottom: 0;"><strong>' . __( "Кур`єр" ) . '</strong></p>'; ?>
         </div>
-        <div class="edit_address">
-          <?php woocommerce_wp_text_input( array( 'id' => '_Courier', 'label' => __( "Кур`єр" ), 'wrapper_class' => '_billing_company_field' ) ); ?>
-        </div>
       <?php else: ?>
         </div>
       <?php endif; ?>
-      <a href="#" class="edit_address" style="display: block; margin-top: 22px; margin-left: 2px;"><?php _e( 'Edit', 'woocommerce' ); ?></a>
   </div>
   <div class="order_data_column" style="display: flex; width: 100%;flex-wrap:wrap;">
       <div class="address" style="margin-left: 5px; width: 100%; margin-top: 5px;">
@@ -696,51 +726,34 @@ function vicodemedia_display_order_data_in_admin( $order ){  ?>
         <?php
             echo '<p style="margin-top: 20px; margin-bottom: 0;"><strong>' . __( ' Доставка Нова Пошта' ) . '</strong></p>'; ?>
         </div>
-        <div class="edit_address">
-            <?php woocommerce_wp_text_input( array( 'id' => '_nova_poshta', 'label' => __( ' Доставка Нова Пошта' ), 'wrapper_class' => '_billing_company_field' ) ); ?>
-        </div>
       <?php elseif(!empty(get_post_meta( $order->id, '_delivery', true ))): ?>
         <?php
           echo '<p style="margin-top: 20px; margin-bottom: 0;"><strong>' . __( "Доставка Делівері" ) . '</strong></p>'; ?>
-        </div>
-        <div class="edit_address">
-          <?php woocommerce_wp_text_input( array( 'id' => '_delivery', 'label' => __( "Доставка Делівері" ), 'wrapper_class' => '_billing_company_field' ) ); ?>
         </div>
       <?php elseif(!empty(get_post_meta( $order->id, '_meest_express', true ))): ?>
         <?php
           echo '<p style="margin-top: 20px; margin-bottom: 0;"><strong>' . __( "Доставка Meest express" ) . '</strong></p>'; ?>
         </div>
-        <div class="edit_address">
-          <?php woocommerce_wp_text_input( array( 'id' => '_meest_express', 'label' => __( "Доставка Meest express" ), 'wrapper_class' => '_billing_company_field' ) ); ?>
-        </div>
       <?php elseif(!empty(get_post_meta( $order->id, '_justin', true ))): ?>
         <?php
           echo '<p style="margin-top: 20px; margin-bottom: 0;"><strong>' . __( "Доставка Justin" ) . '</strong></p>'; ?>
-        </div>
-        <div class="edit_address">
-          <?php woocommerce_wp_text_input( array( 'id' => '_justin', 'label' => __( "Доставка Justin" ), 'wrapper_class' => '_billing_company_field' ) ); ?>
         </div>
       <?php elseif(!empty(get_post_meta( $order->id, '_ukr_poshta', true ))): ?>
         <?php
           echo '<p style="margin-top: 20px; margin-bottom: 0;"><strong>' . __( "Доставка УКРПОШТА" ) . '</strong></p>'; ?>
         </div>
-        <div class="edit_address">
-          <?php woocommerce_wp_text_input( array( 'id' => '_ukr_poshta', 'label' => __( "Доставка УКРПОШТА" ), 'wrapper_class' => '_billing_company_field' ) ); ?>
-        </div>
       <?php elseif(!empty(get_post_meta( $order->id, '_by_courier', true ))): ?>
         <?php
           echo '<p style="margin-top: 20px; margin-bottom: 0;"><strong>' . __( "Кур’єр за адресою" ) . '</strong></p>'; ?>
         </div>
-        <div class="edit_address">
-          <?php woocommerce_wp_text_input( array( 'id' => '_by_courier', 'label' => __( "Кур’єр за адресою" ), 'wrapper_class' => '_billing_company_field' ) ); ?>
+      <?php endif; ?>
+      <?php if(!empty(get_post_meta( $order->id, '_customer_address', true )) || !empty(get_post_meta( $order->id, '_house_number', true )) || !empty(get_post_meta( $order->id, '_flat_number', true ))): ?>
+        <div class="address" style="margin-left: 5px;">
+          <?php if(!empty(get_post_meta( $order->id, '_customer_address', true ))): ?><div style="display:flex;"><strong>Вулиця:</strong><p style="margin: 0;margin-left: 5px"><?php echo get_post_meta($order->id, '_customer_address', true) . '<br>'; ?></p></div><?php endif; ?>
+          <?php if(!empty(get_post_meta( $order->id, '_house_number', true ))): ?><div style="display:flex;"><strong>Будинок:</strong><p style="margin: 0;margin-left: 5px"><?php echo get_post_meta($order->id, '_house_number', true) . '<br>'; ?></p></div><?php endif; ?>
+          <?php if(!empty(get_post_meta( $order->id, '_flat_number', true ))): ?><div style="display:flex;"><strong>Квартира:</strong><p style="margin: 0;margin-left: 5px"><?php echo get_post_meta($order->id, '_flat_number', true) . '<br>'; ?></p></div><?php endif; ?>
         </div>
       <?php endif; ?>
-      <div class="address" style="margin-left: 5px;">
-        <div style="display:flex;"><strong>Вулиця:</strong><p style="margin: 0;margin-left: 5px"><?php echo get_post_meta($order->id, '_customer_address', true) . '<br>'; ?></p></div>
-        <div style="display:flex;"><strong>Будинок:</strong><p style="margin: 0;margin-left: 5px"><?php echo get_post_meta($order->id, '_house_number', true) . '<br>'; ?></p></div>
-        <div style="display:flex;"><strong>Квартира:</strong><p style="margin: 0;margin-left: 5px"><?php echo get_post_meta($order->id, '_flat_number', true) . '<br>'; ?></p></div>
-      </div>
-      <a href="#" class="edit_address" style="display: block; margin-top: 22px; margin-left: 2px;"><?php _e( 'Edit', 'woocommerce' ); ?></a>
   </div>
   <div class="order_data_column payment_method_data" style="display: flex; width: 100%;">
       <h4 style="margin-top: 20px;"><?php _e( 'Cпосіб оплати:', 'woocommerce' ); ?></h4>
@@ -749,32 +762,24 @@ function vicodemedia_display_order_data_in_admin( $order ){  ?>
         <?php
             echo '<p style="margin-top: 20px; margin-bottom: 0;"><strong>' . __( 'Оплата при отриманні' ) . '</strong></p>'; ?>
         </div>
-        <div class="edit_address">
-            <?php woocommerce_wp_text_input( array( 'id' => '_after_getting', 'label' => __( 'Оплата при отриманні' ), 'wrapper_class' => '_billing_company_field' ) ); ?>
-        </div>
       <?php elseif(!empty(get_post_meta( $order->id, '_by_cash_after_getting', true ))): ?>
         <?php
           echo '<p style="margin-top: 20px; margin-bottom: 0;"><strong>' . __( 'Оплата готівкою при отриманні' ) . '</strong></p>'; ?>
-        </div>
-        <div class="edit_address">
-          <?php woocommerce_wp_text_input( array( 'id' => '_by_cash_after_getting', 'label' => __( 'Оплата готівкою при отриманні' ), 'wrapper_class' => '_billing_company_field' ) ); ?>
         </div>
       <?php elseif(!empty(get_post_meta( $order->id, '_by_card', true ))): ?>
         <?php
           echo '<p style="margin-top: 20px; margin-bottom: 0;"><strong>' . __( 'Оплата карткою' ) . '</strong></p>'; ?>
         </div>
-        <div class="edit_address">
-          <?php woocommerce_wp_text_input( array( 'id' => '_by_card', 'label' => __( 'Оплата карткою' ), 'wrapper_class' => '_billing_company_field' ) ); ?>
-        </div>
       <?php elseif(!empty(get_post_meta( $order->id, '_transaction_on_company_account', true ))): ?>
         <?php
           echo '<p style="margin-top: 20px; margin-bottom: 0;"><strong>' . __( 'Оплата на рахунок компанії' ) . '</strong></p>'; ?>
         </div>
-        <div class="edit_address">
-          <?php woocommerce_wp_text_input( array( 'id' => '_transaction_on_company_account', 'label' => __( 'Оплата на рахунок компанії' ), 'wrapper_class' => '_billing_company_field' ) ); ?>
-        </div>
+
       <?php endif; ?>
-      <a href="#" class="edit_address" style="display: block; margin-top: 22px; margin-left: 2px;"><?php _e( 'Edit', 'woocommerce' ); ?></a>
+  </div>
+  <div class="order_data_column payment_method_data" style="display: block; width: 100%;">
+    <?php if(!empty(get_post_meta( $order->id, '_office', true ))): ?><div class="office"><h4 style="display: inline-block;">Місто:</h4> <?php echo get_post_meta( $order->id, '_office', true ); ?></div><?php endif; ?>
+    <?php if(!empty(get_post_meta( $order->id, '_postOffice_number', true ))): ?><div class="postOffice_number"><h4 style="display: inline-block;">Відділення:</h4> <?php echo get_post_meta( $order->id, '_postOffice_number', true ); ?></div><?php endif; ?>
   </div>
 <?php }
 add_action( 'woocommerce_admin_order_data_after_order_details', 'vicodemedia_display_order_data_in_admin' );

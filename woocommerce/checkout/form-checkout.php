@@ -83,9 +83,11 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 				<?php do_action( 'woocommerce_after_order_notes', $checkout ); ?>
 			</div>
+			<div class="shipping_fields"><?php do_action('shipping_fields_a'); ?></div>
 		</div>
 		<div class="checkboxes_wrapper extra_shipping_types">
 			<?php do_action('extra_shipping_types_a') ?>
+			<div class="courier_shipping_fields"><?php do_action('courier_shipping_fields_a'); ?></div>
 		</div>
 		<div class="payment_method checkboxes_wrapper col-12">
 			<?php do_action('payment_method_extra_feilds'); ?>
@@ -117,9 +119,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	jQuery(document).ready(function(){
 		jQuery(jQuery('.shipping_method #self-pickup_field label')).on('change', function(event){
 			jQuery('.extra_shipping_types').removeClass('opened_list');
-			jQuery('#customer_address_field').detach().appendTo(jQuery('.extra_shipping_types > .col2-set'));
-			jQuery('#house_number_field').detach().appendTo(jQuery('.extra_shipping_types > .col2-set'));
-			jQuery('#flat_number_field').detach().appendTo(jQuery('.extra_shipping_types > .col2-set'));
+			jQuery('.courier_shipping_fields').detach().appendTo(jQuery('.extra_shipping_types > .col2-set'));
 			if(jQuery(this).attr('class') == "checkbox checked"){
 				jQuery(this).closest('.form-row').find('.shipping_fields_wrapper').addClass('opened_list');
 			}
@@ -140,20 +140,33 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		jQuery('.extra_shipping_types p.form-row label').click(function(){
 			jQuery('.extra_shipping_types p.form-row').removeClass('active-item');
 			jQuery(this).closest('.form-row').addClass('active-item');
-			jQuery('#customer_address_field').detach().appendTo(jQuery(this).closest('.form-row'));
-			jQuery('#house_number_field').detach().appendTo(jQuery(this).closest('.form-row'));
-			jQuery('#flat_number_field').detach().appendTo(jQuery(this).closest('.form-row'));
+			jQuery('.courier_shipping_fields').detach().appendTo(jQuery(this).closest('.form-row'));
 		});
 	});
 	jQuery(document).ready(function(){
 		jQuery('#Courier_field > span > label').on( 'change', function(){
 			jQuery('.shipping_fields_wrapper').removeClass('opened_list');
+			jQuery('#shipping_method  li input').prop('checked', false);
+			jQuery('#shipping_method label').removeClass('checked');
+			jQuery('#shipping_method #wcus_np_billing_fields').css('display', 'none');
+			jQuery('.shipping_fields').detach().appendTo('.shipping_method .shipping_fields_wrapper');	
+
 			if(jQuery(this).attr('class') == "checkbox checked"){
 				jQuery('.extra_shipping_types').addClass('opened_list');
 			}
 			else{
 				jQuery('.extra_shipping_types').removeClass('opened_list');
 			}
+		});
+	});
+	jQuery(document).ready(function(){
+		jQuery('.shipping_fields #office').attr('placeholder', 'Місто');
+		jQuery('.shipping_fields #postOffice_number').attr('placeholder', 'Оберіть відділення');
+		jQuery('#shipping_method li label').not('label[for="shipping_method_0_nova_poshta_shipping10"]').on('click', function(){
+			jQuery('.shipping_fields').detach().appendTo(jQuery(this).parent());
+		});
+		jQuery('#shipping_method li label[for="shipping_method_0_nova_poshta_shipping10"]').on( 'click', function(){
+			jQuery('.shipping_fields').detach().appendTo('.shipping_method .shipping_fields_wrapper');	
 		});
 	});
 </script>

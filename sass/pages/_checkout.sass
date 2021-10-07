@@ -202,6 +202,13 @@
                             width: auto
                         .form-row 
                             width: auto
+                    .shipping_fields
+                        .form-row 
+                            margin-bottom: 12px 
+                            width: 100%
+                            margin-left: 0
+                            &:last-child
+                                margin-bottom: 0
                     +max-screen(1199px)
                         flex-direction: column
                         p.form-row 
@@ -332,11 +339,31 @@
     padding: 24px 25px 21px 29px 
     border-radius: 20px 
     width: 281px
+    & > .shipping_fields 
+        display: none 
     ul#shipping_method
         font-size: initial
         li 
             line-height: 1
             margin-bottom: 22px
+            .wc-ukr-shipping-np-fields
+                .wc-urk-shipping-form-group 
+                    display: none
+            & > .shipping_fields
+                display: block
+                label
+                    display: none
+                    &::before 
+                        content: none
+                input
+                    border-radius: 10px
+                    border: 1px solid #e5e5e5
+                    height: 37px
+                    color: #bdbdbd
+                    font-size: 12px
+                    padding-left: 14px
+                    &::placeholder 
+                        color: #BDBDBD
             .wc-ukr-shipping-np-fields
                 .form-row 
                     margin-left: 0
@@ -369,7 +396,7 @@
                         height: 10px 
                         border-radius: 50% 
                         background: #34A853
-            input 
+            input[type="radio"]
                 visibility: hidden 
                 width: 0
                 height: 0
@@ -482,6 +509,14 @@
                                 height: 10px 
                                 border-radius: 50% 
                                 background: #34A853
+.woocommerce-page form .shipping_fields .form-row label
+    display: none
+.shipping_fields
+    .form-row 
+        margin-bottom: 12px
+        &:last-child
+            margin-bottom: 0
+        
 @media(max-width: 1199px)
     @media(min-width: 993px )
         .woocommerce-checkout 
@@ -593,6 +628,7 @@
                                         font-size: 11px 
                                         &::before 
                                             top: 0
+                                
                         .client_data
                             margin-bottom: 25px 
                             .col-12 
