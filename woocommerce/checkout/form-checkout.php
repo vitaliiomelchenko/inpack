@@ -167,6 +167,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		});
 		jQuery('#shipping_method li').first().find('label').on( 'click', function(){
 			jQuery('.shipping_fields').detach().appendTo('.shipping_method .shipping_fields_wrapper');	
+			jQuery('#wcus_np_billing_fields').detach().appendTo(jQuery(this).parent().find('.woocommerce-additional-fields__field-wrapper'));
 		});
 	});
 </script>
