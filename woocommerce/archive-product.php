@@ -326,6 +326,7 @@ jQuery(document).ready(function($){
 					while ( have_posts() ):
 						the_post();
 
+
 						/**
 						 * Hook: woocommerce_shop_loop.
 						 */
@@ -378,16 +379,14 @@ jQuery(document).ready(function($){
 //Sort By
 var $ = jQuery;
 $(document).ready(function(){
-  var wLink = $(location).attr('href');
-  var selectedOrder = $('.post-type-archive-product .woocommerce-ordering select').find('option[selected="selected"]');
-  var selectedOrderClass = $(selectedOrder).attr('value');
-  $('.' + selectedOrderClass).addClass('active');
-  if(wLink != "<?php echo get_home_url(); ?>/shop/" && selectedOrderClass == "popularity"){ 
-    if(wLink != "<?php echo get_home_url(); ?>/shop/page/<?php echo $paged; ?>/"){
-      $('.post-type-archive-product').find('.filter-list-item').removeClass('active');
-      $('.post-type-archive-product').find('.filter-list-item.title').addClass('active');
-    }
-  }
+	var sort = '.<?php echo $orderby; ?>';
+	var activeFormItem = '.' + jQuery('.woocommerce-ordering select option[selected="selected"]').attr('value');
+	if(activeFormItem == '.price' || activeFormItem == '.price-desc'){
+		$(activeFormItem).addClass('active');
+	}
+	else{
+		$(sort).addClass('active');
+	}
 });
 </script>
 <script>

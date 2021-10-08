@@ -397,12 +397,9 @@ function display_product_image_in_order_item( $item_name, $item, $is_visible ) {
 
 add_filter('woocommerce_default_catalog_orderby', 'custom_catalog_ordering_args', 10, 1);
 function custom_catalog_ordering_args( $orderby ) {
-    // HERE define your product category slug
-    $product_category = 'specials';  
-
-    // Only for the defined product category archive page
-    $orderby = 'popularity'; 
-    return $orderby; 
+  // Only for the defined product category archive page
+  $orderby = 'popularity'; 
+  return $orderby; 
 }
 
 //Checkout Aditional Fields 
