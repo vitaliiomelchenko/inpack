@@ -55,7 +55,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 			<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
 		</div>
 		<div class="out-of-stock-label-wrapper"><span class="out-of-stock-label"><?php echo $outOfStockText; ?></span></div>
-		<div class="out-of-stock-button-wrapper"><a href="#" class="button"><?php echo $outOfStockButton; ?></a></div>   
+		<div class="out-of-stock-button-wrapper"><a href="<?php echo get_permalink() . '?_yith_wcwtl_users_list=' . get_the_ID() . '&_yith_wcwtl_users_list-action=register' ?>" class="button"><?php echo $outOfStockButton; ?></a></div>   
 	</a>
 </div>
 	<?php
