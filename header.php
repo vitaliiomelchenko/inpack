@@ -274,7 +274,10 @@
 	<div class="overlay"></div>
 	<div class="wrong_account_data woocommerce_message"><?php do_action( 'woocommerce_before_customer_login_form' ); ?></div>
 	<div class="contact_form_wrapper">
-		<?php echo do_shortcode('[contact-form-7 id="472" title="Contact header form"]'); ?>
+		<?php 
+		if(get_locale() == "uk"){echo do_shortcode('[contact-form-7 id="472" title="Contact header form"]');}
+		elseif(get_locale() == 'ru_RU'){echo do_shortcode('[contact-form-7 id="607" title="Contact header form(ru)"]'); }
+		?>
 		<div class="close_popup_cross">
 			<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M15 1.93376L13.0481 0L7.49963 5.50193L1.95094 0L0 1.93469L5.54813 7.43662L0 12.9389L1.95094 14.8732L7.49963 9.37187L13.0481 14.8732L15 12.9389L9.45094 7.43662L15 1.93376Z" fill="white"/>
