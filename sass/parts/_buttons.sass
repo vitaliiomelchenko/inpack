@@ -86,10 +86,11 @@ button,
             height: 2px
             border-bottom: 2px solid #E30613
             position: absolute
-            transform: translate(-50%)
+            transform: translateY(-50%)
             top: 50%
             left: 27px
-            transition: width .3s ease
+            transform-origin: left
+            transition: .3s
         &::after
             content: ''
             width: 0
@@ -104,7 +105,7 @@ button,
         padding: .625rem 5rem .625rem .625rem
         a
             &::before
-                width: 0
+                transform: scaleX(0.00001) translateY(-50%)
             &::after
                 width: 54px
     +max-screen(768px)
