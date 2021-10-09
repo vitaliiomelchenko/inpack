@@ -127,7 +127,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 									<div class="col-1 total-head head-col"><?php echo $totalHead; ?>:</div>
 									<div class="col-4 close-details-button-wrapper head-col">
 										<div class="close-details-button">
-											<img src="<?php echo get_template_directory_uri(  ) . '/assets/img/Vector.svg'; ?>" alt="">
+											<img src="<?php echo get_template_directory_uri(  ) . '/assets/img/vector.svg'; ?>" alt="">
 										</div>
 									</div>
 								</div>
