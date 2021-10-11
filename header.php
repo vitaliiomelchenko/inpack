@@ -431,4 +431,13 @@
 			
 		</header>
 	<?php endif; ?>
+	<?php if(get_locale() == 'ru_RU'): ?>
+		<script>
+			jQuery(document).ready(function(){
+				jQuery('.header .is-search-form input[type="search"]').attr('placeholder', 'Я ищу...');
+				jQuery('.header .is-search-form input[type="submit"]').attr('value', 'Поиск');
+			});
+			console.log('123');
+		</script>
+	<?php endif; ?>
 	<div id="main">

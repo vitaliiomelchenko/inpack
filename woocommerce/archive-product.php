@@ -320,12 +320,12 @@ jQuery(document).ready(function($){
 						<?php do_action('woocommerce_count_filter'); ?>
 					</div>
                 </div>
+
                 <div class="row">
 				<?php
 				if ( wc_get_loop_prop( 'total' ) ) {
 					while ( have_posts() ):
 						the_post();
-
 
 						/**
 						 * Hook: woocommerce_shop_loop.
